@@ -1,0 +1,106 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "terramanager", "terramanager.vcproj", "{CE34509F-0BD6-437A-8DCD-C67361928EF6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1253197A-5710-4924-9706-6449C0C32FE9} = {1253197A-5710-4924-9706-6449C0C32FE9}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "terralib", "..\..\..\..\terralibw\terralib\terralib.vcproj", "{1253197A-5710-4924-9706-6449C0C32FE9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C4A3E074-08E5-4197-ABB7-06611BAC269D} = {C4A3E074-08E5-4197-ABB7-06611BAC269D}
+		{BEDDDA8D-9821-4B3F-AD36-2B1AACE3572C} = {BEDDDA8D-9821-4B3F-AD36-2B1AACE3572C}
+		{DD1ADACD-7990-4793-9952-25197394954A} = {DD1ADACD-7990-4793-9952-25197394954A}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libjpeg", "..\..\..\..\terralibw\libjpeg\libjpeg.vcproj", "{BEDDDA8D-9821-4B3F-AD36-2B1AACE3572C}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "shapelib", "..\..\..\..\terralibw\shapelib\shapelib.vcproj", "{C4A3E074-08E5-4197-ABB7-06611BAC269D}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tiff", "..\..\..\..\terralibw\tiff\tiff.vcproj", "{DD1ADACD-7990-4793-9952-25197394954A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{BEDDDA8D-9821-4B3F-AD36-2B1AACE3572C} = {BEDDDA8D-9821-4B3F-AD36-2B1AACE3572C}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "te_ado", "..\..\..\..\terralibw\ado\te_ado.vcproj", "{F615229C-247C-4DF2-92C4-B891BC27BD9B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1253197A-5710-4924-9706-6449C0C32FE9} = {1253197A-5710-4924-9706-6449C0C32FE9}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "te_postgresql", "..\..\..\..\terralibw\PostgreSQL\te_postgresql.vcproj", "{3A2BFE73-56BA-498F-BB11-A1E90D6A63B6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1253197A-5710-4924-9706-6449C0C32FE9} = {1253197A-5710-4924-9706-6449C0C32FE9}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "te_utils", "..\..\..\..\terralibw\te_utils\te_utils.vcproj", "{6F8DD2AE-66D4-442A-B204-114A1EF99335}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1253197A-5710-4924-9706-6449C0C32FE9} = {1253197A-5710-4924-9706-6449C0C32FE9}
+		{877A1388-B3CA-481A-9BFB-C7178EC68D0B} = {877A1388-B3CA-481A-9BFB-C7178EC68D0B}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "te_shapelib", "..\..\..\..\terralibw\te_shapelib\te_shapelib.vcproj", "{18CAE353-F7DD-4FDA-971A-48D856DA0635}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1253197A-5710-4924-9706-6449C0C32FE9} = {1253197A-5710-4924-9706-6449C0C32FE9}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "te_functions", "..\..\..\..\terralibw\te_functions\te_functions.vcproj", "{877A1388-B3CA-481A-9BFB-C7178EC68D0B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1253197A-5710-4924-9706-6449C0C32FE9} = {1253197A-5710-4924-9706-6449C0C32FE9}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{CE34509F-0BD6-437A-8DCD-C67361928EF6}.Debug.ActiveCfg = Debug|Win32
+		{CE34509F-0BD6-437A-8DCD-C67361928EF6}.Debug.Build.0 = Debug|Win32
+		{CE34509F-0BD6-437A-8DCD-C67361928EF6}.Release.ActiveCfg = Release|Win32
+		{CE34509F-0BD6-437A-8DCD-C67361928EF6}.Release.Build.0 = Release|Win32
+		{1253197A-5710-4924-9706-6449C0C32FE9}.Debug.ActiveCfg = Debug|Win32
+		{1253197A-5710-4924-9706-6449C0C32FE9}.Debug.Build.0 = Debug|Win32
+		{1253197A-5710-4924-9706-6449C0C32FE9}.Release.ActiveCfg = Release|Win32
+		{1253197A-5710-4924-9706-6449C0C32FE9}.Release.Build.0 = Release|Win32
+		{BEDDDA8D-9821-4B3F-AD36-2B1AACE3572C}.Debug.ActiveCfg = Debug|Win32
+		{BEDDDA8D-9821-4B3F-AD36-2B1AACE3572C}.Debug.Build.0 = Debug|Win32
+		{BEDDDA8D-9821-4B3F-AD36-2B1AACE3572C}.Release.ActiveCfg = Release|Win32
+		{BEDDDA8D-9821-4B3F-AD36-2B1AACE3572C}.Release.Build.0 = Release|Win32
+		{C4A3E074-08E5-4197-ABB7-06611BAC269D}.Debug.ActiveCfg = Debug|Win32
+		{C4A3E074-08E5-4197-ABB7-06611BAC269D}.Debug.Build.0 = Debug|Win32
+		{C4A3E074-08E5-4197-ABB7-06611BAC269D}.Release.ActiveCfg = Release|Win32
+		{C4A3E074-08E5-4197-ABB7-06611BAC269D}.Release.Build.0 = Release|Win32
+		{DD1ADACD-7990-4793-9952-25197394954A}.Debug.ActiveCfg = Debug|Win32
+		{DD1ADACD-7990-4793-9952-25197394954A}.Debug.Build.0 = Debug|Win32
+		{DD1ADACD-7990-4793-9952-25197394954A}.Release.ActiveCfg = Release|Win32
+		{DD1ADACD-7990-4793-9952-25197394954A}.Release.Build.0 = Release|Win32
+		{F615229C-247C-4DF2-92C4-B891BC27BD9B}.Debug.ActiveCfg = Debug|Win32
+		{F615229C-247C-4DF2-92C4-B891BC27BD9B}.Debug.Build.0 = Debug|Win32
+		{F615229C-247C-4DF2-92C4-B891BC27BD9B}.Release.ActiveCfg = Release|Win32
+		{F615229C-247C-4DF2-92C4-B891BC27BD9B}.Release.Build.0 = Release|Win32
+		{3A2BFE73-56BA-498F-BB11-A1E90D6A63B6}.Debug.ActiveCfg = Debug|Win32
+		{3A2BFE73-56BA-498F-BB11-A1E90D6A63B6}.Debug.Build.0 = Debug|Win32
+		{3A2BFE73-56BA-498F-BB11-A1E90D6A63B6}.Release.ActiveCfg = Release|Win32
+		{3A2BFE73-56BA-498F-BB11-A1E90D6A63B6}.Release.Build.0 = Release|Win32
+		{6F8DD2AE-66D4-442A-B204-114A1EF99335}.Debug.ActiveCfg = Debug|Win32
+		{6F8DD2AE-66D4-442A-B204-114A1EF99335}.Debug.Build.0 = Debug|Win32
+		{6F8DD2AE-66D4-442A-B204-114A1EF99335}.Release.ActiveCfg = Release|Win32
+		{6F8DD2AE-66D4-442A-B204-114A1EF99335}.Release.Build.0 = Release|Win32
+		{18CAE353-F7DD-4FDA-971A-48D856DA0635}.Debug.ActiveCfg = Debug|Win32
+		{18CAE353-F7DD-4FDA-971A-48D856DA0635}.Debug.Build.0 = Debug|Win32
+		{18CAE353-F7DD-4FDA-971A-48D856DA0635}.Release.ActiveCfg = Release|Win32
+		{18CAE353-F7DD-4FDA-971A-48D856DA0635}.Release.Build.0 = Release|Win32
+		{877A1388-B3CA-481A-9BFB-C7178EC68D0B}.Debug.ActiveCfg = Debug|Win32
+		{877A1388-B3CA-481A-9BFB-C7178EC68D0B}.Debug.Build.0 = Debug|Win32
+		{877A1388-B3CA-481A-9BFB-C7178EC68D0B}.Release.ActiveCfg = Release|Win32
+		{877A1388-B3CA-481A-9BFB-C7178EC68D0B}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,197 @@
+<html>
+<head>
+<title>Matriz de Proximidade</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<font face="Arial, Helvetica, sans-serif" size="4">
+<table width="100%">
+  <tr>
+ 
+  </tr>
+  <tr> 
+    <td><b><font size="4" face="Arial, Helvetica, sans-serif">An&aacute;lise Estat&iacute;stica 
+      Espacial</font></b><br>
+      <hr>
+      <p><font face="Arial"><strong>&Iacute;ndice de Moral Global</strong></font></p>
+      <p>Visa identificar a estrutura de correla&ccedil;&atilde;o espacial que 
+        melhor descreve os dados. A id&eacute;ia b&aacute;sica &eacute; a caracteriza&ccedil;&atilde;o 
+        da depend&ecirc;ncia espacial, mostrando como os valores est&atilde;o 
+        correlacionados no espa&ccedil;o. De uma forma geral, o &iacute;ndice 
+        de Moran presta-se a um teste cuja hip&oacute;tese nula &eacute; de independ&ecirc;ncia 
+        espacial, neste caso, seu valor seria zero. Valores positivos (entre 0 
+        e +1) indicam para correla&ccedil;&atilde;o direta e negativos (entre 
+        0 e -1) correla&ccedil;&atilde;o inversa. Uma vez calculado, &eacute; 
+        importante estabelecer sua validade estat&iacute;stica. </p>
+      <p>Com o banco BH.mdb aberto, torne o Tema UP ativo. Na Barra de Menu escolha 
+        a op&ccedil;&atilde;o <b>An&aacute;lise</b> - <b>Estat&iacute;stica Espacial</b>. 
+        A janela Estat&iacute;stica Espacial ir&aacute; aparecer, mostrada na 
+        figura abaixo.</p>
+      <p align="center"><font face="Arial"><img src="terraViewBase_arquivos/estatistica_espacial.png" width="339" height="478"> 
+        </font></p>
+      <p><font face="Arial">1. Defina o <b>Atributo</b> sobre o qual deseja verificar 
+        a presen&ccedil;a de correla&ccedil;&atilde;o espacial. Selecione o atributo 
+        homic&iacute;dios em 2003 (HOM_03).</font></p>
+      <p><font face="Arial">2. Torne ativa a op&ccedil;&atilde;o <b>&Iacute;ndice 
+        de Moran</b>.</font></p>
+      <p><font face="Arial">3. Vamos avaliar a signific&acirc;ncia do teste. Escolha 
+        99 permuta&ccedil;&otilde;es.</font></p>
+      <p><font face="Arial">4. Clique em <b>Executar</b> o procedimento.</font></p>
+      <p><font face="Arial">5. O resultado do teste ser&aacute; mostrado atrav&eacute;s 
+        do <b>Valor do &Iacute;ndice</b> e do <b>p-valor</b>.<br>
+        </font></p>
+      <p>Verifica-se que n&atilde;o h&aacute; a presen&ccedil;a de autocorrela&ccedil;&atilde;o 
+        espacial da vari&aacute;vel Homic&iacute;dios em 2003, uma vez que o &iacute;ndice 
+        de Moran teve valor de 0.105837, com signific&acirc;ncia de 0.12. Um &iacute;ndice 
+        de valor pequeno, juntamente com a signific&acirc;ncia acima de 0.05, 
+        traz evid&ecirc;ncias de que n&atilde;o se deve rejeitar a hip&oacute;tese 
+        de que n&atilde;o h&aacute; autocorrela&ccedil;&atilde;o espacial.<br>
+        Pode-se fazer, tamb&eacute;m, uma an&aacute;lise visual atrav&eacute;s 
+        de um Mapa Tem&aacute;tico. Por exemplo, escolha cinco passos iguais para 
+        o atributo em quest&atilde;o, atrav&eacute;s da op&ccedil;&atilde;o <b>Editar 
+        Legenda</b> do menu de contexto do Tema UP.<br>
+      </p>
+	  <p align="center"><img src="terraViewBase_arquivos/estatistica_espacial1.png" width="501" height="405"></p>
+      <p>Se houvesse autocorrela&ccedil;&atilde;o espacial, era esperado que &aacute;reas 
+        com maiores (menores) propor&ccedil;&otilde;es de homic&iacute;dios fossem 
+        mais pr&oacute;ximas, no entanto, o mapa acima mostra que isso n&atilde;o 
+        &eacute; verificado, uma vez que n&atilde;o h&aacute; um padr&atilde;o 
+        claramente observado no mapa.</p>
+      <p>Para exercitar um exemplo em que h&aacute; autocorrela&ccedil;&atilde;o 
+        espacial, siga os mesmos passos definidos acima, no entanto, escolha o 
+        atributo Renda M&eacute;dia Mensal (rendamedia).<br>
+        Ao executar o procedimento, pode-se verificar que h&aacute; a presen&ccedil;a 
+        de autocorrela&ccedil;&atilde;o espacial da vari&aacute;vel Renda M&eacute;dia 
+        Mensal, uma vez que o &iacute;ndice de Moran teve valor de 0.446818, com 
+        signific&acirc;ncia de 0.01.</p>
+      <p><font face="Arial"><strong>&Iacute;ndice de Moran Local - LISA</strong></font></p>
+      <p>Os indicadores globais de autocorrela&ccedil;&atilde;o espacial, como 
+        o &Iacute;ndice de Moran, fornecem um &uacute;nico valor como medida da 
+        associa&ccedil;&atilde;o espacial para todo o conjunto de dados de &aacute;rea, 
+        que &eacute; &uacute;til como caracteriza&ccedil;&atilde;o de toda a regi&atilde;o 
+        de estudo. Por contraste, muitas vezes &eacute; desej&aacute;vel examinar 
+        padr&otilde;es numa escala de maior detalhe, para verificar se a hip&oacute;tese 
+        de estacionariedade do processo verifica-se localmente.<br>
+        Para tanto, &eacute; preciso utilizar indicadores de associa&ccedil;&atilde;o 
+        espacial que possam ser associados &agrave;s diferentes localiza&ccedil;&otilde;es 
+        de uma vari&aacute;vel distribu&iacute;da espacialmente. Essa metodologia 
+        utiliza o &Iacute;ndice de Moran Local para encontrar a correla&ccedil;&atilde;o 
+        espacial dessas &aacute;reas. Por se tratar de um indicador local, tem-se 
+        um valor espec&iacute;fico de correla&ccedil;&atilde;o para cada &aacute;rea.</p>
+      <p>Com o banco de dados BH.mdb aberto, selecione o Tema UP novamente. Na 
+        Barra de Menu escolha a op&ccedil;&atilde;o <b>An&aacute;lise</b> - <b>Estat&iacute;stica 
+        Espacial</b>. Uma nova janela ir&aacute; aparecer, como mostra a figura 
+        a seguir.<br>
+      </p>
+      <p align="center"><img src="terraViewBase_arquivos/estatistica_espacial2.png" width="338" height="478"></p>
+      <p>1. Defina o <b>Atributo</b> sobre o qual deseja verificar correla&ccedil;&atilde;o 
+        espacial local. Escolha rendamedia.</p>
+      <p>2. Torne ativa a op&ccedil;&atilde;o <b>&Iacute;ndice de Moran Local 
+        (LISA)</b>.</p>
+      <p>3. Avalie ou n&atilde;o a signific&acirc;ncia do teste. Escolha o n&iacute;vel 
+        de signific&acirc;ncia se desejado (99).</p>
+      <p>4. Insira o <b>Prefixo da coluna a ser gerada</b>. Digite RENDA.</p>
+      <p>5. Clique em <b>Executar</b> o procedimento.</p>
+      <p>As colunas geradas s&atilde;o as seguintes:</p>
+      <p>- <b>Z</b>: Vetor dos desvios dos valores observados.<br>
+      </p>
+      <p>- <b>Wz</b>: Vetor da m&eacute;dia ponderada local.<br>
+      </p>
+      <p>- <b>MoranIndex</b>: &Iacute;ndice de Moran Local.<br>
+      </p>
+      <p>- <b>LISASig</b>: Valor da estat&iacute;stica p. No exemplo utilizado, 
+        podemos considerar que se ela for maior que 0.05, n&atilde;o h&aacute; 
+        autocorrela&ccedil;&atilde;o e ela &eacute; significativa.</p>
+      <p>- <b>BoxMap</b>: Valores apresentados correspondem a rela&ccedil;&atilde;o 
+        entre os valores de Z e Wz em um Gr&aacute;fico de Dispers&atilde;o dividido 
+        em quadrantes (Q). Os valores variam de 1 a 4, onde 1 corresponde aos 
+        valores de Q1 (alto-alto - valores altos de Z e valores altos de Wz), 
+        2 (Q2) baixo-baixo, 3 (Q3) alto-baixo e 4 (Q4) baixo-alto. No caso em 
+        estudo, se o vetor dos desvios (Z) e o das m&eacute;dias (Wz) forem altos 
+        - caso de quadrante Q1 - podemos admitir que se trata de uma UP de renda 
+        m&eacute;dia alta, cercada por outras UPs que apresentam a mesma situa&ccedil;&atilde;o; 
+        e no caso Q2 uma UP de renda m&eacute;dia baixa, cercada por outras UPs 
+        de mesma situa&ccedil;&atilde;o.<br>
+        J&aacute; os casos Q3 e Q4 detectam UPs de rendas mais altas e mais baixas 
+        que se localizam perto de UPs de rendas mais baixas e mais altas, respectivamente. 
+        &Eacute; importante observar que este tipo de estudo separa as UPs em 
+        apenas 2 grupos quanto &agrave; renda m&eacute;dia (alta e baixa).</p>
+      <p>- <b>LISAMap</b>: Os valores desta coluna, de 0 a 4, s&oacute; ser&atilde;o 
+        gerados se for selecionado algum n&iacute;vel de signific&acirc;ncia na 
+        interface.<br>
+        Na gera&ccedil;&atilde;o do LISAMap, os &iacute;ndices locais s&atilde;o 
+        classificados como: n&atilde;o significantes (0) ou com confian&ccedil;a 
+        de 95% (1, p=0.05), 99% (2, p=0.01) e 99,9% (3, p=0.001).</p>
+      <p>- <b>MoranMap</b>: Os valores desta coluna s&oacute; ser&atilde;o gerados 
+        se for selecionado algum n&iacute;vel de signific&acirc;ncia na interface. 
+        Este resultado apresenta somente as regi&otilde;es para os quais os valores 
+        de <i>Ii</i>, foram considerados significantes (com intervalo &gt; 95%), 
+        diferente do BoxMap que n&atilde;o considera signific&acirc;ncia. Neste 
+        caso, os &iacute;ndices locais <i>Ii</i> s&atilde;o associados ao diagrama 
+        de espalhamento de Moran.<br>
+        Os valores ser&atilde;o os seguintes: 0 (n&atilde;o significante), 1 - 
+        Q1 (alto-alto), 2 - Q2 (baixo-baixo), 3 - Q3 (alto-baixo) e 4 - Q4 (baixo-alto).<br>
+        <br>
+        <font face="Arial"><strong>M&eacute;dia M&oacute;vel</strong></font></p>
+      <p>O m&eacute;todo de M&eacute;dia Espacial M&oacute;vel &eacute; uma t&eacute;cnica 
+        que explora o valor m&eacute;dio <i>mi</i> do atributo na regi&atilde;o 
+        de estudo (primeira ordem).</p>
+      <p>Com o banco de dados BH.mdb aberto, selecione o Tema UP. Na barra de 
+        menu escolha a op&ccedil;&atilde;o <b>An&aacute;lise</b> - <b>Estat&iacute;stica 
+        Espacial</b>. Uma nova janela ir&aacute; aparecer, como mostra a figura 
+        a seguir: </p>
+      <p align="center"><img src="terraViewBase_arquivos/estatistica_espacial3.png" width="339" height="478"></p>
+	  <p>1. Defina o <b>Atributo</b> sobre o qual deseja verificar correla&ccedil;&atilde;o 
+        espacial. Escolha rendamedia.</p>
+      <p>2. Torne ativa a op&ccedil;&atilde;o <b>M&eacute;dia Local</b>.</p>
+      <p>3. Avalie ou n&atilde;o a signific&acirc;ncia do teste. Escolha o n&iacute;vel 
+        de signific&acirc;ncia se desejado (99).</p>
+      <p>4. Insira o <b>Prefixo</b> da coluna a ser gerada (RendaMedia).</p>
+      <p>5. Clique em <b>Executar</b> o procedimento.</p>
+      <p>Fa&ccedil;a uma legenda com modo Quantil e fa&ccedil;a um Mapa Tem&aacute;tico 
+        com a coluna gerada.</p>
+      <p><font face="Arial"><strong>Fun&ccedil;&otilde;es G e G*</strong></font></p>
+      <p>As fun&ccedil;&otilde;es G e G* s&atilde;o dois &iacute;ndices de autocorrela&ccedil;&atilde;o 
+        espacial local, que permitem o teste de hip&oacute;teses sobre a concentra&ccedil;&atilde;o 
+        espacial da soma dos valores, associados aos pontos na vizinhan&ccedil;a 
+        do ponto considerado. <br>
+        Uma vez que estes indicadores s&atilde;o compostos por uma somat&oacute;ria 
+        de valores de atributos, a observa&ccedil;&atilde;o de valores significativamente 
+        altos de Gi e Gi* indica a exist&ecirc;ncia de ocorr&ecirc;ncia deste 
+        atributo em valores altos, sendo o oposto um ind&iacute;cio de agrupamento 
+        de valores baixos. <br>
+        A principal diferen&ccedil;a entre as fun&ccedil;&otilde;es G e G* &eacute; 
+        que na primeira, considera-se apenas os valores de todos os vizinhos, 
+        e na segunda, considera-se tamb&eacute;m a regi&atilde;o em estudo no 
+        c&aacute;lculo do &iacute;ndice.<br>
+      </p>
+      <p>Com o banco de BH.mdb aberto, selecione o Tema UP. Na Barra de Menu, 
+        escolha a op&ccedil;&atilde;o <b>An&aacute;lise</b> - <b>Estat&iacute;stica 
+        Espacial</b>. Uma nova janela ir&aacute; aparecer, como mostra a figura 
+        a seguir:</p>
+      <p align="center"><img src="terraViewBase_arquivos/estatistica_espacial4.png" width="339" height="478"></p>
+	  <p>1. Defina o <b>Atributo</b> sobre o qual deseja verificar a presen&ccedil;a 
+        de correla&ccedil;&atilde;o espacial. Selecione o atributo rendamedia.</p>
+      <p>2. Torne ativa a op&ccedil;&atilde;o <b>G</b>.</p>
+      <p>3. Vamos avaliar a signific&acirc;ncia do teste. Escolha 99 permuta&ccedil;&otilde;es.</p>
+      <p>4. Defina um <b>Prefixo</b> da coluna a ser gerada com os valores estimados 
+        da fun&ccedil;&atilde;o G (este passo &eacute; opcional).</p>
+      <p>5. Clique em <b>Executar</b> o procedimento.</p>
+      <p>Uma nova coluna ser&aacute; criada, com os valores estimados da fun&ccedil;&atilde;o 
+        G. Assim, a partir destas estimativas, pode-se criar um Mapa Tem&aacute;tico.<br>
+        Siga os mesmos passos definidos no caso anterior, no entanto, selecionando 
+        agora a op&ccedil;&atilde;o G*. <br>
+      </p>
+      <p>Para mais informa&ccedil;&otilde;es sobre a An&aacute;lise de Estat&iacute;stica 
+        Espacial consulte a Aula 8 dos tutoriais do TerraView.<br>
+      </p>
+      <p>&nbsp;</p>
+    </td>
+  </tr>
+  <tr>
+  </tr>
+</table>
+</font> 
+</body>
+</html>

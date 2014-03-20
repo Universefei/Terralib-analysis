@@ -1,0 +1,89 @@
+<html>
+<head>
+<title>Salvar Raster</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<font face="Arial, Helvetica, sans-serif" size="4">
+<table width="100%">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td><b>Salvar Raster</b><br>
+      <hr>
+       <br />
+           Essa funcionalidade permite que um dado matricial armazenado em um banco de dados TerraView possa ser salvo em um arquivo em disco, em alguns dos formatos de dados matriciais mais comuns.
+          
+
+          <br /><br />
+      O diretório e o nome do arquivo a ser gerado podem ser escolhidos no botão 
+      <b>Arquivo</b> ou informado diretamente no campo de texto a sua frente. 
+      Caso o arquivo já exista, será sobrescrito após confirmação do usuário. 
+      <br />
+      <br />
+          <b>Formatos</b>
+          <br />
+      Os formatos possíveis para salvar um dado matricial (disponíveis na lista 
+      <b>Formato</b>) são: <br />
+            <ol>
+            <li>GeoTiff: pode armazenar dados matriciais de 1 ou 3 bandas, do tipo palete ou não. Esse formato armazena as informações comuns como número de linhas, número de colunas, número de bandas, e número de bits por elemento do dado matricial; armazena também as informações geográficas associados ao dado como projeção e datum, resolução horizontal e vertical e retângulo envolvente;</li>
+            <li>JPEG: pode armazenar dados matriciais de 1 ou 3 bandas, desde que seus elementos sejam do tipo unsigned char. Dados do tipo palete são convertidos para 3 bandas de acordo com sua tabela de cores. Não é possível armazenar as informações geográficas no arquivo JPEG.</li>
+            
+        <li>RAW: armazena 1 banda do dado matricial em um arquivo binário, sequencialmente 
+          por linhas. Nenhuma informação sobre o dado é armazenada.</li>
+            <li>SPRING: armazena 1 banda do dado matricial em um arquivo ASCII no formato de intercâmbio de grades do software SPRING.</li>
+            </ol>
+             <center>
+           <img src="terraViewBase_arquivos/salvar_raster1.png" /><br />
+        </center>    
+            <br /><br />
+            <b>Parâmetros do Raster </b><br />
+      A parte da interface com o título <b>Parâmetros do Raster</b> serve para 
+      que o usuário escolha qual representação deseja salvar. <br />
+       <br />
+      Um Plano de Informação no TerraView pode ter várias representações matriciais 
+      associadas a diferentes objetos geográficos. O campo <b>Objeto</b> lista 
+      os identificadores dos objetos com representação matricial no Plano de informação 
+      que deu origem ao Tema. Os formatos permitem o salvamento de: 
+      <ul>
+            <li>1 banda: em analogia a uma imagem monocromática. O usuário escolhe na lista das bandas, qual a banda será salva;</li>
+            
+        <li> 3 bandas: em analogia a uma imagem de 3 cores RGB (Red - Green - 
+          Blue). Para isso o dado matricial deve possuir pelo menos 3 bandas. 
+          O usuário deve então escolher qual banda será mapeada para qual canal, 
+          clicando no botão referente ao canal e escolhendo na lista das bandas 
+          aquela que será mapeada para esse canal.</li>
+            </ul>	
+        <center>
+           <img src="terraViewBase_arquivos/salvar_raster.png" /><br />
+           
+           </center>   
+           
+        <br /><br />   
+        <b>Amostragem</b> 
+        <br />
+      Permite que o usuário degrade a resolução da imagem em até 4 níveis (campo 
+      <b>Amostragem</b>). O nível 1 é o da resolução original, ou seja, sem degradação. 
+      Os campos <b>Res. X</b> e <b>Res. Y</b> informa quais serão as resoluções 
+      de saída. <br />
+      <br />
+      As resoluções de saída são obtidas multiplicando-se a resolução original 
+      pelo fator de amostragem. Por exemplo, supondo que as resoluções originais 
+      do dado eram de 30 metros na horizontal e na vertical, ao ser escolhido 
+      o fator de amostragem 2 ,as resoluções finais serão de 60 metros. O algoritmo 
+      de reamostragem é sempre o vizinho mais próximo.<br />
+      <br />
+          <center>
+           <img src="terraViewBase_arquivos/salvar_raster2.png" /><br />
+           
+           </center>   
+      </td>
+  </tr>
+  <tr>
+  </tr>
+</table>
+</font> 
+</body>
+</html>

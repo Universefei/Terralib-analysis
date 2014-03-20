@@ -1,0 +1,120 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>TerraView </title>
+</head>
+<body>
+<p><font size="3" face="Arial"><strong>TerraView  </strong> </font></p>
+<p align="right"><font face="Arial"><a href="importRasterSimple.htm">&lt;&lt; 
+  Anterior</a>&nbsp;|&nbsp;<a href="terraViewBase.htm">In&iacute;cio</a> | <a href="ImportTblPoints.htm">Próximo 
+  &gt;&gt;</a></font></p>
+<hr>
+	
+
+<p align="center"><font face="Arial"><font size="4"><strong><u>Importar Raster</u></strong></font></font></p>
+<div align="justify">
+  <p>&nbsp;</p>
+  <p><font face="Arial, Helvetica, sans-serif">Um arquivo raster &eacute; constitu&iacute;do 
+    por uma s&eacute;rie de pontos, chamados &quot;pixels&quot; organizados em 
+    linhas e colunas. Um scanner captura uma imagem atribuindo uma linha, uma 
+    coluna e um valor de cor (branco e preto, escala de cinza ou cor) a cada ponto. 
+    Imagens de sat&eacute;lite e fotos a&eacute;reas s&atilde;o exemplos de dados 
+    raster.<br>
+    O TerraView permite a importa&ccedil;&atilde;o dos seguintes tipos de arquivo: 
+    TIF, JPG, RAW e TXT. Para realizar a importa&ccedil;&atilde;o, siga os passos 
+    a seguir:</font></p>
+  <font face="Arial, Helvetica, sans-serif">
+<p>1. Clique no menu <b>Arquivo - Importar Raster </b> como mostra 
+  a Figura abaixo.</p>
+<p align="center"><img src="terraViewBase_arquivos/importar_raster.png"> <BR>
+  <i>Acesso &agrave; importa&ccedil;&atilde;o raster atrav&eacute;s 
+    do Menu</i></p>
+<p>2. Ser&aacute; aberta a janela inicial do <b>Importar Raster</b> como 
+  mostra Figura abaixo.</p>
+<p align="center"><img src="terraViewBase_arquivos/importar_raster1.png"> <BR>
+  <i>Janela inicial de importa&ccedil;&atilde;o raster</i></p>
+<p>3. Usando o bot&atilde;o <b>Arquivo</b> indique onde a imagem est&aacute; 
+  armazenada e clique no bot&atilde;o <b>Abrir</b>.</p>
+<p>4. Assim que selecionar a imagem raster a ser importada, automaticamente 
+  aparecer&atilde;o os n&uacute;meros de <b>Linhas</b> e <b>Colunas</b> . </p>
+<p align="center"><img src="terraViewBase_arquivos/importar_raster2.png"> <br>
+    <i> Interface após a escolha do arquivo com a imagem</i></p>
+<p>O par&acirc;metro <b>Dummy</b> &eacute; opcional e, se fornecido, indica 
+  o valor de pixel que ser&aacute; considerado como transparente, ou seja, 
+  n&atilde;o cont&eacute;m informa&ccedil;&atilde;o. Durante a importa&ccedil;&atilde;o, 
+  ele ser&aacute; mapeado no valor <b>Dummy</b> de sa&iacute;da, que indicar&aacute; 
+  o valor de transpar&ecirc;ncia na imagem armazenada no banco de dados. 
+  Os elementos da imagem com este valor n&atilde;o ser&atilde;o plotados 
+  na &aacute;rea de visualiza&ccedil;&atilde;o.</p>
+<p>5. Acione o bot&atilde;o <b>Pr&oacute;ximo</b> para passar para a pr&oacute;xima 
+  janela, mostrada na Figura abaixo.</p>
+ <p align="center"><img src="terraViewBase_arquivos/importar_raster3.png"><br />
+  <i>Janela de Caracter&iacute;sticas Geogr&aacute;ficas</i></p>
+<p>6. Nesta janela s&atilde;o mostradas as características geográficas da imagem obtidas a
+      partir do arquivo de entrada, ou ap&oacute;s eventual alteração da proje&ccedil;&atilde;o, 
+	  conforme explicação abaixo.</p>
+<blockquote>
+  <p><i> -  A proje&ccedil;&atilde;o informada &agrave;s vezes pode n&atilde;o 
+    ser exatamente aquela com que a imagem se encontra no arquivo de entrada; 
+    procure informa&ccedil;&otilde;es sobre a proje&ccedil;&atilde;o correta 
+    com o fornecedor da imagem.</i></p>
+</blockquote>
+<p>7. Caso a proje&ccedil;&atilde;o mostrada n&atilde;o esteja correta, 
+  clique no bot&atilde;o <b>Proje&ccedil;&atilde;o</b> para alter&aacute;-la,   
+  informe os par&acirc;metros corretos da proje&ccedil;&atilde;o e clique 
+  no bot&atilde;o <b>OK</b>, voltando ent&atilde;o &agrave; janela Caracter&iacute;sticas
+  Geogr&aacute;ficas;</p>
+ <p>8. Uma vez que a proje&ccedil;&atilde;o esteja correta, clique no bot&atilde;o <b>Pr&oacute;ximo</b>. Ap&oacute;s isto 
+  ser&aacute; mostrada a janela da figura abaixo.</p>
+<p align="center"> <i><img src="terraViewBase_arquivos/importar_raster4.png"><br />
+  </i>
+  <i>Janela de Caracter&iacute;sticas de Armazenamento</i></p>
+<p>9. Preencha os demais itens conforme se segue:</p>
+<p> -  <b>Nome</b>: no caso de um PI novo deve ser digitado, enquanto 
+  no caso de PI j&aacute; existente deve ser selecionado a partir da lista 
+  fornecida de planos raster dispon&iacute;veis. Este &eacute; o caso de 
+  cria&ccedil;&atilde;o de um mosaico, a partir do segundo arquivo;</p>
+<p> -  <b>Object ID</b>: que atualmente n&atilde;o deve ser preenchido;</p>
+<p> -  <b>Compress&atilde;o</b>: a ser aplicada nos dados antes de serem 
+  armazenados, para diminuir o espa&ccedil;o f&iacute;sico ocupado; pode 
+  ser: nenhuma, zlib ou jpeg. A compress&atilde;o jpeg &eacute; mais eficiente, 
+  por&eacute;m n&atilde;o pode ser aplicada a imagens do tipo paleta;<br>
+</p>
+<p> -  <b>Altura e Largura</b>, que definem o tamanho do bloco de dados 
+  usado no armazenamento; recomenda-se o valor 512 x 512;</p>
+<p> - <b>Dummy</b>: o valor de transpar&ecirc;ncia da imagem, conforme 
+  mencionado anteriormente. Este valor &eacute; sugerido na interface 
+  como sendo o mesmo valor usado no arquivo de entrada, informado na janela 
+  mostrada no passo 4 e explicado no texto que a ela se segue;</p>
+<p> -  <b>Expans&iacute;vel</b>: deve ser usada quando houver diversos 
+  arquivos de uma mesma imagem, ou seja, trata-se de um mosaico, e este 
+  &eacute; o primeiro arquivo a ser importado.</p>
+<p>10. Pressione o bot&atilde;o <b>Pr&oacute;ximo </b>, prosseguindo para o pr&oacute;ximo 
+  passo que trata de multiresolu&ccedil;&atilde;o, ou ent&atilde;o o bot&atilde;o <b>Finalizar</b> para iniciar a importa&ccedil;&atilde;o.</p>
+<p>11. O passo opcional de multiresolu&ccedil;&atilde;o, tem como objetivo melhorar o desempenho na visualiza&ccedil;&atilde;o 
+     da imagem, usando uma pirâmide de imagens obtidas da imagem original mas com resoluções diferentes, quanto mais próximo do topo menor a resolução. A imagem da forma
+	 como está no arquivo de entrada será sempre importada na base da pirâmide com a resolução original (nível 0).</p>
+<p>Devem ser informados os seguintes parâmetros sobre os níveis adicionais de resolução que devem constar da pirâmide de multiresolução:</p>
+<p> -  <b>N&uacute;meros de N&iacute;veis</b> adicionais, com que a imagem ser&aacute; armazenada; 
+  este valor depende da aplica&ccedil;&atilde;o e da escala de visualiza&ccedil;&atilde;o 
+  que ser&aacute; utilizada normalmente, se for muito menor que a escala 
+  original da imagem, pode ser alto (p.ex. 10);</p>
+<p> - Selecione os n&iacute;veis adicionais na lista de níveis &agrave; direita: inicialmente a lista de níveis desejados para a pirâmide é mostrada com o n&uacute;mero informado de 
+       n&iacute;veis já selecionados, a partir do nível 1. Este é o caso recomendado, embora seja possível selecionar quaisquer níveis, 
+	   mesmo que não sejam consecutivos, e em quantidade diferente do número de níveis originalmente informado.
+
+
+<p> 	   </p>
+
+<p align="center"><img src="terraViewBase_arquivos/importar_raster5.png"><br />
+  <i>Caracter&iacute;sticas da Multiresolu&ccedil;&atilde;o</i></p>
+</font>
+<hr>
+  <p align="right"><font face="Arial"><font face="Arial"><font face="Arial"><font face="Arial"><font face="Arial"><a href="importRasterSimple.htm">&lt;&lt; 
+    Anterior</a>&nbsp;|&nbsp;<a href="terraViewBase.htm">In&iacute;cio</a> | <a href="ImportTblPoints.htm">Próximo 
+    &gt;&gt;</a></font> </font> </font></font> </font></p>
+<font face="Arial"><p  ><font face="Arial"> </font></p>
+</font><font face="Arial"></font> 
+</div>
+</body>
+</html>

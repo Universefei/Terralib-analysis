@@ -1,0 +1,488 @@
+#!/bin/sh
+
+# /************************************************************************************
+# TerraLib - a library for developing GIS applications.
+# Copyright ¨ 2001-2006 INPE and Tecgraf/PUC-Rio.
+#
+# This code is part of the TerraLib library.
+# This library is free software; you can redistribute it and/or
+# modify it under the terms of the GNU Lesser General Public
+# License as published by the Free Software Foundation; either
+# version 2.1 of the License, or (at your option) any later version.
+#
+# You should have received a copy of the GNU Lesser General Public
+# License along with this library.
+#
+# The authors reassure the license terms regarding the warranties.
+# They specifically disclaim any warranties, including, but not limited to,
+# the implied warranties of merchantability and fitness for a particular purpose.
+# The library provided hereunder is on an "as is" basis, and the authors have no
+# obligation to provide maintenance, support, updates, enhancements, or modifications.
+# In no event shall INPE and Tecgraf / PUC-Rio be held liable to any party for direct,
+# indirect, special, incidental, or consequential damages arising out of the use
+# of this library and its documentation.
+# *************************************************************************************/
+
+
+#
+# Script de instalacao da biblioteca TerraLib
+# Duvidas e sugestoes, entre em contato com: Gilberto Ribeiro de Queiroz - gribeiro(at)dpi.inpe.br
+#
+
+#
+# Informacoes Basicas:
+# 1. O caracter '#' indica comentarios.
+# 2. Siga as instrucoes ate a linha marcada 'Instalacao Automatica'
+#
+
+# Vamos logar no CVS como usuario anonimo.
+# se desejar, troque a string anonymous pelo nome
+# de usuario apropriado.
+CVSDIRPATH=":pserver:anonymous@cvs.dpi.inpe.br:/home/newterralib"
+
+
+
+# Abaixo encontram-se os caminhos de destino dos arquivos do TerraView
+# Se voce desejar alterar o caminho, faca a substituicao pelo
+# caminho desejado.
+if getopts "h:" terralibDirFlag
+then
+	TE_MAIN_DIR=$OPTARG
+else
+	TE_MAIN_DIR=/usr/local/terralib
+fi
+
+#-----------------------------------------------------
+#----------Instalacao Automatica----------------------
+#-----------------------------------------------------
+# Deste ponto em diante voce nao ira necessitar ajustar 
+# nenhuma variavel.
+
+# Abaixo encontram-se os caminhos de destino dos links simbolicos
+# que serao criados durante a instalacao da TerraLib.
+# Voce NAO deve alterar estes caminhos!
+TE_MAIN_LIBS_DEST_DIR=/usr/local/lib/terralib
+TE_MAIN_HEADERS_DEST_DIR=/usr/local/include/terralib
+
+# condicoes de saida do programa
+EXIT_ERROR=1
+EXIT_SUCCESS=0
+
+# Abaixo encontram-se os caminhos das principais pastas da TerraLib
+TE_MAIN_MODULES="terralibx src"
+TE_MAIN_LIBS2BUILD_DIR="/terralibx/tiff /terralibx/libjpeg /terralibx/shapelib /terralibx/terralib /terralibx/stat /terralibx/image_processing"
+TE_MAIN_LIBS2LINK_DIR="/terralibx/lib"
+TE_MAIN_HEADERS2LINK_DIR="/src/terralib/utils /src/terralib/functions /src/terralib/stat /src/terralib/kernel"
+TE_MAIN_INSTALLDIR=$PWD
+TE_NEED_GET_TERRALIB=FALSE
+TERRALIB_MAIN_VERSION="-r v-3-2-0"
+PROJECT_TYPE="RELEASE"
+TE_THREAD_SUPPORT="YES"
+
+# esta rotina escreve um cabecalho padrao da instalacao da TerraLIb.
+TerraLibInstallHeader()
+{
+	clear
+	echo
+	echo "========================================="
+	echo "== Bem vindo ao instalador da TerraLib =="
+	echo "========================================="
+	echo
+}
+
+# interrompe a instalacao da TerraLib.
+TeStopTerraLibInstall()
+{
+	echo
+	echo "A instalacao da TerraLib sera abortada."
+	echo -n "Pressione ENTER para continuar."
+	read TEMPVAR 
+	exit $EXIT_SUCCESS
+}
+
+# interrompe a instalacao da TerraLib.
+TerraLibInstallFail()
+{
+	echo
+	echo "Nao foi possivel instalar a TerraLib. Instalacao abortada."
+	echo -n "Pressione ENTER para continuar."
+	read TEMPVAR 
+	exit $EXIT_ERROR
+}
+
+# verifica se o diretorio corrente possui os arquivos da TerraLib
+TeVerifyTerraLibFilesInCurDir()
+{
+        echo
+	echo "Verificando se os modulos da TerraLib estao presentes no diretorio corrente ($PWD)..."
+
+	for TE_MODULE in $TE_MAIN_MODULES
+	do
+		if test -d $TE_MODULE
+		then
+			echo "O modulo: $TE_MODULE encontra-se no seu sistema."
+		else
+			echo "Nao foi possivel detectar o modulo $TE_MODULE."
+			return $EXIT_ERROR
+		fi
+	done
+	
+	TE_MAIN_DIR=$PWD
+	
+	return $EXIT_SUCCESS
+}
+
+# tenta encontrar os fontes da TerraLib
+TeFindTerraLibInstalled()
+{
+	echo
+	echo "Procurando arquivos TerraLib...."
+	
+	if TeVerifyTerraLibFilesInCurDir
+	then
+		echo "Encontrados os modulos da TerraLib no diretorio corrente ($PWD)."
+		return $EXIT_SUCCESS
+	else
+		echo "Nao foram encontrados os modulos da TerraLib no diretorio corrente ($PWD)."
+	fi
+	
+	if test -d $TE_MAIN_DIR
+	then	
+		if cd $TE_MAIN_DIR
+		then
+			echo "Entrando no diretorio: $PWD."
+		else
+			echo "Nao foi possivel entrar no diretorio: $PWD."
+			return $EXIT_ERROR
+		fi
+		
+		if TeVerifyTerraLibFilesInCurDir
+		then
+			return $EXIT_SUCCESS
+		else
+			return $EXIT_ERROR
+		fi
+	else
+		return $EXIT_ERROR
+	fi	
+}
+
+# interage com o usuario para determinar onde os fontes da TerraLib se encontram
+TeSetTerraLibInstalledDir()
+{
+	echo
+	echo "Entre com o nome da pasta ou "
+	echo "o caminho completo (diretorios + nome-pasta)"
+	echo "do local onde estao instalados os arquivos"
+	echo -n "fontes da TerraLib:"
+	read DESTFOLDERDIR
+	
+	while !(test -d $DESTFOLDERDIR)
+	do
+		echo "Nao foi possivel localizar o diretorio informado."
+		echo -n "Deseja tentar novamente? (s/n)"
+		read TEMPVAR
+		
+		if test $TEMPVAR = s || test $TEMPVAR = S
+		then
+			echo
+			echo "Entre com o nome da pasta ou "
+			echo "o caminho completo (diretorios + nome-pasta)"
+			echo "do local onde estao instalados os arquivos"
+			echo -n "fontes da TerraLib:"
+			read DESTFOLDERDIR
+		else
+			return $EXIT_ERROR
+		fi
+	done
+	
+	if cd $DESTFOLDERDIR
+	then
+		echo
+		echo "O diretorio atual eh: $PWD"			
+	else
+		echo "Nao foi possivel entrar no diretorio: $DESTFOLDERDIR."
+		TerraLibInstallFail
+	fi
+}
+
+# permite que o usuario crie uma pasta para instalar os arquivos fontes da TerraLib
+TeCreateNewFolder()
+{
+	cd $TE_MAIN_INSTALLDIR	
+	clear
+	
+	TerraLibInstallHeader
+	echo
+        echo
+	echo "Entre com o nome da nova pasta ou"
+	echo "o caminho completo (diretorios + nome-pasta)"
+	echo "do local onde serao instalados os arquivos fonte da"
+	echo "TerraLib (Tecle Enter para o"
+	echo "default [$TE_MAIN_DIR]):"
+	read NEWFOLDERDIR
+	
+	if test $NEWFOLDERDIR
+	then	
+		if mkdir $NEWFOLDERDIR
+		then
+			cd $NEWFOLDERDIR
+			TE_MAIN_DIR=$PWD
+			echo
+			echo "O diretorio atual eh: $TE_MAIN_DIR"		
+		else
+			echo "Nao foi possivel criar o diretorio de instalacao dos arquivos fontes da TerraLib ($NEWFOLDERDIR)."
+			TerraLibInstallFail
+		fi	
+	else
+		echo "Vamos utilizar o caminho default: $TE_MAIN_DIR."
+
+		if test -d $TE_MAIN_DIR
+		then
+			echo "O diretorio $TE_MAIN_DIR ja existe."
+			cd $TE_MAIN_DIR
+		else
+			echo "O diretorio $TE_MAIN_DIR nao existe."
+			echo "Criando pasta: $TE_MAIN_DIR."
+			if mkdir $TE_MAIN_DIR
+			then
+				cd $TE_MAIN_DIR
+				echo "Entrando na pasta: $TE_MAIN_DIR."
+			else
+				echo "Nao foi possivel criar a pasta onde serao instalados os fontes da TerraLib ($TE_MAIN_DIR)."
+				TerraLibInstallFail
+			fi	
+		fi
+	fi
+}
+
+# esta rotina busca no CVS os arquivos fontes da TerraLib
+TeGetTerraLibFromCVS()
+{
+	clear
+	TerraLibInstallHeader
+	echo
+	echo
+	echo "Obtendo versao corrente da TerraLib..."
+	echo 
+	echo "Os fontes serao obtidos como usuario anonimo,"
+	echo "por isso, quando o prompt parar, por favor,  "
+	echo "tecle apenas ENTER (a senha devera permanecer em branco)"
+	echo
+	
+# primeiro vamos logar no CVS da TerraLib
+	if cvs -d $CVSDIRPATH login
+	then
+		echo "Voce esta logado no CVS como usuario anonimo"
+	else
+		echo "Nao foi possivel logar no CVS"
+		TerraLibInstallFail
+	fi
+	
+# para cada modulo definido, vamos pega-lo atraves do CVS
+	for TE_MODULE in $TE_MAIN_MODULES
+	do
+		if cvs -d $CVSDIRPATH co $TERRALIB_MAIN_VERSION $TE_MODULE
+		then
+			clear
+			echo "O modulo: $TE_MODULE foi obtido com sucesso."
+		else
+			clear
+			echo "Nao foi possivel obter o modulo $TE_MODULE."
+			TerraLibInstallFail
+		fi
+	done
+	
+	echo
+        echo "Os modulos da TerraLib foram obtidos com sucesso."
+	echo -n "Pressione Enter para continuar."
+	read TEMPVAR
+}
+
+# esta rotina compila a TerraLib, o TerraView e todas as bibliotecas necessarias
+TeBuildTerraLib()
+{
+# para cada biblioteca que deve ser compilada e ligada, vamos chamar o make
+	for TE_MODULE2BUILD in $TE_MAIN_LIBS2BUILD_DIR
+	do
+		if cd $TE_MAIN_DIR$TE_MODULE2BUILD
+		then
+			echo "Entrando no diretorio: $PWD"
+		else
+			echo "Nao foi possivel entrar no diretorio: $TE_MAIN_DIR$TE_MODULE2BUILD"
+			exit  $EXIT_ERROR
+		fi
+
+		if qmake  TE_PROJECT_TYPE="$PROJECT_TYPE" TE_THREAD_SUPPORT="$TE_THREAD_SUPPORT"
+			        then
+					                echo "qmake do modulo $TE_MODULE2BUILD executado com sucesso."
+							        else
+									                echo "qmake do TerraManager falhou: $TE_MODULE2BUILD."
+											                 TerraManagerInstallFail
+													         fi
+
+		
+		if make
+		then
+			clear
+			echo "O modulo: $TE_MODULE2BUILD foi gerado com sucesso."
+		else
+			echo
+			echo "Nao foi possivel gerar o modulo $TE_MODULE2BUILD."
+			TerraLibInstallFail
+		fi
+	done	
+	
+	
+	echo
+        echo "A biblioteca TerraLib foi construida com sucesso."
+	echo -n "Pressione Enter para continuar."
+	read TEMPVAR
+}
+
+# cria os links simbolicos necessarios a cada lib e jah registra o caminho delas com o ldconfig
+TeMakeSymLinks()
+{
+	clear
+	TerraLibInstallHeader
+	
+	echo
+	echo
+	echo "Na proxima etapa serao criados links simbolicos"
+	echo "para as bibliotecas compartilhadas geradas no"
+	echo "processo de build e tambem para os arquivos"
+	echo "de cabecalho (.h)."
+	echo
+	echo "Sera criada uma pasta chamada: terralib, nos "
+	echo "seguintes diretorios:"
+	echo "    $TE_MAIN_LIBS_DEST_DIR"
+	echo "    $TE_MAIN_HEADERS_DEST_DIR"
+	echo
+	echo -n "Pressione ENTER para continuar."
+	read TEMPVAR
+	
+# cria os links simbolicos para as bibliotecas compartilhadas
+	mkdir $TE_MAIN_LIBS_DEST_DIR
+	cd $TE_MAIN_LIBS_DEST_DIR
+	
+# para cada biblioteca que deve ser compilada e ligada, vamos chamar o make
+	for TE_MODULE2LINK in $TE_MAIN_LIBS2LINK_DIR
+	do
+		if ln -sf $TE_MAIN_DIR$TE_MODULE2LINK/*.so* "."
+		then
+			echo "Criado link: $TE_MAIN_DIR$TE_MODULE2LINK"
+		else
+			echo "Nao foi possivel criar o link: $TE_MAIN_DIR$TE_MODULE2LINK"
+			exit  $EXIT_ERROR
+		fi
+	done
+	
+	if cat /etc/ld.so.conf | grep "$TE_MAIN_LIBS_DEST_DIR"
+	then
+		echo "O caminho $TE_MAIN_LIBS_DEST_DIR ja se encontra no ldconfig."
+	else
+		echo "O caminho $TE_MAIN_LIBS_DEST_DIR sera acrescentado no ldconfig."
+	
+		if echo "$TE_MAIN_LIBS_DEST_DIR" >> /etc/ld.so.conf
+		then
+			ldconfig
+			echo "O caminho $TE_MAIN_LIBS_DEST_DIR foi acrescentado ao ldconfig."
+		else
+			echo "Nao foi possivel acrescentar o caminho $TE_MAIN_LIBS_DEST_DIR no ldconfig."
+			exit  $EXIT_ERROR
+		fi
+	fi
+	
+# cria os links simbolicos para os arquivos de cabecalho (.h)
+	mkdir $TE_MAIN_HEADERS_DEST_DIR
+	cd $TE_MAIN_HEADERS_DEST_DIR
+	
+# para cada biblioteca que deve ser compilada e ligada, vamos chamar o make
+	for TE_HEADER2LINK in $TE_MAIN_HEADERS2LINK_DIR
+	do
+		if ln -sf $TE_MAIN_DIR$TE_HEADER2LINK/*.h "."
+		then
+			echo "Criado link: $TE_MAIN_DIR$TE_HEADER2LINK."
+		else
+			echo "Nao foi possivel criar o link: $TE_MAIN_DIR$TE_HEADER2LINK."
+			exit  $EXIT_ERROR
+		fi
+	done
+	
+	echo
+        echo "Os links simbolicos das bibliotecas compratilhadas e da TerraLib,"
+	echo "bem como os links para os arquivos de cabecalho (.h)"
+	echo "foram criados com sucesso."
+	#echo -n "Pressione Enter para continuar."
+	#read TEMPVAR
+}
+
+
+
+# realiza a instalacao da TerraLib
+TerraLibInstallHeader
+if TeFindTerraLibInstalled
+then
+	echo
+	echo "O diretorio: $TE_MAIN_DIR contem os modulos da TerraLib."
+	echo -n "Deseja instalar a versao indicada? (s/n)"
+	read TEMPVAR
+		
+	if test $TEMPVAR = s || test $TEMPVAR = S
+	then
+		TE_NEED_GET_TERRALIB=FALSE
+	else
+		TE_NEED_GET_TERRALIB=TRUE
+	fi
+else
+	echo "Nao foi possivel determinar automaticamente a localizacao dos modulos da TerraLib."
+	TE_NEED_GET_TERRALIB=TRUE
+fi
+
+if test $TE_NEED_GET_TERRALIB = TRUE
+then
+	echo -n "Voce deseja informar o local onde encontram-se os modulos da TerraLib? (s/n)"
+	read TEMPVAR
+	
+	while (test $TEMPVAR = s || test $TEMPVAR = S)
+	do
+		if TeSetTerraLibInstalledDir
+		then
+			if TeVerifyTerraLibFilesInCurDir
+			then
+				echo "Os modulos da TerraLib foram encontrados no diretorio: $PWD."
+				TEMPVAR=N
+				TE_NEED_GET_TERRALIB=FALSE
+			else
+				echo "Nao foi possivel encontrar os modulos da TerraLib no diretorio: $PWD."
+				echo -n "Voce deseja informar outro local onde possam ser encontrados os modulos da TerraLib? (s/n)"
+				read TEMPVAR
+			fi
+			
+		else
+			TEMPVAR=N
+		fi
+		
+		
+	done
+fi
+
+if test $TE_NEED_GET_TERRALIB = TRUE
+then
+	TeCreateNewFolder
+	TeGetTerraLibFromCVS
+else
+	echo "Nao sera necessario baixar os fontes da TerraLib"
+fi
+
+TeBuildTerraLib
+TeMakeSymLinks
+
+echo
+echo "A TerraLib foi instalada com sucesso!"
+echo -n "Pressione ENTER para continuar."
+read TEMPVAR 
+exit $EXIT_SUCCESS
+
+
+

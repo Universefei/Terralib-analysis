@@ -1,0 +1,260 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>TerraView</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+<p><font size="3" face="Arial"><strong>TerraView  </strong> </font></p>
+<p align="right"><font face="Arial"><a href="taxas_bayesianas_empiricas.htm">&lt;&lt; 
+  Anterior</a>&nbsp;|&nbsp;<a href="terraViewBase.htm">In&iacute;cio</a> | <a href="kernelWindow.htm">Próximo 
+  &gt;&gt;</a><font face="Arial"> </font> </font></p>
+<hr>
+<font face="Arial"> 
+<p align="center"><font size="4" face="Arial"><strong><u><strong>Regionaliza&ccedil;&atilde;o 
+  de &aacute;reas: o m&eacute;todo Skater</strong></u></strong></font></p>
+</font><p>&nbsp;</p>
+      <p  ><font face="Arial">O TerraView oferece a ferramenta de 
+        regionaliza&ccedil;&atilde;o de &aacute;reas, para que voc&ecirc; agrupe 
+        &aacute;reas menores (munic&iacute;pios, bairros) em &aacute;reas maiores, 
+        que al&eacute;m de serem cont&iacute;guas, tenham tamb&eacute;m semelhan&ccedil;a 
+        segundo os atributos associados (homic&iacute;dios, sequestros). No TerraView 
+        voc&ecirc; deve utilizar a ferramenta SKATER. </font></p>
+      <p  ><font face="Arial">Constitui uma an&aacute;lise de conglomerados 
+        que leva em conta a localiza&ccedil;&atilde;o espacial dos objetos. &#8220;Trata-se 
+        de uma situa&ccedil;&atilde;o em que temos um mapa particionado em &aacute;reas, 
+        cada uma delas com uma posi&ccedil;&atilde;o geogr&aacute;fica determinada, 
+        e desejamos que &aacute;reas com caracter&iacute;sticas semelhantes perten&ccedil;am 
+        ao mesmo conglomerado espacial. Estas caracter&iacute;sticas s&atilde;o 
+        dadas pelas vari&aacute;veis medidas&#8221;. </font></p>
+      <p  ><font face="Arial">Quando visualizamos um padr&atilde;o 
+        espacial &eacute; muito &uacute;til traduzi-lo em considera&ccedil;&otilde;es 
+        objetivas:o padr&atilde;o que observamos &eacute; aleat&oacute;rio ou 
+        apresenta uma agrega&ccedil;&atilde;o definida? Esta distribui&ccedil;&atilde;o 
+        pode ser associada a causas mensur&aacute;veis? Existem agrupamentos de 
+        &aacute;reas com padr&otilde;es diferenciados dentro da regi&atilde;o 
+        de estudo?</font></p>
+      <p  ><font face="Arial">Este m&eacute;todo pode ser aplicado, 
+        por exemplo, para a defini&ccedil;&atilde;o das &aacute;reas geogr&aacute;ficas 
+        relativamente homog&ecirc;neas de incid&ecirc;ncia de certos tipos de 
+        crimes, agregando munic&iacute;pios em grandes conglomerados, os quais 
+        sofreriam os efeitos de pol&iacute;ticas p&uacute;blicas focalizadas nos 
+        problemas regionais. N&atilde;o obstante as &oacute;bvias implica&ccedil;&otilde;es 
+        de natureza pr&aacute;tica, a regionaliza&ccedil;&atilde;o de crimes constitui-se 
+        tamb&eacute;m em importante ferramenta para a an&aacute;lise dos correlatos 
+        sociais e econ&ocirc;micos de distribui&ccedil;&atilde;o de crimes. A 
+        identifica&ccedil;&atilde;o de padr&otilde;es espaciais de ocorr&ecirc;ncia 
+        de homic&iacute;dios leva imediatamente a uma reflex&atilde;o acerca dos 
+        fatores causais respons&aacute;veis por essa aloca&ccedil;&atilde;o espacial.</font></p>
+      <p  ><font face="Arial"> A Figura abaixo representa o Estado 
+        de Minas Gerais dividido em onze conglomerados espaciais formados em fun&ccedil;&atilde;o 
+        da homogeneidade de homic&iacute;dios. A partir da legenda, podemos identificar 
+        as taxas m&eacute;dias de homic&iacute;dios das regi&otilde;es e o n&uacute;mero 
+        de munic&iacute;pios que comp&otilde;em cada conglomerado (entre par&ecirc;nteses).</font></p>
+      <p align="center"><font face="Arial"><img src="terraViewBase_arquivos/mapa_bhzonte.png" width="623" height="307" border="1"></font></p>
+      <p  ><font face="Arial">As regionaliza&ccedil;&otilde;es foram 
+        feitas levando em conta crit&eacute;rios de homogeneidade e restri&ccedil;&otilde;es 
+        de contig&uuml;idade, atrav&eacute;s de m&eacute;todos estat&iacute;sticos 
+        baseados em &aacute;rvores de regress&atilde;o e em &aacute;rvores geradores 
+        m&iacute;nimas.</font></p>
+      <p  ><font face="Arial"> &#8220;O SKATER gera conglomerados 
+        espaciais que s&atilde;o subconjuntos disjuntos de uma ou mais &aacute;reas 
+        tal que cada uma das &aacute;reas que comp&otilde;em determinado conglomerado 
+        seja vizinha de, pelo menos, uma outra &aacute;rea pertencente ao mesmo 
+        conglomerado&#8221;.Duas regi&otilde;es s&atilde;o consideradas vizinhas 
+        se elas compartilham limites geogr&aacute;ficos. Alguns bancos de dados 
+        podem conter &aacute;reas com problemas na identifica&ccedil;&atilde;o 
+        de vizinhan&ccedil;a, a an&aacute;lise fica ent&atilde;o invi&aacute;vel 
+        e a seguinte mensagem de erro &eacute; disposta na tela: Selecionar um 
+        grafo conectado.</font></p>
+      <p  > <font face="Arial"> O banco de BH.mdb apresenta tal 
+        impropriedade (com exce&ccedil;&atilde;o para as UP&acute;s), conforme 
+        pode ser visto pela Figura abaixo, que representa uma &aacute;rea selecionada 
+        do tema Batalh&otilde;es.<br>
+        </font></p>
+      <p align="center"><font face="Arial"><img src="terraViewBase_arquivos/bancoBH_mdb.png" border="1"> 
+        </font></p>
+      <p  > <font face="Arial"><br>
+        Aplicando um zoom na regi&atilde;o selecionada, percebe-se que os limites 
+        dos pol&iacute;gonos n&atilde;o podem ser identificados, o SKATER ent&atilde;o 
+        n&atilde;o gera os conglomerados.<br>
+        </font></p>
+      <p align="center"><font face="Arial"><img src="terraViewBase_arquivos/skater.png" border="1"> 
+        </font></p>
+      <p  ><font face="Arial">Para realizar a an&aacute;lise ent&atilde;o, 
+        utilizaremos as UP&acute;s, lembrando que uma UP (Unidade de Planejamento) 
+        corresponde a um agregamento de &aacute;reas utilizado pela prefeitura 
+        de Belo Horizonte.</font></p>
+      <p  ><font face="Arial"> O SKATER possui uma metodologia que 
+        permite a utiliza&ccedil;&atilde;o de v&aacute;rias caracter&iacute;sticas 
+        socioecon&ocirc;micas simultaneamente no processo de regionaliza&ccedil;&atilde;o, 
+        assemelhando-se ao indicador composto. Esse tipo de indicador &eacute; 
+        muito utilizado no processo de delimita&ccedil;&atilde;o de &aacute;reas 
+        de risco &agrave; sa&uacute;de, e corresponde a uma &#8220;medida que 
+        associa diferentes vari&aacute;veis socioecon&ocirc;micas e de ambiente 
+        num indicador sint&eacute;tico para analisar as caracter&iacute;sticas 
+        de grupos populacionais vivendo em determinadas &aacute;reas geogr&aacute;ficas&#8221;. 
+        </font></p>
+      <p  ><font face="Arial">Com o tema de UP ativo, do seu banco 
+        de dados BH.mdb, voc&ecirc; ir&aacute; construir um mapa de tal modo que 
+        as &aacute;reas, ou seja, as UP&acute;s, estar&atilde;o agrupadas segundo 
+        as vari&aacute;veis de valor contido nas colunas: banheiro_p, densidade_p 
+        agua_p, esgoto_p, lixo_p e rendamedia_p. </font></p>
+      <p  ><font face="Arial">Descrevendo as vari&aacute;veis : 
+        </font></p>
+        
+        <p  ><font face="Arial">1 - banheiro: propor&ccedil;&atilde;o 
+          de domic&iacute;lios com 4 banheiros ou mais, dentre aqueles que possuem 
+          banheiro.</font></p>
+        <p  ><font face="Arial"> 2 - densidade: n&uacute;mero esperado 
+          de pessoas residentes por domic&iacute;lio </font></p>
+        <p  ><font face="Arial">3 - &aacute;gua: propor&ccedil;&atilde;o 
+          de domic&iacute;lios particulares permanentes com abastecimento de &aacute;gua- 
+          rede geral</font></p>
+        <p  ><font face="Arial"> 4 - esgoto: propor&ccedil;&atilde;o 
+          de domic&iacute;lios particulares permanentes - com banheiro ou sanit&aacute;rio 
+          - esgotamento sanit&aacute;rio - rede geral de esgoto ou pluvial </font></p>
+        <p  ><font face="Arial"> 5 - lixo: propor&ccedil;&atilde;o 
+          de domic&iacute;lios particulares permanentes - destino do lixo - coletado 
+          por servi&ccedil;o de limpeza </font></p>
+        <p  ><font face="Arial"> 6 - rendamedia: renda m&eacute;dia 
+          do respons&aacute;vel pelo domicilio</font></p>
+       
+      <p  ><font face="Arial"> As vari&aacute;veis utilizadas ser&atilde;o 
+        as padronizadas (banheiro_p...) devido ao impacto que diferentes escalas 
+        podem ter na fun&ccedil;&atilde;o de dissimilaridade e na soma de quadrados 
+        dentro dos conglomerados. Por exemplo, uma vari&aacute;vel carrega a mesma 
+        informa&ccedil;&atilde;o, seja medida como propor&ccedil;&atilde;o, seja 
+        medida como porcentagem. No entanto, a diferen&ccedil;a dos valores dessa 
+        vari&aacute;vel hipot&eacute;tica entre duas &aacute;reas &eacute; 100 
+        vezes maior no caso de porcentagem do que no caso de propor&ccedil;&atilde;o. 
+        Assim, sugerimos que todas as vari&aacute;veis que ser&atilde;o utilizadas 
+        para a regionaliza&ccedil;&atilde;o possuam uma escala padronizada com 
+        m&eacute;dia zero e desvio padr&atilde;o igual a 1, como pode ser verificado 
+        ativando o menu popup de cabe&ccedil;alho de qualquer uma das vari&aacute;veis 
+        descritas acima e escolhendo a op&ccedil;&atilde;o Estat&iacute;stica. 
+        A padroniza&ccedil;&atilde;o foi obtida subtraindo a vari&aacute;vel original 
+        de sua m&eacute;dia e dividindo pelo desvio padr&atilde;o.</font></p>
+      <p  ><font face="Arial"> Para construir este mapa regionalizado, 
+        como podemos cham&aacute;-lo, voc&ecirc; ir&aacute; utilizar a ferramenta 
+        de estat&iacute;stica espacial SKATER a partir da op&ccedil;&atilde;o 
+        An&aacute;lise, no menu principal do TerraView. Veja como &eacute; a janela 
+        da op&ccedil;&atilde;o &Aacute;rvore Geradora M&iacute;nima (SKATER):</font></p>
+        
+        <p  ><font face="Arial">1. No campo M&eacute;todo de Agrega&ccedil;&atilde;o, 
+          voc&ecirc; deve escolher o crit&eacute;rio para definir o n&uacute;mero 
+          de regi&otilde;es (grupos) maiores a serem formados. A op&ccedil;&atilde;o 
+          Grupos permite que voc&ecirc; defina um n&uacute;mero fixo e a op&ccedil;&atilde;o 
+          Popula&ccedil;&atilde;o permite que voc&ecirc; defina a popula&ccedil;&atilde;o 
+          m&iacute;nima de cada grupo. No &uacute;ltimo caso, voc&ecirc; dever&aacute; 
+          informar onde se encontram os dados de popula&ccedil;&atilde;o no campo 
+          Sele&ccedil;&atilde;o de Dados de Popula&ccedil;&atilde;o. Selecione 
+          Grupos e entre com valor 10.</font></p>
+        <p  ><font face="Arial"> 2. No campo Sele&ccedil;&atilde;o 
+          de Tema, voc&ecirc; deve escolher sobre qual tema voc&ecirc; deseja 
+          realizar o agrupamento. Selecione UP. </font></p>
+        <p  ><font face="Arial"> 3. No campo Resultados, voc&ecirc; 
+          deve definir a tabela e o nome da coluna onde ser&aacute; armazenado 
+          a qual grupo cada regi&atilde;o pertence. A op&ccedil;&atilde;o padr&atilde;o 
+          &eacute; ska, mas voc&ecirc; pode alter&aacute;-la.</font></p>
+        <p  ><font face="Arial"> 4. No campo Sele&ccedil;&atilde;o 
+          de Atributos voc&ecirc; ir&aacute; escolher as informa&ccedil;&otilde;es 
+          que ser&atilde;o utilizadas para calcular a similaridade entre as &aacute;reas, 
+          como por exemplo o n&uacute;mero de homic&iacute;dios por &aacute;rea, 
+          a renda m&eacute;dia por &aacute;rea, etc. Na lista Atributos do Tema 
+          voc&ecirc; tem dispon&iacute;vel todos os atributos poss&iacute;veis 
+          (num&eacute;ricos) e na lista Atributos Selecionados, aqueles que voc&ecirc; 
+          escolheu para realizar a agrega&ccedil;&atilde;o, escolha UP.rendamedia_p, 
+          UP.banheiro_p, UP.&aacute;gua_p, UP.densidade_p, UP.esgoto_p, UP.lixo_p. 
+          </font></p>
+        <p  ><font face="Arial"> 5. Execute o procedimento para 
+          gerar as regi&otilde;es maiores.</font></p>
+       
+      <p align="center"><font face="Arial"><img src="terraViewBase_arquivos/arvore_geradora.png" width="606" height="406" border="1"></font></p>
+      <p  ><font face="Arial">Voc&ecirc; ir&aacute; perceber que 
+        uma nova coluna ska foi gerada na sua tabela de UP, contendo o grupo ao 
+        qual cada &aacute;rea pertence. Um gr&aacute;fico de queda de desvios 
+        tamb&eacute;m &eacute; gerado automaticamente como mostrado abaixo. Para 
+        visualizar estas &aacute;reas no seu mapa de departamentos ativo, voc&ecirc; 
+        precisar&aacute; construir um mapa tem&aacute;tico de Valor &Uacute;nico 
+        utilizando esta nova coluna gerada. </font></p>
+      <p align="center"><font face="Arial"><img src="terraViewBase_arquivos/arvore_geradora_minima.png" width="485" height="378"></font></p>
+      <p  ><font face="Arial">Atrav&eacute;s da an&aacute;lise da 
+        diminui&ccedil;&atilde;o do desvio interno o m&eacute;todo permite analisar 
+        o melhor n&uacute;mero de conglomerados a serem formados, &agrave; medida 
+        que esses v&atilde;o sendo gerados. Existe uma diminui&ccedil;&atilde;o 
+        r&aacute;pida no in&iacute;cio, quando o n&uacute;mero &eacute; pequeno. 
+        A partir de um certo ponto, essa diminui&ccedil;&atilde;o &eacute; pequena, 
+        significando que a gera&ccedil;&atilde;o de mais conglomerados n&atilde;o 
+        aumenta substancialmente a homogeneidade interna de cada um. </font></p>
+      <p  ><font size="4" face="Arial"><strong>Visualizando os resultados</strong></font></p>
+      <p  ><font face="Arial">A Figuras abaixo representa os procedimentos 
+        para gerar a visualiza&ccedil;&atilde;o gr&aacute;fica do mapa de UP agrupado 
+        em fun&ccedil;&atilde;o das colunas: banheiro_p , densidade_p, &aacute;gua_p, 
+        esgoto_p, lixo_p e rendamedia_p. . Os procedimentos ser&atilde;o os seguintes:</font></p>
+        
+        <p  ><font face="Arial">1. Ative o menu popup do tema UP 
+          ativo;</font></p>
+        
+<p  ><font face="Arial"> 2. Escolha a op&ccedil;&atilde;o <strong>Editar Legenda</strong>;</font></p>
+        <p  ><font face="Arial"> 3. O tipo de agrupamento a ser 
+          usado, neste caso, ser&aacute; por Valor &Uacute;nico;</font></p>
+        <p  ><font face="Arial"> 4. Escolha a coluna UP.ska da tabela 
+          UP;</font></p>
+        <p  ><font face="Arial"> 5. Use todos os atributos como 
+          entrada;</font></p>
+        <p  ><font face="Arial"> 6. Execute o procedimento</font></p>
+       
+      <p align="center"><font face="Arial"><img src="terraViewBase_arquivos/valor_unico.png" width="715" height="476" border="1"></font></p>
+      <p  ><font size="4" face="Arial"><strong>Utilizando dados 
+        de popula&ccedil;&atilde;o</strong></font></p>
+      <p  ><font face="Arial">Fa&ccedil;a agora uma regionaliza&ccedil;&atilde;o 
+        utilizando as mesmas vari&aacute;veis, por&eacute;m, selecionando como 
+        m&eacute;todo de agrega&ccedil;&atilde;o uma popula&ccedil;&atilde;o m&iacute;nima 
+        de 100.000 habitantes para cada grupo.</font></p>
+      
+<p  ><font face="Arial"> Clique novamente em<strong> An&aacute;lise &gt; &Aacute;rvore 
+  Geradora M&iacute;nima (Skater) </strong>e:</font></p>
+        
+        <p  ><font face="Arial">1. No campo M&eacute;todo de Agrega&ccedil;&atilde;o, 
+          selecione popula&ccedil;&atilde;o e entre com o valor 100000;</font></p>
+        <p  ><font face="Arial"> 2. Voc&ecirc; dever&aacute; informar 
+          onde se encontram os dados de popula&ccedil;&atilde;o no campo Sele&ccedil;&atilde;o 
+          de Dados de Popula&ccedil;&atilde;o. Na op&ccedil;&atilde;o Coluna escolha 
+          &#8220;POP_2000&#8221;;</font></p>
+        <p  ><font face="Arial"> 3. Em Nome da Coluna escreva skapop; 
+          </font></p>
+        <p  ><font face="Arial"> 4. Na sele&ccedil;&atilde;o de 
+          atributos selecione: banheiro_p, densidade_p, &aacute;gua_p, esgoto_p, 
+          lixo_p e rendamedia_p</font></p>
+       
+      <p align="center"><font face="Arial"><img src="terraViewBase_arquivos/up.png" width="490" height="355"></font></p>
+      <p  ><font face="Arial">Visualize agora o resultado, executando 
+        os procedimentos para gerar a visualiza&ccedil;&atilde;o gr&aacute;fica 
+        do mapa de UP agrupado em fun&ccedil;&atilde;o das colunas: banheiro_p 
+        , densidade_p, &aacute;gua_p, esgoto_p, lixo_p e rendamedia_p.</font></p>
+      <p align="center"><font face="Arial"><img src="terraViewBase_arquivos/dado_populac.png" width="664" height="511" border="1"></font></p>
+      <p  ><font size="4" face="Arial"><strong>Exportando os resultados</strong></font></p>
+      
+<p  ><font face="Arial">Se voc&ecirc; quiser visualizar esta figura j&aacute; 
+  na forma de impress&atilde;o, voc&ecirc; pode salvar sua tela de visualiza&ccedil;&atilde;o 
+  a partir do seguinte caminho:<strong> Arquivo &gt; Salvar tela de visualiza&ccedil;&atilde;o 
+  &gt; Arquivo</strong>. Deste modo, voc&ecirc; ir&aacute; salvar uma Figura no 
+  formato .bmp que, posteriormente, poder&aacute; ser inserida em outros programas, 
+  como no caso deste tutorial pela Figura abaixo:<br>
+        </font></p>
+      <p align="center"><font face="Arial"><img src="terraViewBase_arquivos/dado_populac1.png" width="395" height="385" border="1"></font></p>
+      <p  ><font face="Arial">Os valores da legenda desta Figura 
+        representam os aglomerados formados pelo m&eacute;todo e, entre par&ecirc;nteses, 
+        o n&uacute;mero de &aacute;reas que fazem parte de cada um dos aglomerados.</font></p>
+   <p>&nbsp;</p>
+       
+    <hr>
+<p align="right"><font face="Arial"><a href="taxas_bayesianas_empiricas.htm">&lt;&lt; 
+  Anterior</a>&nbsp;|&nbsp;<a href="terraViewBase.htm">In&iacute;cio</a> | <a href="kernelWindow.htm">Próximo 
+  &gt;&gt;</a><font face="Arial"> </font></font></p>
+<font face="Arial"><p  ><font face="Arial"> </font></p>
+</font><font face="Arial"></font> 
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>TerraView</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+<p><font size="3" face="Arial"><strong>TerraView  </strong> </font></p>
+<p align="right"><font face="Arial"><font face="Arial"><a href="importRaster.htm">&lt;&lt; 
+  Anterior</a>&nbsp;|&nbsp;<a href="terraViewBase.htm">In&iacute;cio</a> | <a href="importando_tabelas_atributos.htm">Próximo 
+  &gt;&gt;</a></font> </font></p>
+<hr>
+<font face="Arial"> 
+<p align="center"><font size="4"><strong><u><font face="Arial"><strong>Importando 
+  Dados de Pontos</strong></font></u></strong></font></p>
+<p  >&nbsp;</p>
+</font>
+<div>
+  <p align="justify"><font face="Arial">Voc&ecirc; pode possuir informa&ccedil;&otilde;es 
+    geogr&aacute;ficas sobre pontos, na forma de tabela. A posi&ccedil;&atilde;o 
+    geogr&aacute;fica de cada ponto, definida pelas coordenadas X e Y,  pode ter sido, 
+	por exemplo, obtida atrav&eacute;s do uso de um GPS . É necessário que cada linha 
+	da tabela corresponda a um único ponto. </font></p>
+  <p align="justify"><font face="Arial">As tabelas de dados de pontos podem estar 
+    nos formatos DBF ou texto. No formato DBF os nomes e tipos das colunas est&atilde;o
+    definidos no pr&oacute;prio arquivo que cont&eacute;m a tabela, enquanto 
+    no formato texto eles devem ser informados 
+    durante a importa&ccedil;&atilde;o. No exemplo abaixo, a tabela de pontos 
+    se encontra no formato texto, tamb&eacute;m dito CSV, que &eacute; uma 
+    sigla para &quot;Valores Separados por V&iacute;rgula&quot; em ingl&ecirc;s. 
+    </font></p>
+  <p align="justify"><font face="Arial">Para importar uma tabela como esta, voc&ecirc; 
+    deve utilizar a op&ccedil;&atilde;o de menu <strong>Arquivo &gt; Importar Tabela de Pontos</strong>. 
+    A janela Importar Tabela de Pontos ser&aacute; aberta para que voc&ecirc; 
+    preencha os par&acirc;metros necess&aacute;rios. </font></p>
+  <p align="center"><img src="terraViewBase_arquivos/import_dados_pontos.png"></p>
+</div>
+  
+  
+<div  > 
+  <p align="justify"><font face="Arial">Siga os seguintes passos:</font></p>
+  <ol>
+    <li><font face="Arial, Helvetica, sans-serif"> Selecione o arquivo com a tabela 
+      de pontos. Os formatos dispon&iacute;veis s&atilde;o DBF ou CSV. Pressione 
+      o bot&atilde;o <strong>Arquivo</strong> e selecione o arquivo fire_spot_sp.csv, 
+      dispon&iacute;vel no tutorial do TerraView (lembre-se de alterar o filtro 
+      de sele&ccedil;&atilde;o de arquivos para buscar aqueles com extens&atilde;o 
+      &#8220;.csv&#8221;).</font></li> <br>
+    <li><font face="Arial, Helvetica, sans-serif"> Responda &agrave; quest&atilde;o: 
+      &#8220;Entre com o caractere separador (dos valores das colunas em cada 
+      linha)&#8220; escolhendo um dos caracteres dispon&iacute;veis na interface,  
+      ou algum outro de sua escolha. Nesse caso o caractere &eacute; V&iacute;rgula.</font></li> <br>
+    <li><font face="Arial, Helvetica, sans-serif">Informe se a primeira linha 
+      dentro do arquivo &eacute; um cabe&ccedil;alho com o nome das colunas. Nesse 
+      caso a resposta &eacute; <strong>Sim</strong>.</font></li>
+    <font face="Arial, Helvetica, sans-serif"><br>
+    <li> Para cada coluna presente no arquivo, devem ser informados: seu tipo, 
+      nome, n&uacute;mero m&aacute;ximo de caracteres (se 
+      for do tipo texto) e o formato usado (se for do tipo data/hora). Pelo menos 
+      duas colunas devem ser do tipo real, pois ser&atilde;o usadas depois no passo (7) para informar 
+      as coordenadas X e Y do ponto. Para as altera&ccedil;&otilde;es de cada 
+      uma das colunas serem efetivadas, clique no bot&atilde;o <strong>Aplicar</strong>.</li>
+    <br>
+    <li> Escolha o nome do plano a ser criado.</li>
+    <br>
+    <li> Informe, se souber, a proje&ccedil;&atilde;o na qual as coordenadas 
+	  dos pontos est&atilde;o descritas. Nesse caso elas est&atilde;o na proje&ccedil;&atilde;o 
+      LatLong, Datum WGS84.</li>
+    <br>
+    <li> Indique na &aacute;rea Informa&ccedil;&atilde;o da Geometria quais 
+      colunas correspondem às coordenadas dos pontos. Nesse 
+      caso, a coluna Lon cont&eacute;m a coordenada X e a coluna Latitude cont&eacute;m 
+      a coordenada Y. Os valores de ambas as colunas devem usar sempre como <b>separador
+	  decimal</b> entre a parte inteira e a parte fracionária o caractere "<b>.</b>" (<b>ponto</b>).</li>
+    <br>
+    <li> Informe se alguma das colunas serve como identificador &uacute;nico de 
+    cada objeto representado pelo ponto. Ela será usada 
+	  como ligação entre a tabela de atributos  e os objetos (geometrias). Se não houver
+	  uma coluna nesta situação, use a opção <b>Automático.</b> Nesse exemplo, use a coluna Nr.</li>
+    <br>
+    <li> Clique no bot&atilde;o <strong>Executar</strong>.</li>
+    </font><br>
+  </ol>
+</div>
+<hr>
+<p align="right"><font face="Arial"><font face="Arial"><font face="Arial"><font face="Arial"><font face="Arial"><a href="importRaster.htm">&lt;&lt; 
+  Anterior</a>&nbsp;|&nbsp;<a href="terraViewBase.htm">In&iacute;cio</a> | <a href="importando_tabelas_atributos.htm">Próximo 
+  &gt;&gt;</a></font> </font> </font></font> </font></p>
+<font face="Arial"><p  ><font face="Arial"> </font></p>
+</font><font face="Arial"></font> 
+</body>
+</html>

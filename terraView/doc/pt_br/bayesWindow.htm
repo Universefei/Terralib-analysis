@@ -1,0 +1,111 @@
+<html>
+<head>
+<title>Criar Células</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<font face="Arial, Helvetica, sans-serif" size="4">
+<table width="100%">
+  <tr>
+ 
+  </tr>
+  <tr> 
+    <td><b><font size="4" face="Arial, Helvetica, sans-serif">Taxas Bayesianas 
+  Emp&iacute;ricas</font></b><br>
+      <hr>
+      <p><font face="Arial">Nesta se&ccedil;&atilde;o, voc&ecirc; 
+        ir&aacute; construir taxas (raz&otilde;es) a partir de atributos dos objetos 
+        dos mapas. Primeiramente, voc&ecirc; ir&aacute; calcular a taxa bruta 
+        de homic&iacute;dios ocorridos no ano 2000, para bairros de Belo Horizonte. 
+        Em seguida, usaremos a ferramenta de Bayes Emp&iacute;rico Global, para 
+      ajustar as taxas. </font></p>
+      <p><font face="Arial">A taxa bruta &eacute; uma divis&atilde;o 
+        entre um numerador (n&uacute;mero de homic&iacute;dios, seq&uuml;estros, 
+        mortes) e um denominador (popula&ccedil;&atilde;o em risco, em geral). 
+        A taxa bruta apresenta grande instabilidade para regi&otilde;es com popula&ccedil;&atilde;o 
+        de risco pequena, isto &eacute;, regi&otilde;es com pequenas popula&ccedil;&otilde;es 
+        est&atilde;o muito mais suscet&iacute;veis &agrave;s flutua&ccedil;&otilde;es 
+        nas taxas devido &agrave; ocorr&ecirc;ncia de uns poucos eventos por mero 
+        acaso do que regi&otilde;es populosas. A taxa bayesiana emp&iacute;rica 
+        global baseia-se no uso de informa&ccedil;&atilde;o das outras &aacute;reas 
+        que comp&otilde;em a regi&atilde;o de estudo para diminuir esta instabilidade 
+        n&atilde;o associada ao risco de ocorr&ecirc;ncia do evento.<br>
+        <br>
+        O primeiro requisito do TerraView para calcular as taxas Bayesianas &eacute; 
+        que o denominador (a popula&ccedil;&atilde;o de risco) n&atilde;o contenha 
+        valores menores ou iguais a zero. Caso n&atilde;o houvesse dados sobre 
+        popula&ccedil;&atilde;o para alguns bairros de Belo Horizonte, seria necess&aacute;rio, 
+        portanto, criar uma camada que contivesse apenas bairros para os quais 
+        temos esses dados.</font></p>
+      <p><font face="Arial"><strong>Calculando a taxa bruta</strong></font></p>
+      <p><font face="Arial">Para calcular a taxa bruta, crie uma nova coluna na sua 
+        tabela de bairros (Tema Bairros) e atualize os dados desta coluna. Para criar 
+        uma nova coluna, use o menu popup a partir do cabe&ccedil;alho da coluna na 
+        sua janela de grade e escolha a op&ccedil;&atilde;o <strong>Adicionar Coluna</strong>.<br>
+      </font></p>
+      <p align="center"><font face="Arial"><img src="terraViewBase_arquivos/adicionar_coluna_tabela.png" width="306" height="203"> </font></p>
+      <p  ><font face="Arial">Depois de criar a coluna chamada de 
+        Taxa, use o menu popup a partir desta coluna e altere seus dados:</font></p>
+      <p align="center"><font face="Arial"><img src="terraViewBase_arquivos/alterar_dados.png" border="1"> </font></p>
+      <p  ><font face="Arial">Voc&ecirc; deve fazer uma opera&ccedil;&atilde;o 
+        onde o numerador &eacute; o n&uacute;mero de homic&iacute;dios no ano 
+        de 2000 e o denominador &eacute; a popula&ccedil;&atilde;o dos bairros 
+        de BH no mesmo ano. Multiplica-se por 100.000, apenas para padronizar 
+        os valores.</font></p>
+      <p align="center"><font face="Arial"><img src="terraViewBase_arquivos/alterar_dados_coluna.png" width="305" height="300"> </font></p>
+      <p  ><font face="Arial"><strong>Calculando a taxa Bayesiana 
+        emp&iacute;rica</strong></font></p>
+      <p><font face="Arial">Voc&ecirc; ir&aacute;, agora, criar 
+        uma coluna com a taxa bayesiana emp&iacute;rica global, para ajustar as 
+        taxas para munic&iacute;pios de popula&ccedil;&atilde;o pequena. Para 
+        isto, use o menu An&aacute;lise e depois Bayes Emp&iacute;rico Global... 
+        A janela para entrada de par&acirc;metros ser&aacute; aberta:<br>
+        Informe os seguintes par&acirc;metros:</font></p>
+      <p  ><font face="Arial">1. No campo Tema, selecione o tema 
+        desejado Bairros.</font></p>
+      <p  ><font face="Arial"> 2. No campo Popula&ccedil;&atilde;o 
+        em Risco, selecione a tabela e a coluna que cont&eacute;m os dados de 
+        popula&ccedil;&atilde;o: Bairros e POP2000. </font></p>
+      <p  ><font face="Arial"> 3. No campo N&uacute;mero de Casos, 
+        selecione a tabela e a coluna que cont&eacute;m os dados do numerador 
+        da taxa (no nosso caso, homic&iacute;dios em 2000): Bairros e HOM2000.</font></p>
+      <p  ><font face="Arial"> 4. No campo Taxa Multiplicativa 
+        de Corre&ccedil;&atilde;o, selecione 100000.</font></p>
+      <p  ><font face="Arial"> 5. Execute o procedimento para criar a nova coluna, denominada 
+        GEBayes. Se desejar, altere seu nome no campo <em>Nome da Nova Coluna</em>.</font></p>
+      <p align="center"><font face="Arial"><img src="terraViewBase_arquivos/taxa_basyana.png" width="601" height="288" border="1"></font></p>
+      <p  ><font face="Arial"><strong>Comparando taxa bruta e Bayesiana 
+        emp&iacute;rica</strong></font></p>
+      <p  ><font face="Arial">A Figura abaixo representa um gr&aacute;fico 
+        onde voc&ecirc; tem no eixo X os valores das taxas brutas e no eixo Y, 
+        os valores para as taxas bayesiana global calculadas anteriormente. Como 
+        podemos ver, existe uma forte associa&ccedil;&atilde;o entre os valores, 
+        mas &eacute; importante observar que as escalas s&atilde;o diferentes.</font></p>
+      <p align="center"><font face="Arial"><img src="terraViewBase_arquivos/compara_taxa_basyana.png" border="1"></font></p>
+      <p  ><font face="Arial"><br>
+        <strong>Criando mapas tem&aacute;ticos a partir das taxas</strong></font></p>
+      <p  ><font face="Arial">Finalmente, vamos desenhar os mapas 
+        baseados nas taxas brutas e depois nas taxas Bayesianas. Podemos comparar 
+        estes dois mapas e verificar as diferen&ccedil;as entre eles. Com o tema 
+        ativo (Bairros) use a op&ccedil;&atilde;o de Editar Legenda do menu popup, 
+        para criar um mapa tem&aacute;tico de Quantil (4 fatias). A Figura abaixo 
+        representa os munic&iacute;pios segundo a taxa bruta por grupo de 100 
+        mil pessoas. </font></p>
+      <p align="center"><font face="Arial"><img src="terraViewBase_arquivos/mapa_taxa.png" border="1"></font></p>
+      <p  ><font face="Arial">Voc&ecirc; ir&aacute; construir agora 
+        um mapa com as mesmas caracter&iacute;sticas do anterior, sendo que voc&ecirc; 
+        estar&aacute; usando as informa&ccedil;&otilde;es de taxa Bayesiana Emp&iacute;rica 
+        Global. Embora pare&ccedil;a que os mapas sejam semelhantes, perceba que 
+        a escala do mapa muda. </font></p>
+      <p align="center"><font face="Arial"><img src="terraViewBase_arquivos/mapa_taxa1.png" border="1"></font></p>
+      <p> </p>
+      <p></p>
+    </td>
+  </tr>
+  <tr>
+  </tr>
+</table>
+</font> 
+</body>
+</html>

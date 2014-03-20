@@ -1,0 +1,189 @@
+<html>
+
+<head>
+<title>Plotagem de gr&aacute;ficos</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+</head>
+
+<body>
+<div align="justify">
+<p align=center>
+	<strong><u>
+		<span style='font-size: 13.5pt;font-family:Arial'>Plotagem de gr&aacute;ficos</span>
+	</u></strong>
+</p>
+<p class="MsoNormal"><span style="font-family:Tahoma">&nbsp;A plotagem de gr&aacute;ficos 
+  &eacute; feita na tela mostrada na Figura 1. O TerraView utiliza a biblioteca 
+  QWT para a plotagem de gr&aacute;ficos.</span></p>
+<p class="MsoNormal" align="center"><span style="font-family:Tahoma">&nbsp;<o:p></o:p><img src="graphic_arquivos/fig1.png" width="642" height="445"></span></p>
+<p class="MsoNormal" align="center"><span
+style="font-family:Tahoma">&nbsp;<o:p></o:p>Fig. 1 - interface de plotagem de 
+  gr&aacute;ficos.<o:p></o:p></span></p>
+<p class="MsoNormal"><span style="font-family:Tahoma">Os tipos de gr&aacute;ficos 
+  plotados pelo TerraView s&atilde;o:</span></p>
+<ul>
+  <li><span style="font-family:Tahoma">histograma,</span></li>
+  <li><span style="font-family:Tahoma">histograma de representa&ccedil;&otilde;es 
+    matriciais,</span></li>
+  <li><span style="font-family:Tahoma">dispers&atilde;o,</span></li>
+  <li><span style="font-family:Tahoma">diagrama de espalhamento de Moran e</span></li>
+  <li><span style="font-family:Tahoma">probabilidade normal.</span></li>
+</ul>
+<p><span style="font-family:Tahoma"><b>Brushing</b></span></p>
+  <p class="MsoNormal"><span style="font-family:Tahoma">O brushing &eacute; selecionado 
+    ativando-se o modo de <strong>Sele&ccedil;&atilde;o Espacial</strong>. A sele&ccedil;&atilde;o 
+    &eacute; feita atrav&eacute;s da barra de ferramentas da interface principal 
+    do TerraView. A Figura 2 mostra a barra de ferramentas e o bot&atilde;o de 
+    ativa&ccedil;&atilde;o apontado por uma seta vemelha.</span></p>
+<p class="MsoNormal" align="center"><img src="graphic_arquivos/fig2.png" width="730" height="60"></p>
+<p class="MsoNormal" align="center"><span
+style="font-family:Tahoma">&nbsp;<o:p></o:p>Fig. 2 - Barra de ferramentas do TerraView 
+  mostrando o bot&atilde;o para ativar o modo de &quot;Sele&ccedil;&atilde;o Espacial&quot;.<o:p></o:p></span></p>
+<p class="MsoNormal" align="center"><span
+style="font-family:Tahoma"><o:p></o:p></span></p>
+<p class="MsoNormal"><span style="font-family:Tahoma">O brushing funciona sobre 
+  gr&aacute;ficos de histograma ou de dispers&atilde;o. A fun&ccedil;&atilde;o 
+  dele &eacute; selecionar objetos atrav&eacute;s de um cursor. Para histograma, 
+  o cursor de brushing, tem a forma apresentada na Figura 3 e permite selecionar 
+  objetos cujos valores est&atilde;o dentro do limite entre xMin e xMax. </span></p>
+<p class="MsoNormal" align="center"><img src="graphic_arquivos/fig3.png" width="250" height="80"></p>
+<p class="MsoNormal" align="center"><span
+style="font-family:Tahoma">&nbsp;<o:p></o:p>Fig. 3 - Cursor de brushing para gr&aacute;ficos 
+  de histograma.<o:p></o:p></span></p>
+<p class="MsoNormal" align="center"><span
+style="font-family:Tahoma"><o:p></o:p></span></p>
+<p class="MsoNormal"><span style="font-family:Tahoma">Para dispers&atilde;o, o 
+  cursor de brushing, tem a forma retangular apresentada na Figura 4 e permite 
+  selecionar objetos cujos valores est&atilde;o dentro dos limites xMin, xMax 
+  e yMin, yMax.</span></p>
+<p class="MsoNormal" align="center"><span style="font-family:Tahoma"> </span><span
+style="font-family:Tahoma"><o:p></o:p><o:p></o:p><o:p><img src="graphic_arquivos/fig4.png" width="300" height="170"></o:p></span></p>
+<p class="MsoNormal" align="center"><span style="font-family:Tahoma"><o:p></o:p></span><span
+style="font-family:Tahoma">&nbsp;<o:p></o:p>Fig. 4 - Cursor de brushing para gr&aacute;ficos 
+  de dispers&atilde;o.<o:p></o:p></span></p>
+<p class="MsoNormal" align="center">&nbsp;</p>
+<p class="MsoNormal" style="margin-bottom:6.0pt;text-align:justify;text-indent:
+35.45pt"><span
+style="font-family:Tahoma">A sele&ccedil;&atilde;o de objetos &eacute; feita pressionando-se 
+  o bot&atilde;o esquerdo do mouse.</span></p>
+<p class="MsoNormal" style="margin-bottom:6.0pt;text-align:justify;text-indent:
+35.45pt"><span
+style="font-family:Tahoma">Os objetos selecionados s&atilde;o pintados (real&ccedil;ados) 
+  sobre os 3 m&oacute;dulo de apresenta&ccedil;&atilde;o de dados:</span></p>
+<ul>
+  <li><span
+style="font-family:Tahoma">display de mapas,</span></li>
+  <li><span
+style="font-family:Tahoma">tabela de atributos e</span></li>
+  <li><span
+style="font-family:Tahoma">tela gr&aacute;fica.</span></li>
+</ul>
+<p class="MsoNormal" style="margin-bottom:6.0pt;text-align:justify;text-indent:
+35.45pt"><b
+style="mso-bidi-font-weight:normal"><span style="font-family:Tahoma">Teclas de 
+  controle do cursor de brushing<o:p></o:p></span></b></p>
+<ul>
+  <li><span
+style="font-family:Tahoma">A tecla &quot;ALT&quot; permite redimensionar o tamanho 
+    do cursor.</span></li>
+  <li><span
+style="font-family:Tahoma"> A tecla &quot;SHIFT&quot; adiciona a nova sele&ccedil;&atilde;o 
+    ao conjunto j&aacute; selecionado</span></li>
+</ul>
+<p class="MsoNormal" style="margin-bottom:6.0pt;text-align:justify;text-indent:
+35.45pt"><b
+style="mso-bidi-font-weight:normal"><span style="font-family:Tahoma">Barra de 
+  ferramentas<o:p></o:p></span></b></p>
+<p><span
+style="font-family:Tahoma">A barra de ferramentas &eacute; mostrada na Figura 
+  5.&nbsp;<o:p></o:p></span></p>
+<p align="center"><span
+style="font-family:Tahoma"><o:p><img src="graphic_arquivos/fig5.png" width="335" height="41"></o:p></span></p>
+<p align="center"><span
+style="font-family:Tahoma">Fig. 5 - Barra de ferramentas da tela gr&aacute;fica.<o:p></o:p></span></p>
+<p><span
+style="font-family:Tahoma"><o:p></o:p>A barra cont&eacute;m bot&otilde;es do tipo 
+  toogle e push-button. Os bot&otilde;es do tipo toogle s&atilde;o usados para 
+  selecionar um modo de opera&ccedil;&atilde;o, ao passo que, os bot&otilde;es 
+  do tipo push-button s&atilde;o utilizados para executar uma tarefa.</span></p>
+<p><span
+style="font-family:Tahoma">Os bot&otilde;es do tipo toogle s&atilde;o:</span></p>
+<ul>
+  <li><span
+style="font-family:Tahoma">&quot;Promover&quot; e</span></li>
+  <li><span
+style="font-family:Tahoma"> &quot;Zoom&quot;.</span></li>
+</ul>
+<p><span
+style="font-family:Tahoma">Estes bot&otilde;es ficam real&ccedil;ados para indicar 
+  que est&atilde;o ativos. A Figura 6 mostra os bot&otilde;es &quot;Promover&quot; 
+  e &quot;Zoom&quot; ativados e indica que as opera&ccedil;&otilde;es de promover 
+  e zoom est&atilde;o selecionados.</span></p>
+<p align="center"><img src="graphic_arquivos/fig6.png" width="335" height="41"></p>
+<p align="center"><span
+style="font-family:Tahoma">Fig. 6 - Barra de ferramentas da tela gr&aacute;fica 
+  mostrando os bot&otilde;es &quot;Promover&quot; e &quot;Zoom&quot; ativados.<o:p></o:p></span></p>
+<p><span
+style="font-family:Tahoma">O bot&atilde;o &quot;Promover&quot; atua sobre o m&oacute;dulo 
+  da tabela de atributos, quando ativado, seleciona o modo de promo&ccedil;&atilde;o 
+  autom&aacute;tica dos objetos apontados pelo mouse (selecionados).</span></p>
+<p><span
+style="font-family:Tahoma">O bot&atilde;o &quot;Zoom&quot;, quando ativado, permite 
+  que o cursor sobre a tela gr&aacute;fica execute a fun&ccedil;&atilde;o de zoom. 
+  Isto tem prioridade sobre o brushing, portanto, para voltar ao modo brushing 
+  o bot&atilde;o &quot;Zoom&quot; deve ser desativado.</span></p>
+<p><b
+style="mso-bidi-font-weight:normal"><span style="font-family:Tahoma">V&ocirc;o 
+  sobre a tela gr&aacute;fica</span></b></p>
+<p><span
+style="font-family:Tahoma">Para o v&ocirc;o ser executado, o bot&atilde;o &quot;Zoom&quot; 
+  deve estar ativo. O v&ocirc;o &eacute; controlado atrav&eacute;s do teclado 
+  de &quot;setas&quot;.</span></p>
+<p><span
+style="font-family:Tahoma">Os bot&otilde;es do tipo push-button s&atilde;o:</span></p>
+<ul>
+  <li><span
+style="font-family:Tahoma"> &quot;Anterior&quot;, </span></li>
+  <li><span
+style="font-family:Tahoma">&quot;Pr&oacute;ximo&quot;.</span></li>
+  <li><span
+style="font-family:Tahoma">&quot;Config&quot;,</span></li>
+  <li><span
+style="font-family:Tahoma"> &quot;Imprimir&quot; e</span></li>
+  <li><span
+style="font-family:Tahoma">&quot;Ajuda&quot;.</span></li>
+</ul>
+<p><span
+style="font-family:Tahoma">Os bot&otilde;es &quot;Anteriror&quot; e &quot;Pr&oacute;ximo&quot; 
+  s&atilde;o habilitados a funcionar quando o modo zoom est&aacute; ativo. Eles 
+  permitem avan&ccedil;ar e retroceder zooms e v&ocirc;os executados na tela gr&aacute;fica.</span></p>
+<p><span
+style="font-family:Tahoma">O bot&atilde;o &quot;Config&quot; ativa a tela de configura&ccedil;&atilde;o 
+  e pode modificar a visualiza&ccedil;&atilde;o de:</span></p>
+<ul>
+  <li><span
+style="font-family:Tahoma"><a href="graphicConfigurationWindow_Histogram.htm">histograma</a></span></li>
+  <li><span
+style="font-family:Tahoma"><a href="graphicConfigurationWindow_RasterHistogram.htm">histograma 
+    de representa&ccedil;&otilde;es matriciais</a></span></li>
+  <li><span
+style="font-family:Tahoma"><a href="graphicConfigurationWindow_Dispersion.htm">dispers&atilde;o</a></span></li>
+  <li><span
+style="font-family:Tahoma"><a href="graphicConfigurationWindow_NormalProbability.htm">probabilidade 
+    normal</a></span></li>
+  <li><span
+style="font-family:Tahoma"><a href="graphicConfigurationWindow_Grid.htm">grade 
+    e cor de fundo da tela gr&aacute;fica</a></span></li>
+  <li><span
+style="font-family:Tahoma"><a href="graphicConfigurationWindow_Fonts.htm">fontes 
+    de texto dos eixos x e y</a>.</span></li>
+</ul>
+  <p><span
+style="font-family:Tahoma">O bot&atilde;o <em>Imprimir</em> ativa a tela de impress&atilde;o.</span></p>
+  <p><span
+style="font-family:Tahoma">O bot&atilde;o <em>Ajuda</em> mostra esta tela de ajuda.</span><span
+style="font-family:Tahoma">&nbsp;<o:p></o:p></span></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+
+	<meta content="text/html; charset=ISO-8859-1"             http-equiv="content-type"/>
+	<meta content="TerraView - documentacion help"            name="Description"/>
+	<meta content="geoprocessing,terraview,terralib,dpi,inpe" name="KeyWords"/>
+		
+	<title>Opera&ccedil;&atilde;o de Intersec&ccedil;&atilde;o entre Temas</title>
+	
+	<style>
+	</style>
+
+</head>
+
+<body>
+<center>
+  <H2> <font face="Arial, Helvetica, sans-serif"><u>Opera&ccedil;&atilde;o 
+    de Intersec&ccedil;&atilde;o entre Temas</u></font></H2>
+</center>
+
+<div align="justify">
+<font face="Arial, Helvetica, sans-serif"><br />
+</font><font face="Arial, Helvetica, sans-serif">A opera&ccedil;&atilde;o de intersec&ccedil;&atilde;o 
+utiliza um tema com representa&ccedil;&atilde;o geom&eacute;trica do tipo pol&iacute;gonos 
+para servir de m&aacute;scara de recorte. O tema a ser recortado pode ter geometrias 
+somente do tipo pol&iacute;gonos, ou somente do tipo linhas, ou somente do tipo 
+pontos, somente do tipo c&eacute;lulas ou somente do tipo matricial (imagens ou 
+grades). </font>
+<p  > <font face="Arial, Helvetica, sans-serif">Nessa opera&ccedil;&atilde;o, 
+  para temas com representa&ccedil;&atilde;o geom&eacute;trica do tipo pontos 
+  ou c&eacute;lulas, &eacute; gerado um novo plano de informa&ccedil;&atilde;o 
+  contendo os objetos que interceptam a m&aacute;scara de recorte. </font></p>
+<p  > <font face="Arial, Helvetica, sans-serif">Para temas com representa&ccedil;&atilde;o 
+  geom&eacute;trica do tipo pol&iacute;gonos ou linhas &eacute; gerado um novo 
+  objeto a cada regi&atilde;o de intersec&ccedil;&atilde;o. Desta forma um objeto 
+  pode ser dividido em v&aacute;rias partes e para cada parte &eacute; gerado 
+  um novo objeto. Os objetos subdivididos, embora cada um tenha diferentes identificadores, 
+  t&ecirc;m os mesmos atributos do objeto de origem. Desta forma, se desejado, 
+  pode-se aplicar a opera&ccedil;&atilde;o de agrega&ccedil;&atilde;o e obter 
+  novamente o equivalente ao objeto de origem. </font>
+<p  > <font face="Arial, Helvetica, sans-serif">Para temas com representa&ccedil;&atilde;o 
+  geom&eacute;trica do tipo matricial será gerado um novo plano que possui valores 
+  somente nos elementos onde existe uma intersecção com a máscara de recorte. 
+  Todas as características da representação matricial inicial são preservadas 
+  na representação recortada. </font></p>
+<p  ><font face="Arial, Helvetica, sans-serif">A tabela de atributos 
+  do plano de informa&ccedil;&atilde;o gerado pode conter al&eacute;m dos atributos 
+  do tema a ser recortado, os atributos do tema utilizado como m&aacute;scara 
+  de recorte. </font></p>
+<p  > <font face="Arial, Helvetica, sans-serif">A proje&ccedil;&atilde;o 
+  do plano de informa&ccedil;&atilde;o gerado &eacute; a mesma da proje&ccedil;&atilde;o 
+  do plano do tema recortado. Quando o tema de m&aacute;scara de recorte possui 
+  uma proje&ccedil;&atilde;o diferente, as geometrias s&atilde;o re-projetadas 
+  a fim de trabalhar na mesma proje&ccedil;&atilde;o do tema a ser recortado. 
+  </font></p>
+<p  > <font face="Arial, Helvetica, sans-serif">A Figura 1 mostra 
+  um tema de munic&iacute;pios do Brasil sendo recortado por um tema poligonal 
+  em forma de elipse e a Figura 2, o resultado da opera&ccedil;&atilde;o. </font></p>
+<center>
+  <p><font face="Arial, Helvetica, sans-serif"><IMG src="geoOpOverlayIntersection_arquivos/image001.png" border="0"> 
+    <br>
+    Figura 1 - Tema de munic&iacute;pios a ser recortado.</font></p>
+  <p>&nbsp; </p>
+</center>
+<center>
+  <font face="Arial, Helvetica, sans-serif"><IMG src="geoOpOverlayIntersection_arquivos/image003.png" border="0"> 
+  <br />
+  Figura 2 - Resultado do recorte do tema. </font> 
+</center>
+<p>&nbsp;</p>
+<p><font face="Arial, Helvetica, sans-serif">A Figura 3 mostra um tema construído 
+  sobre um layer que contém uma imagem do município do Rio de Janeiro sendo recortado 
+  por um tema que contém apenas o limite do bairro de Jacarepaguá. A Figura 4 
+  mostra o resultado da operação. </font> </p>
+<p></p>
+<center>
+  <p><font face="Arial, Helvetica, sans-serif"><IMG src="geoOpOverlayIntersection_arquivos/image006.png"  border="0"> 
+    <br />
+    Figura 3 - Tema com imagem a ser recortado.</font></p>
+  <p>&nbsp; </p>
+</center>
+<center>
+  <font face="Arial, Helvetica, sans-serif"><IMG src="geoOpOverlayIntersection_arquivos/image007.png"  border="0"> 
+  <br />
+  Figura 4 - Resultado do recorte do tema</font>. 
+</center>
+<font face="Arial, Helvetica, sans-serif"><br />
+<br />
+</font>
+<H3><font face="Arial, Helvetica, sans-serif">Interface de Intersec&ccedil;&atilde;o 
+  Entre Temas</font></H3>
+<font face="Arial, Helvetica, sans-serif"><br />
+</font> 
+  <p  > <font face="Arial, Helvetica, sans-serif">A interface de intersec&ccedil;&atilde;o 
+    entre temas &eacute; mostrada nas Figuras 5 e 6, para acess&aacute;-la utilize 
+    o menu de contexto sobre a Vista, na op&ccedil;&atilde;o <strong>Opera&ccedil;&otilde;es 
+    Geogr&aacute;ficas - Intersec&ccedil;&atilde;o</strong>. Na caixa <i>Selecionar 
+    Tema de Entrada a Ser Recortado por Intersec&ccedil;&atilde;o</i>, seleciona-se 
+    o tema a ser recortado. Caso o tema a ser recortado possua representações 
+    vetoriais, a interface se ajusta para ser mostrada como na Figura 5. </font></p>
+<center>
+  <font face="Arial, Helvetica, sans-serif"><img src="geoOpOverlayIntersection_arquivos/image009.png" > 
+  <br />
+  Figura 5 - Interface de intersec&ccedil;&atilde;o entre temas - entrada 
+  vetorial.</font> 
+</center>
+<p  > <font face="Arial, Helvetica, sans-serif">Usando os botões 
+  na caixa de seleção do tema de entrada indique quais objetos devem ser recortados: 
+  todos, somente os apontados ou somente os selecionados pela consulta. </font></p>
+<p  > <font face="Arial, Helvetica, sans-serif">Quando o tema a 
+  ser recortado possui representação matricial, o conjunto de botões para seleção 
+  dos objetos a serem recortados é desabilitado (veja a Figura 6). </font></p>
+<center>
+  <font face="Arial, Helvetica, sans-serif"><img src="geoOpOverlayIntersection_arquivos/image008.png" > 
+  <br />
+  Figura 6 - Interface de intersec&ccedil;&atilde;o entre temas - entrada 
+  matricial.</font> 
+</center>
+<p  > <font face="Arial, Helvetica, sans-serif">A caixa <i>Selecionar 
+  o Tema de Pol&iacute;gonos de Superposi&ccedil;&atilde;o</i>, &eacute; usada 
+  para escolher qual tema ser&aacute; usado para servir de m&aacute;scara de corte. 
+  Usando os botões, indique quais objetos devem ser usados como máscara: todos, 
+  somente os apontados ou somente os selecionados pela consulta. </font></p>
+<p  > <font face="Arial, Helvetica, sans-serif">Tamb&eacute;m pode-se 
+  escolher, colocar ou n&atilde;o, sobre a tabela do layer de sa&iacute;da os 
+  atributos do tema de superposi&ccedil;&atilde;o marcando a opção <i>Selecionar 
+  os atributos do tema de overlay</i>. Essa opção está disponível somente quando 
+  o tema sendo recortado possui representação vetorial. Caso contrário, essa opção 
+  fica desabilitada. </font></p>
+<p  > <font face="Arial, Helvetica, sans-serif">A caixa <i>Nome 
+  do Plano de Sa&iacute;da &eacute;</i> automaticamente preenchida pela interface, 
+  entretanto, pode-se edit&aacute;-la a fim de criar o plano com o nome desejado. 
+  </font></p>
+<p  > <font face="Arial, Helvetica, sans-serif">Para o caso do recorte 
+  de temas com representação matricial deve se indicar no campo <i>Valor do fundo</i> 
+  qual deve ser o valor a ser usado para preencher as áreas da representação que 
+  não interceptam os polígonos da máscara de recorte. A Figura 7 mostra a diferença 
+  entre usar o valor 255 ou o valor 0 como valor de fundo. </font></p>
+<table align="center">
+  <tr> 
+    <td><font face="Arial, Helvetica, sans-serif"><img src="geoOpOverlayIntersection_arquivos/image007.png" width="213" height="95" border=0 alt=""></font></td>
+    <td><font face="Arial, Helvetica, sans-serif"><img src="geoOpOverlayIntersection_arquivos/image010.png" width="213" height="95" border=0 alt=""></font></td>
+  </tr>
+</table>
+<center>
+  <font face="Arial, Helvetica, sans-serif">Figura 7 - Recortes com valores 
+  de fundo diferentes.</font> 
+</center>
+<p></p>
+<p  > <font face="Arial, Helvetica, sans-serif">&nbsp;O bot&atilde;o 
+  <i>Executar</i> efetua a opera&ccedil;&atilde;o de intersecção. </font></p>
+<p  > <font face="Arial, Helvetica, sans-serif">&nbsp;O bot&atilde;o 
+  <i>Cancelar</i> inibe a interface. </font></p>
+<p  > <font face="Arial, Helvetica, sans-serif">&nbsp;O bot&atilde;o 
+  <i>Ajuda</i> ativa a interface de ajuda. </font></p>
+</div>
+</body>
+</html>

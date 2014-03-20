@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>Bayes Empírico Local</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<font face="Arial, Helvetica, sans-serif" size="4">
+<table width="100%">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td><b>Bayes Empírico Local</b><br>
+      <hr>
+      <br />
+       O estimador Bayes Empírico Local inclui efeitos espaciais, calculando a taxa localmente, usando somente os vizinhos geográficos da área na qual se deseja estimar a taxa, convergindo em direção a uma média local. 
+       As taxas corrigidas são menos instáveis, pois levam em conta no seu cálculo não só a informação da área, mas também a informação da sua vizinhança. Se a localidade apresenta uma população considerável, a taxa apresentará pequena variabilidade e permanecerá praticamente inalterada quando comparada à taxa bruta. 
+       Por outro lado, se a localidade apresentar uma população pequena, a estimativa da taxa bruta terá grande variância e pouco peso será atribuído a essa taxa não estável, tornando a taxa bayesiana mais próxima do valor esperado de uma área escolhida ao acaso naquela região.
+      <br />
+      É possível, ainda, ajustar as taxas baseando-se apenas na informação da 
+      vizinhança.<br />
+      <br />
+      Para isto, use a opção <b>Análise - Bayes Empírico Local</b>. A janela Bayes 
+      Empírico Local para entrada de parâmetros será aberta, para que você possa 
+      informar os seguintes parâmetros:
+<ol>
+        <li>No campo <b>Tema</b>, selecione o tema desejado UP.</li>
+        <li>No campo <b>População em Risco</b>, selecione a tabela e a coluna 
+          que contém os dados de população: UP e POP_2000.</li>
+        <li>No campo <b>Número de Casos</b>, selecione a tabela e a coluna que 
+          contém os dados do numerador da taxa (no nosso caso, homicídios em 2000): 
+          hom_2000_Collect e Crimes2000.</li>
+        <li>No campo <b>Correção da Taxa Multiplicativa</b>, selecione 1.</li>
+        <li><b>Execute</b> o procedimento para criar a nova coluna, denominada LEBayes. Se desejar, altere seu nome no campo <b>Nome da Nova Coluna</b>.</li>
+      </ol>
+      
+       <center>
+           <img src="terraViewBase_arquivos/bayes_local.png" /><br />
+          
+           </center><br /><br />
+      Na tabela UP aparecerá a coluna: LEBayes, contendo os valores das Taxas 
+      Bayesianas Locais de cada UP.</td>
+  </tr>
+  <tr>
+  </tr>
+</table>
+</font> 
+</body>
+</html>

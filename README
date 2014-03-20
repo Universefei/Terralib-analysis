@@ -1,0 +1,54 @@
+TerraLib Platform
+===================================================
+
+TerraLib is a multiplatform C++ framework for GIS application development.
+
+If you want to use the TerraLib Platform on an unsupported version of Unix or any other
+Operational System, please contact us at terralib-devel@terralib.org so that we can assist you.
+
+How to get TerraLib:
+--------------------
+Download the .tar.gz archive from ftp.terralib.org. For faster download times, use ftpsearch and search for terralib-5.0.0-alpha-1 to find it on a mirror ftp site near you.
+
+If you want, download from CVS
+svn -d :pserver:anonymou@cvs.dpi.inpe.br:/home/terralib login
+svn -d :pserver:anonymou@cvs.dpi.inpe.br:/home/terralib co terralib
+
+Documents:
+----------
+
+README		    Getting started with TerraLib (This file)
+INSTALL		    How to build and install TerraLib
+Changelog	    List of changes from the last version
+COPYING		    Licence statement
+
+Directories:
+------------
+bin		    This directory will be created after
+            building the plataform. This is the place
+			for executables. For Windows machines this is
+            also the place for DLL's (Dynamic Link Library).
+			
+build		Platform/compiler configuration files. Here, you
+            will find projects for build TerraLib on Linux,
+			on Microsft Visual C++ (2005, 2008).
+			
+examples	TerraLib OWS example programs
+			
+src         TerraLib Platform source files.
+
+tests    This directory contains the automatic unit test
+            for the TerraLib Platform.
+			
+We hope you enjoy a lot this new version of TerraLib. We have worked
+hard to bring you this new version with major improvements.
+
+Any problems encountered with TerraLib should be reported to
+terralib-bugs@terralib.org.
+
+                           @-TerraLib Team-@
+            National Institute For Space Research - INPE
+      P. BOX 515 - Sao Jose dos Campos - SP - Brazil, 12201-970
+                            11/18/2008
+          
+

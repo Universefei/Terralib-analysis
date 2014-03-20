@@ -1,0 +1,162 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<title>Importação de Dados Vetoriais</title>
+</head>
+<body lang=PT-BR>
+<center>
+<h1><font face="Arial, Helvetica, sans-serif"><u>Importação de Dados Vetoriais</u></font></h1>
+</center>
+<div align="justify">
+<p><font face="Arial, Helvetica, sans-serif">O TerraView é capaz de importar dados 
+  vetoriais nos seguintes formatos: Shapefiles, MID/MIF, TAB/GEO vindo do SPRING 
+  e BNA vindos do TabWIN. Para executar a importação de um dado vetorial um banco 
+  de dados deve ter sido previamente conectado.</font></p>
+<h2><font face="Arial, Helvetica, sans-serif">MID/MIF</font></h2>
+<font face="Arial, Helvetica, sans-serif">Suponha que os arquivos <u>distritos.mif</u> 
+  e <u>distritos.mid</u>, contém um mapa dos distritos do município de São Paulo 
+  com suas localizações e seus atributos descritivos. As extensões &quot;.<u>mif</u>&quot; 
+  e &quot;.<u>mid</u>&quot; indicam que esses dados estão no formato de intercâmbio do software 
+  MAPInfo, que pode ser importado pelo TerraView. Para importar esse dado execute 
+  os seguintes passos:</font>
+<ol>
+    <li><font face="Arial, Helvetica, sans-serif">Na Barra de Ferramentas clique 
+      no ícone <img src="importWindow_arquivos/image001.png">  (ou no menu <strong>Arquivo 
+      - Importar Dados</strong>...) e obtenha a interface de importação mostrada 
+      na figura abaixo:</font></li>
+	<p>&nbsp; </p>  
+  <center>
+    <font face="Arial, Helvetica, sans-serif"><img src="importWindow_arquivos/image002.png" width="353" height="287"> 
+    </font> <br><br>
+  </center>
+    <li><font face="Arial, Helvetica, sans-serif">Clique no botão <i>Arquivo...</i> 
+      para escolher onde está seu arquivo de dados. Observe na figura abaixo que 
+      é necessário alterar o filtro dos tipos de arquivos para que os arquivos 
+      em formato MID/MIF fiquem disponíveis. Selecione o arquivo <u>distritos.mif</u> 
+      e clique em <em>Abrir</em>.</font></li>
+    <br>
+     <p>&nbsp; </p>  
+	<center>
+    <font face="Arial, Helvetica, sans-serif"><img src="importWindow_arquivos/image003.png" width="458" height="111" border="1"> 
+    </font> <br><br>
+  </center>
+  <li><font face="Arial, Helvetica, sans-serif">Veja na figura abaixo que a interface 
+    de importação reconhece a projeção do dado, pois esse formato possui essa 
+    informação. A interface também sugere um nome para o Plano de Informação, 
+    ou camada, que irá conter seu dado. </font></li>
+     <p>&nbsp; </p>   
+    <center>
+      
+    <p><font face="Arial, Helvetica, sans-serif"><img src="importWindow_arquivos/image004.png"> 
+      </font></p>
+    <p>&nbsp; </p>
+  </center>
+  
+    <li><font face="Arial, Helvetica, sans-serif">Seguindo a interface, a caixa 
+      <em>Ligação entre Tabelas de Atributos e Geometrias</em> pede que você informe 
+      como será a ligação entre os atributos dos distritos (no arquivo MID) e 
+      as suas geometrias (no arquivo MIF). A opção <em>Automática</em> indica 
+      que isso será criada um atributo a mais com a numeração sequencial dentro 
+      do arquivo e esse atributo será usado para ligar os dois arquivos. A opção 
+      <em>Selecionar Coluna</em> permite que você use um dos atributos (ou colunas) 
+      já existentes no arquivo de atributos. Se você usar essa opção certifique-se 
+      de escolher um atributo, ou coluna, que seja não se repita para os objetos 
+      do arquivo. Nesse caso escolha a segunda opção e a coluna SPRROTULO, como 
+      mostrada na figura acima. A interface irá pedir a sua confirmação para essa 
+      escolha.</font></li>
+	<p>&nbsp; </p>  
+  <li><font face="Arial, Helvetica, sans-serif">Ao terminar a importação, um novo 
+    plano aparecerá na árvore de planos como mostra a figura abaixo:</font></li>
+	<p>&nbsp; </p>  
+    <center>
+      
+    <p><font face="Arial, Helvetica, sans-serif"><img src="importWindow_arquivos/image005.png" border="1"> 
+      </font></p>
+    <p>&nbsp; </p>
+  </center>
+
+    <li><font face="Arial, Helvetica, sans-serif">Para que um plano de informação 
+      possa ser visualizado ou manipulado ele deve estar associado a um Tema e 
+      contido em uma Vista. Por isso, a importação lhe oferece a possibilidade 
+      de criação dessas entidades automaticamente através da pergunta mostrada 
+      na figura abaixo. Responda <em>Sim</em>.</font></li>
+      <p>&nbsp; </p>  
+    <center>
+      
+    <p><font face="Arial, Helvetica, sans-serif"><img src="importWindow_arquivos/image006.png"> 
+      </font></p>
+    <p>&nbsp; </p>
+  </center>
+
+  <li><font face="Arial, Helvetica, sans-serif">Observe agora que uma Vista e 
+    um Tema foram criados e a área de desenho e a grade atributos foi preenchida 
+    como mostra a figura abaixo.</font></li>
+     <p>&nbsp; </p>  
+    <center>
+      <font face="Arial, Helvetica, sans-serif"><img src="importWindow_arquivos/image007.png" border="1"> 
+      </font> 
+    </center>
+
+</ol>
+<h2><font face="Arial, Helvetica, sans-serif">Shapefile</font></h2>
+<font face="Arial, Helvetica, sans-serif">A importação de dados em formato 
+  shapefile é semelhante ao visto na seção anterior. Suponha agora que se deseje 
+  importar um arquivo de dados que contém pontos com localizações das estações 
+  de metrô, dessa vez em formato Shapefile, formato de intercâmbio dos produtos 
+  ESRI. Shapefiles são formados por três arquivos: &quot;<u>estacoes-metro.shp</u>&quot;, 
+  &quot;<u>estacoes-metro.dbf</u>&quot; &quot;<u>estacoes-metro.shx</u>&quot;. Siga os passos 1 a 
+  3 descritos acima. Lembre-se de alterar o filtro no passo 2. Você vai obter 
+  a interface como mostrada na figura abaixo:</font>
+  <p>&nbsp; </p>  
+  <center>
+    <font face="Arial, Helvetica, sans-serif"><img src="importWindow_arquivos/image008.png" > 
+    </font>
+  </center><br>
+  <font face="Arial, Helvetica, sans-serif">Observe dessa vez, que a projeção 
+  não foi reconhecida do formato e a interface indica que o dado está sem projeção 
+  &quot;NoProjection&quot;. Se você conhece a projeção do seu dado, clique no 
+  botão <em>Projeção...</em><i> </i>e informe através da interface de definição 
+  de projeção mostrada na figura abaixo.</font> 
+  <p>&nbsp; </p>  
+  <center>
+    <font face="Arial, Helvetica, sans-serif"><img src="importWindow_arquivos/image009.png"> 
+    </font>
+  </center><br>
+  <font face="Arial, Helvetica, sans-serif">Para cada projeção um conjunto de 
+  parâmetros deve ser fornecido. Nesse caso dos dados sobre as estações do metrô 
+  estão na projeção UTM, Zona 23, com Datum SAD69. Informe esses parâmetros e 
+  clique no botão <em>OK</em>. Termine a importação conforme o exemplo anterior 
+  (passos 4, 5 e 6). A coluna ROTULO pode ser usada como coluna de ligação.</font> 
+  <font face="Arial, Helvetica, sans-serif">Dessa vez, responda &quot;Não&quot; 
+  a pergunta sobre se deseja visualizar os dados importados. Observe então que 
+  o plano ficará disponível (veja a figura abaixo) mas não é automaticamente desenhado. 
+  </font> 
+  <p>&nbsp; </p>  
+  <center>
+    <font face="Arial, Helvetica, sans-serif"><img src="importWindow_arquivos/image010.png" border="1"> 
+    </font>
+  </center>
+
+<h2><font face="Arial, Helvetica, sans-serif">Tab/Geo</font></h2>
+<font face="Arial, Helvetica, sans-serif">Vamos importar agora um arquivo de 
+  dados que contém pontos com localizações das estações de ferroviárias, em formato 
+  Geo/Tab, formato de exportação de dados do SPRING para o TerraView. Esse formato 
+  é definido por 2 arquivos: &quot;<u>estacoes-ferroviarias.geo</u>&quot; e &quot;<u>estacoes-ferroviarias.tab</u>. 
+  Siga os passos 1 a 3 descritos acima. Lembre-se de alterar o filtro no passo 
+  2. Esse formato também não traz informação sobre a projeção do dado. Se conhecê-la 
+  informe a projeção do dado como mostrado para o  formato Shapefile acima.  Observe 
+  que para esse formato, não é possível escolher qual a coluna de ligação uma 
+  vez que essa já vem determinada pelo dado no SPRING. Portanto, o passo 4 não 
+  é válido para esse formato.</font>
+<font face="Arial, Helvetica, sans-serif">Novamente, se a resposta para a visualização 
+  automática for &quot;Não&quot; o plano ficará disponível como mostrado na figura abaixo, 
+  mas o dado não será automaticamente desenhado.</font>
+<p>&nbsp; </p>  
+  <center>
+    <font face="Arial, Helvetica, sans-serif"><img src="importWindow_arquivos/image011.png" border="1"> 
+    </font>
+  </center>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,284 @@
+ TerraLib Release 4.0.0
+Release date 2010-12-16
+
+Changes and Bugs Fixed
+
+    * Bug Fix: Correction for Generating Sample Point.
+
+New features
+
+    * Support included in the SLD and TerraOGC TerraLib;
+    * Drive for SQL Server 2008 Database Space;
+    * Support for KML theme.
+
+
+            TerraLib Release 3.6.0
+Release date 2010-10-22
+
+Changes and Bugs Fixed
+
+    * Bug Fix: returns error description when creating PostGIS databases using a template database that currently has connected users .
+
+New features
+
+    * Included new methods for table indexes administration.
+
+
+
+            TerraLib Release 3.5.0
+Release date 2010-07-30
+
+Changes and Bugs Fixed
+
+    * Bug Fix: correction in PostGIS database creation.
+    * Bug Fix: created method toUpper() in TeSqlServer overriding method in TeAdo.
+
+
+            TerraLib Release 3.4.0
+Release date 2010-05-06
+
+Changes and Bugs Fixed
+
+    * Bug Fix: correction in fetchGeometry method of TeMySQL driver related to the treatment of polygons with holes
+    * Bug Fix: correction in fetchRow method of TeMySQL driver when portal is not valid
+    * Bug Fix: correction in external theme loading when several databases are involved and one of them is inaccessible
+    * created virtual destructor for TeViewNodeParams class in order that it can be correctly extended
+    * improvement in TePostgreSQL driver when creating databases, trying to use template0 when using template1 fails.
+
+
+            TerraLib Release 3.3.1
+Release date 2009-04-14
+
+Changes and Bugs Fixed
+
+    * Bug Fix: Problem when importing shapefiles with .PRJ projection file.
+    * Bug Fix: TeRasterMemManager fails to return a valid tile pointer when there are no enough memory to activate a new tile mapping.
+    * Bug Fix: TePDIHistogram - Core dump when generating histogram from floating point raster.
+    * Bug Fix: TePDIMatrix - Fails to allocate mapped memory tiles.
+    * Bug Fix: SQL errors in functions loadPolygonSet, loadLineSet and loadPointSet.
+    * Bug Fix: Error with TeDatabase::spatialRelation calculating duplicated geometry_Ids.
+    * Bug Fix: Error with TeDatabase::spatialRelation returning wrong boolean value in certain cases.
+    * Bug Fix: Problem with Zonal functions calculation, when several polygons have the same Id.
+    * Bug Fix: Problems with statistics when setting dummy value.
+    * Bug Fix: Error in TeRasterClipping method of TeRaster.cpp.
+    * Change in Zonal functions allowing dummy value to be ignored.
+    * Increased the maximum length of the 3 theme conditional attributes (attribute, spatial and temporal) for all database types.
+
+New features
+
+    * Included support for layer edition timestamp and theme creation timestamp. This implies a change in the TerraLib database model, which means that existent databases will be converted to new format, by TerraView application.
+
+
+            TerraLib Release 3.3.0
+Release date 2009-01-26
+
+Changes and Bugs Fixed
+
+    * Bug Fix: correction in method updateTable of TeDatabase, TeMySQLand and TePostgreSQL.
+    * Bug Fix: correction in component TeGraph.cpp.
+    * Bug Fix: correction in problem of not considering the database port in the creation of mySQL databases.
+    * Bug Fix: correction in bug when retrieving dates in PostgreSQL.
+
+New features
+
+    * Included support to accept datetime TIFF rasters.
+    * Included new methods for projections conversion.
+
+
+
+            TerraLib Release 3.2.1
+Release date 2008-10-20
+
+Changes and Bugs Fixed
+
+    * Deletion of class TeDBConnection which was no longer being used.
+    * Change in the interface of class TeDBConnectionsPool.
+    * Changes in implementation of class TeExternalTheme.
+    * Included column type TeDateTime in method addColumn of TePostgreSQL..
+    * Bug Fix: correction in method loadPolygonSet in TeDatabase, TeOracleSpatial and TePostGis.
+    * Bug Fix: correction in close method of TeMySQL.
+    * Bug Fix: correction in method getInsertRasterBlock of TePostgreSQL.
+    * Bug Fix: correction in image mosaic whose resolution has many decimal digits.
+    * Bug Fix: correction in zonal operator when polygons are very small compared to the pixel size.
+    * Bug Fix: correction in geographic operation with TeGeoOpNearestNeighbour.
+    * Bug Fix: correction in method updateTable which generates ill-formed SQL in special cases.
+    * Bug Fix: correction in method tableExists which ignores views of SQL Server.
+    * Bug Fix: correction in polygon insertion methods in Access, MySQL and SQL Server.
+    * Bug Fix: correction in evaluation of topological relations between two poligons with holes.
+    * Bug Fix: correction in method updatePolygon of in MySQL when setting the parentId attribute.
+    * Bug Fix: correction in method TeRemapBox which remaps incorrectly in special situations.
+    * Bug Fix: correction in method verifyDbParams of TeDBConnectionsPool ignoring port number.
+    * Bug Fix: correction in method TePDIColorTransform generating saturated IHS raster.
+    * Bug Fix: correction in TePostgreSQL when the connection does not succeed.
+    * Bug Fix: correction in method TeWriteToFile of TeUtilsTePostgreSQL on error checking.
+
+New features
+
+    * Included transaction support in TeDataBase.
+    * Included SATELLITE projection.
+
+
+
+            TerraLib Release 3.2.0
+Release date 2008-02-24
+
+Changes and Bugs Fixed
+
+    * Corrected the creation of columns in MySQL.
+    * Correction of the Kernel Map and Kernel Ratio Map algorithms.
+
+New features
+
+    * New function to export point representation to TXT files.
+
+
+
+            TerraLib Release 3.2.0 Third Relase Candidate
+Release date 2007-12-21
+
+
+            TerraLib Release 3.2.0 Second Relase Candidate
+Release date 2007-12-12
+
+Changes
+
+    * TerraLib is compiled as a dynamic library.
+    * Revision of the architecture to the TeTheme class.
+    * Bug fixed in the routine that exports the contents of a Theme or Layer to a shapefile.
+    * Bug fixed in the connections pool class
+
+New features
+
+    * New classes to support other types of TeThemes.
+
+
+
+            TerraLib Release 3.2.0 First Relase Candidate
+Release date 2007-08-13
+
+New features
+
+    * New methods to export themes to files.
+
+
+
+            TerraLib Release 3.1.4
+Release date 2006-12-21
+
+Changes
+
+    * Bug fix: compilation problems in MSVC .NET 2005
+    * Minor corrections and optimizations in the database drivers.
+
+
+
+New features
+
+    * New methods to remove objects without geometries from a theme.
+    * New class to deal with affine geometric trasformation
+    * LIBPDI: Digital image registering support.
+
+
+
+            TerraLib Release 3.1.3
+Release date 2006-05-03
+
+Changes
+
+    * Improvement of the Raster Iterator with polygon restriction.
+    * Bug fix: description of a TerraLib projection according to PROJ4.
+    * Bug fix: creation of a TerraLib projection from a PROJ4 description.
+    * Bug fix: routine that builds a TeSTElementSet from a shapefile.
+    * Bug fix: assign data by location, collect operation.
+    * Improvement of the client memory allocation in the driver OCI to Oracle.
+    * Elimination of compilation dependencies generated by unecessary include files.
+
+
+
+New features
+
+    * Wrapper around the QWT package to create graphics.
+    * Geoprocessing operation to generate buffers.
+    * Geoprocessing operation to clip raster data.
+    * Description of a TerraLib projection in OGC WKT format.
+    * Creation of a TerraLib projection from a OGC WKT description.
+
+
+
+            TerraLib Release 3.1.2
+Release date 2006-02-20
+
+Changes
+
+    * Fixed a bug in Kernel Map spatial statistic algorithm.
+    * Fixed a bug in the MySQL 5.0 driver, when importing shapefiles.
+
+
+
+New features
+
+    * No new features.
+
+
+
+            TerraLib Release 3.1.1
+Release date 2005-12-23
+
+Changes
+
+    * This release contains the fixing of some bugs found in the previous release.
+
+
+
+New features
+
+    * No new features.
+
+
+
+            TerraLib Release 3.1.0 Beta
+Release date 2005-07-11
+
+Changes
+
+    * Inclusion of a KdTree structure in the TeSTEventSet to optimize spatial queries over the structure
+    * Use of the jpeglib (The Independent JPEG Group) to provide support to JPEG format
+    * Performance Improving of the geo-processing routines
+
+
+New features
+
+    * New Proximity Matrix strategy construction: using the nearest neighbour
+    * Persistence of Proximity Matrices generated by a TerraLib in the database
+    * Exporting Proximity Matrices to files in format .GAL and .GWT
+    * Construction of the multi-resolution pyramid for raster data with smoothing
+    * Support to transparency and linear contrast in the raster display
+    * Progress display in the image processing algorithms
+    * New set of image processing algorithms:
+          o Arithmetical operations
+          o Edge detection algorithms
+          o Chain code algorithms (segmentation / classification)
+          o Color conversion algorithms (IHS)
+          o Generation of interpolated histograms
+          o Decomposition / Composition algorithms: Wavelet / Mallat
+          o Morfological filters
+          o Radar image filters (Frost, Kuan, Lee)
+          o Vetorizing algorithms
+          o Statistical data generation
+
+
+
+            TerraLib Release 3.0.3
+Release date 2005-06-24
+
+Changes
+
+    * Two new spatial statistics algorithms
+          o Kernel Ratio.
+          o Empirical local Bayes.
+    * Allows grouping using multiple attributes (GeoWizard).
+    * PostGIS and PostgreSQL drivers.
+    * Shapefile importing routine fixed to follow especification.
+    * Revision of address geocodification routines.
+    * Revision of GeoWizard routines.
+    * Revision of of spatial operations routines and proximity matrix.

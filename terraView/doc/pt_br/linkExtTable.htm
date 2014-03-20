@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>TerraView - Conectar Tabela Externa</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+<p><b>
+TerraView - Conectar Tabela Externa</b>
+</p>
+<hr>
+<b>Tabelas Externas:</b>  
+<br /><br />
+Tabelas externas não estão associadas a objetos representados em um Plano de
+Informação já existente. Por exemplo, a tabela HOSPITALS.dbf contém atributos de
+alguns hospitais da cidade de São Paulo. Existem apenas atributos descritivos, ou
+seja, não existe a geometria dos hospitais, portanto, não é possível criar o Plano de
+hospitais. Observando os atributos existentes na tabela, vemos que para cada hospital
+foi anotado o distrito no qual ele está localizado. E essa informação poderia ser usada
+para ligar os hospitais aos distritos. Essa tabela é um exemplo das chamadas tabelas
+externas. Estas tabelas, que contêm apenas atributos descritivos e que não pertencem
+a nenhum plano de informação, podem ser ligadas aos temas existentes por meio de
+algum de seus atributos.
+<br />
+Para importar uma tabela externa vá ao item Arquivo - Importar Tabela... e prossiga
+com a importação da mesma maneira de na importação de tabelas. Apenas certifique-se de
+informar que o tipo da tabela é uma tabela EXTERNA como mostra o detalhe na
+abaixo. É muito importante que você informe a coluna que pode ser usada como
+Chave Primária nas tabelas, ou, se você desejar, o TerraView criará uma. Neste
+exemplo, escolha a opção criar para que ele crie automaticamente uma nova coluna
+para ser usada como Chave Primária.
+<br /><br />
+<center>
+<img src="terraViewBase_arquivos/tab_externa.png" /></center>
+
+<br /><br />
+Após a importação a tabela HOSPITAIS pertence ao banco de dados e não a um
+Plano de Informação em particular. Tabelas externas podem ser ligadas a um ou mais
+Temas, com os quais exista algum atributo comum. Na próxima sessão mostraremos
+como isso acontece.
+<br /><br />
+<br />
+<b>Ligando Tabelas Externas</b>
+<br /><br />
+Para ligar uma tabela externa a um Tema existente clique sobre o tema ativo e com o
+botão direito do mouse escolha a opção Conectar Tabela Externa....
+
+<br /><br />
+<center>
+<img src="terraViewBase_arquivos/tab_externa1.png" /></center>
+<br />
+Siga os seguintes passos:
+
+<ul>
+   <li>Escolha uma das tabelas externas disponíveis na lista de Tabelas Externas.
+Neste caso a única tabela disponível é a HOSPITAIS.</li>
+<li>Observe na área de amostra quais são os atributos (colunas) da tabela externa
+e na área de grade os atributos das tabelas estáticas do tema.</li>
+<li>Veja que o atributo DISTRITO da tabela externa contém o nome do distrito
+onde o hospital está localizado e que essa informação coincide com os nomes
+dos distritos no atributo DENO do Tema. Essas colunas serão usadas para
+ligar as duas tabelas.</li>
+<li>Clique na coluna da tabela externa (DISTRITO) e mantendo o botão esquerdo
+do mouse pressionado arraste-a e solte-a sobre a coluna (DENO) na Área da
+Grade.</li>
+
+</ul>
+
+Observe na Figura 4.9 o resultado da ligação da tabela de hospitais com o tema de
+distritos. Como era de se esperar, existem distritos que não possuem nenhum hospital,
+como é o caso de BRASILANDIA, e existem distritos que possuem mais que um
+hospital como AGUA RASA.
+<br /><br />
+<center>
+<img src="terraViewBase_arquivos/tab_externa2.png" /></center>
+<br />
+Esse exemplo mostra um caso de relacionamento 0:N, ou seja, cada distrito pode
+estar ligado a zero ou mais itens da tabela externa. A área de grade reflete essa
+condição: para cada distrito haverá tantas entradas na grade quantos forem os
+hospitais a ele associados.
+</body>
+</html>

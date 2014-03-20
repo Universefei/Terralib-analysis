@@ -1,0 +1,92 @@
+Configurando e gerando projetos da TerraLib
+-------------------------------------------
+
+1 - Crie um diretório e entre:
+  mkdir tlib-4.1.1
+  cd tlib-4.1.1
+
+2 - Use o cmake  
+  cmake ${te_install_dir}/build/cmake
+
+Esse procedimento criará uma hierarquia de pastas e um arquivo chamado CMakeCache.txt
+que contem as variaveis para configuração do ambiente.
+  
+Para compilar a TerraLib, primeiramente, mantenha a flag USE_OUT_TREE_TLIB desligada.
+Essa flag é usada pra estabelecer ao cmake que use uma TerraLib previamente instalada, no
+caso de usar o TerraView em com versões instaladas da TerraLib.
+
+3 - Localize as dependências:
+  - requeridas:
+    - GeoTIFF_INCLUDE_DIR ( onde encontrar o arquivo geotiff.h )
+    - GeoTIFF_LIBRARY ( biblioteca geotiff )
+    - JPEG_INCLUDE_DIR ( onde encontrar o arquivo jpeglib.h )
+    - JPEG_LIBRARY ( biblioteca jpeg )
+    - TIFF_INCLUDE_DIR ( onde encontrar o arquivo tiff.h )
+    - TIFF_LIBRARY ( biblioteca tiff )
+    - ZLIB_INCLUDE_DIR ( onde encontrar o arquivo zlib.h)
+    - ZLIB_LIBRARY ( biblioteca zlib )
+    
+  - opcionais:
+    - FBIRD_LIBRARY ( a biblioteca do cliente firebird )
+    - MySQL_INCLUDE_DIR ( onde encontrar o arquivo mysql.h )
+    - MySQL_LIBRARY ( biblioteca cliente MySQL )
+    - ORACLE_INCLUDE_DIR ( onde encontrar o arquivo oci.h )
+    - ORACLE_LIBRARY ( biblioteca cliente Oracle )
+    - PostGIS_INCLUDE_DIR ( onde encontrar lipq-fe.h )
+    - PostgreSQL_LIBRARY ( biblioteca cliente PostgreSQL )
+    
+E por ultimo, refinar a compilação da TerraLib se necessário:
+  - variaveis para habilitar ou desabilitar partes da TerraLib a serem compiladas :
+    - TE_DTM_ENABLED ( suporte DTM )
+    - TE_DXF_ENABLED ( usar biblioteca interna DXF )
+    - TE_PDI_ENABLED ( suporte a funções de processamento de imagens -PDI- )
+    - TE_SHP_ENABLED ( usar biblioteca interna Shapelib )
+    - TE_STAT_ENABLED ( suporte a funções de estatistica espacial )
+
+As dependencias opcionais habilitam o suporte da TerraLib a diferentes SGBD's. Caso não
+sejam fornecidas, a TerraLib será compilada sem suporte a esses bancos de dados. 
+As configurações usadas na construção da TerraLib estão descritas no arquivo src/terralib/teConfig.h
+gerado pelo cmake. Neste arquivo existem definições que indicam os drivers suportados por aquela compilação
+da TerraLib.
+
+Todas as configurações podem ser realizadas das seguintes formas:
+1 - No comando cmake ( segundo passo da compilação ) usando -D<variavel>:<FILEPATH|PATH>=<valor>. Essa opção gera o 
+  arquivo CMakeCache com os valores corretos.
+2 - No arquivo CMakeCache.txt gerado
+3 - Usando a interface gráfica cmake-gui
+
+Nota: se as dependencias requeridas não forem estabelecidas o script cmake não funciona.
+
+Configurando e gerando projetos do TerraView
+--------------------------------------------
+
+Habilitar a flag BUILD_TERRAVIEW. As seguintes dependencias deverão surgem:
+
+  - Requeridas:
+    - QT_INCLUDE_DIR ( diretório de headers do Qt3 )
+    - QT_MOC_EXECUTABLE ( excutavel moc do Qt3 )
+    - QT_QASSISTANTCLIENT_LIBRARY ( biblioteca de assistente do Qt3 )
+    - QT_QTMAIN_LIBRARY ( biblioteca principal do Qt3 )
+    - QT_QT_LIBRARY ( biblioteca multi thread do Qt3 )
+    - QT_UIC_EXECUTABLE ( excutavel uic do Qt3 )
+    - QWT_INCLUDE_DIR:PATH ( diretórios de headers da Qwt / Qt3 )
+    - QWT_LIBRARY ( biblioteca Qwt / Qt3 )
+
+Para setar as dependencias, editar o arquivo CMakeCache.txt gerado ou
+usar a gramática -D<variavel>:<tipo = PATH|FILEPATH>=<valor> no comando cmake.
+
+Esse ambiente foi testado usando:
+ - windows7 - 32bits
+ - mingw32 - make 3.81
+ - gcc - 4.4.0
+ - qt 3.3.8
+ - jpeg 8c
+ - qwt 5.0.0
+ - MySQL 5.0
+ - PostgreSQL (testado com que hoje está dentro TerraLib)
+ - tiff 3.9.5
+ - zlib 1.2.5
+ - libgeotiff 1.3.0
+ 
+No Visual Studio 2010 usando as dependencias que hoje se encontram na 
+TerraLib, também funcionou. 

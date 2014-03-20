@@ -1,0 +1,599 @@
+#!/bin/sh
+
+# /************************************************************************************
+# TerraLib - a library for developing GIS applications.
+# Copyright ¨ 2001-2006 INPE and Tecgraf/PUC-Rio.
+#
+# This code is part of the TerraLib library.
+# This library is free software; you can redistribute it and/or
+# modify it under the terms of the GNU Lesser General Public
+# License as published by the Free Software Foundation; either
+# version 2.1 of the License, or (at your option) any later version.
+#
+# You should have received a copy of the GNU Lesser General Public
+# License along with this library.
+#
+# The authors reassure the license terms regarding the warranties.
+# They specifically disclaim any warranties, including, but not limited to,
+# the implied warranties of merchantability and fitness for a particular purpose.
+# The library provided hereunder is on an "as is" basis, and the authors have no
+# obligation to provide maintenance, support, updates, enhancements, or modifications.
+# In no event shall INPE and Tecgraf / PUC-Rio be held liable to any party for direct,
+# indirect, special, incidental, or consequential damages arising out of the use
+# of this library and its documentation.
+# *************************************************************************************/
+
+
+#
+# Script de instalacao da extensao TerraPHP
+# Duvidas e sugestoes, entre em contato com: Gilberto Ribeiro de Queiroz - gribeiro(at)dpi.inpe.br
+#
+
+#
+# Informacoes Basicas:
+# 1. O caracter '#' indica comentarios.
+# 2. Siga as instrucoes ate a linha marcada 'Instalacao Automatica'
+#
+
+# Vamos logar no CVS como usuario anonimo.
+# se desejar, troque a string anonymous pelo nome
+# de usuario apropriado.
+CVSDIRPATH=":pserver:anonymous@cvs.dpi.inpe.br:/home/newterralib"
+
+# Adicione aqui as extensoes de banco que voce deseja instalar (somente para API do PHP).
+TE_PHP_OPTIONS="--with-mysql=/usr/local/mysql --with-zlib --with-pgsql"
+
+
+
+# Abaixo encontram-se os caminhos de destino dos arquivos do TerraView
+# Se voce desejar alterar o caminho, faca a substituicao pelo
+# caminho desejado.
+if getopts "h:" terralibDirFlag
+then
+	TE_MAIN_DIR=$OPTARG
+else
+	TE_MAIN_DIR=/usr/local/terralib
+fi
+
+TE_PHP_SRC="php-4.3.11.tar.gz"
+TE_PHP_SRC_DIR="php-4.3.11"
+
+#-----------------------------------------------------
+#----------Instalacao Automatica----------------------
+#-----------------------------------------------------
+# Deste ponto em diante voce nao ira necessitar ajustar 
+# nenhuma variavel.
+
+# condicoes de saida do programa
+EXIT_ERROR=1
+EXIT_SUCCESS=0
+
+# Abaixo encontram-se os caminhos das principais pastas da TerraLib
+TE_NEED_GET_TERRAPHP=FALSE
+TE_MAIN_MODULES="extensions/terraphp"
+TE_MAIN_TERRAPHP2LINK_FILES="/extensions/terraphp/src/config.m4 /extensions/terraphp/src/terraweb.cpp /extensions/terraphp/src/php_terraweb.h"
+TE_MAIN_INSTALLDIR=$PWD
+TERRAPHP_MAIN_VERSION="-r v_0-1-3"
+
+# esta rotina escreve um cabecalho padrao da instalacao da TerraLIb.
+TerraPHPInstallHeader()
+{
+	clear
+	echo
+	echo "========================================="
+	echo "== Bem vindo ao instalador do TerraPHP =="
+	echo "========================================="
+	echo
+}
+
+# interrompe a instalacao do TerraPHP.
+TeStopTerraPHPInstall()
+{
+	echo
+	echo "A instalacao do TerraPHP sera abortada."
+	echo -n "Pressione ENTER para continuar."
+	read TEMPVAR 
+	exit $EXIT_SUCCESS
+}
+
+# interrompe a instalacao do TerraPHP.
+TerraPHPInstallFail()
+{
+	echo
+	echo "Nao foi possivel instalar o TerraPHP. Instalacao abortada."
+	echo -n "Pressione ENTER para continuar."
+	read TEMPVAR 
+	exit $EXIT_ERROR
+}
+
+# verifica se o diretorio corrente possui os arquivos do TerraPHP
+TeVerifyTerraPHPFilesInCurDir()
+{
+        echo
+	echo "Verificando se os modulos do TerraPHP estao presentes no diretorio corrente ($PWD)..."
+
+	for TE_MODULE in $TE_MAIN_MODULES
+	do
+		if test -d $TE_MODULE
+		then
+			echo "O modulo: $TE_MODULE encontra-se no seu sistema."
+		else
+			echo "Nao foi possivel detectar o modulo $TE_MODULE."
+			return $EXIT_ERROR
+		fi
+	done
+	
+	TE_MAIN_DIR=$PWD
+	
+	return $EXIT_SUCCESS
+}
+
+# tenta encontrar os fontes do TerraPHP
+TeFindTerraPHPSrcInstalled()
+{
+	echo
+	echo "Procurando arquivos do TerraPHP...."
+	
+	if TeVerifyTerraPHPFilesInCurDir
+	then
+		echo "Encontrados os modulos do TerraPHP no diretorio corrente ($PWD)."
+		return $EXIT_SUCCESS
+	else
+		echo "Nao foram encontrados os modulos do TerraPHP no diretorio corrente ($PWD)."
+	fi
+	
+	if test -d $TE_MAIN_DIR
+	then	
+		if cd $TE_MAIN_DIR
+		then
+			echo "Entrando no diretorio: $PWD."
+		else
+			echo "Nao foi possivel entrar no diretorio: $PWD."
+			return $EXIT_ERROR
+		fi
+		
+		if TeVerifyTerraPHPFilesInCurDir
+		then
+			return $EXIT_SUCCESS
+		else
+			return $EXIT_ERROR
+		fi
+	else
+		return $EXIT_ERROR
+	fi	
+}
+
+# interage com o usuario para determinar onde os fontes do TerraPHP se encontram
+TeSetTerraPHPInstalledDir()
+{
+	echo
+	echo "Entre com o nome da pasta ou "
+	echo "o caminho completo (diretorios + nome-pasta)"
+	echo "do local onde estao instalados os arquivos"
+	echo -n "fontes do TerraPHP:"
+	read DESTFOLDERDIR
+	
+	while !(test -d $DESTFOLDERDIR)
+	do
+		echo "Nao foi possivel localizar o diretorio informado."
+		echo -n "Deseja tentar novamente? (s/n)"
+		read TEMPVAR
+		
+		if test $TEMPVAR = s || test $TEMPVAR = S
+		then
+			echo
+			echo "Entre com o nome da pasta ou "
+			echo "o caminho completo (diretorios + nome-pasta)"
+			echo "do local onde estao instalados os arquivos"
+			echo -n "fontes do TerraPHP:"
+			read DESTFOLDERDIR
+		else
+			return $EXIT_ERROR
+		fi
+	done
+	
+	if cd $DESTFOLDERDIR
+	then
+		echo
+		echo "O diretorio atual eh: $PWD"			
+	else
+		echo "Nao foi possivel entrar no diretorio: $DESTFOLDERDIR."
+		TerraPHPInstallFail
+	fi
+}
+
+# esta rotina busca no CVS os arquivos fontes do TerraPHP
+TeGetTerraPHPFromCVS()
+{
+	clear
+	TerraPHPInstallHeader
+	
+	if cd $TE_MAIN_DIR
+	then
+		echo "Entrando no diretorio: $PWD."
+	else
+		echo "Nao foi possivel entrar na pasta dos fontes do TerraLib."
+		TerraPHPInstallFail 
+	fi
+	echo
+	echo
+	echo "Obtendo versao corrente do TerraPHP..."
+	echo 
+	echo "Os fontes serao obtidos como usuario anonimo,"
+	echo "por isso, quando o prompt parar, por favor,  "
+	echo "tecle apenas ENTER (a senha devera permanecer em branco)"
+	echo
+	
+# primeiro vamos logar no CVS da TerraLib
+	if cvs -d $CVSDIRPATH login
+	then
+		echo "Voce esta logado no CVS como usuario anonimo"
+	else
+		echo "Nao foi possivel logar no CVS"
+		exit $EXIT_ERROR
+	fi
+	
+# para cada modulo definido, vamos pega-lo atraves do CVS
+	for TE_MODULE in $TE_MAIN_MODULES
+	do
+		if cvs -d $CVSDIRPATH co $TERRAPHP_MAIN_VERSION $TE_MODULE
+		then
+			clear
+			echo "O modulo: $TE_MODULE foi obtido com sucesso."
+		else
+			clear
+			echo "Nao foi possivel obter o modulo $TE_MODULE."
+			TerraPHPInstallFail
+		fi
+	done
+	
+	echo
+        echo "Os modulos do TerraPHP foram obtidos com sucesso."
+	echo -n "Pressione Enter para continuar."
+	read TEMPVAR
+}
+
+# instala o PHP sem o TerraPHP embutido
+TeInstallPHPAsModule()
+{
+	if ./configure --with-apxs=/usr/local/apache/bin/apxs --enable-magic-quotes --enable-track-vars --enable-calendar --with-gettext --with-xml --with-gd --with-freetype-dir=/usr --enable-gd-native-ttf --enable-gd-imgstrttf --with-zlib --enable-ftp --enable-debugger --enable-inline-optimization --enable-memory-limit --enable-posix --enable-session --without-kerberos --enable-trans-sid --enable-safe-mode --with-exec-dir=/usr/bin $TE_PHP_OPTIONS
+	then
+		echo "Configuracao do PHP executada com sucesso. Pronto para rodar make."
+	else
+		echo "Nao foi possivel configurar o PHP."
+		TerraPHPInstallFail
+	fi
+	
+	if make
+	then
+		echo "make PHP executado com sucesso."
+	else
+		echo "make PHP nao foi executado corretamente."
+		TerraPHPInstallFail
+	fi
+	
+	#service httpd stop
+	
+	if make install
+	then
+		echo "make install do PHP executado com sucesso."
+	else
+		echo "make install do PHP falhou!"
+		TerraPHPInstallFail
+	fi
+	
+	if cp php.ini-dist /usr/local/lib/php.ini
+	then
+		echo "php.ini copiado com sucesso."
+	else
+		echo "Nao foi possivel copiar php.ini."
+		TerraPHPInstallFail
+	fi
+	
+	#service httpd start
+}
+
+# instala o terraphp como um modulo
+TeInstallTerraPHPAsModule()
+{	
+	if phpize
+	then
+		echo "phpize executado com sucesso."
+	else
+		echo "phpize nao foi executado corretamente."
+		TerraPHPInstallFail
+	fi
+	
+	if ./configure --with-terraweb
+	then
+		echo "Configure do TerraPHP executado com sucesso."
+	else
+		echo "Nao foi possivel executar a configuracao do TerraPHP."
+		TerraPHPInstallFail
+	fi
+	
+	if make
+	then
+		echo "make TerraPHP executado."
+	else
+		echo "Na foi posiivel executar o make TerraPHP."
+		TerraPHPInstallFail
+	fi
+	
+	if cp modules/terraweb.so /usr/local/lib/
+	then
+		echo "Modulo terraweb.so copiado com sucesso."
+	else
+		echo "O modulo terraweb nao pode ser copiado."
+		TerraPHPInstallFail
+	fi
+	
+	echo
+	echo "O modulo terraweb.so foi criado com sucesso."
+	echo "Ao final da instalacao, nao se esqueca de adicionar esse modulo (em /usr/local/lib/terraweb.so) ao seu arquivo php.ini (geralmente em /usr/local/lib) e de indicar o caminho onde o PHP devera encontrar os modulos (/usr/local/lib)."
+	echo -n "Tecle ENTER para continuar."
+	read TEMPVAR
+}
+
+# instala o terraphp como um integrante do PHP
+TeInstallTerraPHPAsBuilIn()
+{
+	if ./buildconf --force
+	then
+		echo "build conf executado com sucesso!"
+	else
+		echo "Nao foi possivel executar buildconf."
+		TerraPHPInstallFail
+	fi
+		
+	if ./configure --with-apxs=/usr/local/apache/bin/apxs --enable-magic-quotes --enable-track-vars --enable-calendar --with-gettext --with-xml --with-gd --with-freetype-dir=/usr --enable-gd-native-ttf --enable-gd-imgstrttf --with-zlib --enable-ftp --enable-debugger --enable-inline-optimization --enable-memory-limit --enable-posix --enable-session --without-kerberos --enable-trans-sid --enable-safe-mode --with-exec-dir=/usr/bin --with-terraweb $TE_PHP_OPTIONS
+	then
+		echo "Configuracao do PHP executada com sucesso. Pronto para rodar make."
+	else
+		echo "Nao foi possivel configurar o PHP."
+		TerraPHPInstallFail
+	fi
+	
+	if make
+	then
+		echo "make PHP executado com sucesso."
+	else
+		echo "make PHP nao foi executado corretamente."
+		TerraPHPInstallFail
+	fi
+	
+	#service httpd stop
+	
+	if make install
+	then
+		echo "make install do PHP executado com sucesso."
+	else
+		echo "make install do PHP falhou!"
+		TerraPHPInstallFail
+	fi
+	
+	if cp php.ini-dist /usr/local/lib/php.ini
+	then
+		echo "php.ini copiado com sucesso."
+	else
+		echo "Nao foi possivel copiar php.ini."
+		TerraPHPInstallFail
+	fi
+	
+	#service httpd start
+}
+
+# esta rotina compila o TerraPHP
+TeBuildTerraPHP()
+{
+	cd $TE_MAIN_INSTALLDIR
+	clear
+	TerraPHPInstallHeader
+	echo
+	echo
+	echo "Na proxima etapa vamos instalar a extensao TerraPHP."
+	echo -n "Confirmar a instalacao da extensƒo TerraPHP? (s/n)"
+	read TEMPVAR
+	
+	if test $TEMPVAR = s || test $TEMPVAR = S
+	then
+		echo
+		echo "Voce deseja instalar o PHP? (s/n)"
+		echo -n "Se voce disser SIM e ja possuir uma instalacao previa, ela sera substituida por esta nova ($TE_PHP_SRC)."
+		
+		read TEMPVAR
+		
+		if test $TEMPVAR = s || test $TEMPVAR = S
+		then
+			if tar xzvf $TE_PHP_SRC
+			then
+				echo "Os fontes do PHP foram descompactados com sucesso."
+			else
+				echo "Nao foi possivel descompactar os fontes do PHP."
+				TerraPHPInstallFail
+			fi		
+			
+			if cd $TE_PHP_SRC_DIR/ext
+			then
+				echo "Entrando no diretorio das extensoes do PHP ($PWD)."
+			else
+				echo "Nao foi possivel entrar no diretorio das extensoes do PHP."
+				TerraPHPInstallFail
+			fi
+			
+			if mkdir terraweb
+			then
+				echo "Criamos o diretorio da extensao TerraPHP (ext/terraweb)."
+			else
+				echo "Nao foi possivel criar o diretorio da extensao TerraPHP (ext/terraweb)."
+				TerraPHPInstallFail
+			fi
+			
+			if cd terraweb
+			then
+				echo "Entrando no diretorio da extensao TerraPHP ($PWD)."
+			else
+				echo "Nao foi possivel entrar no diretorio da extensao TerraPHP."
+				TerraPHPInstallFail
+			fi
+			
+			for TE_TERRAPHP2LINK in $TE_MAIN_TERRAPHP2LINK_FILES
+			do
+				if ln -sf $TE_MAIN_DIR/$TE_TERRAPHP2LINK "."
+				then
+					echo "Criado link: $TE_MAIN_DIR/$TE_TERRAPHP2LINK"
+				else
+					echo "Nao foi possivel criar o link: $TE_MAIN_DIR/$TE_TERRAPHP2LINK"
+					TerraPHPInstallFail
+				fi
+			done	
+		
+			if cd ../..
+			then
+				echo "Entrando no diretorio principal do PHP ($PWD)."
+			else
+				echo "Nao foi possivel entrar no diretorio principal do PHP."
+				TerraPHPInstallFail
+			fi
+		
+			echo "Os parametros utilizados para configurar o PHP"
+			echo "sao os mais simples possiveis. Por isso, se voce"
+			echo "necessitar de alguma funcionalidade adicional,"
+			echo "voce podera fazer isso manualmente mais tarde."
+			
+			echo
+			echo
+			echo "Voce deseja instalar a extensao TerraPHP como um modulo (m) ou como parte integrante do PHP (b)?"
+			echo -n "A segunda forma geralmente fornece melhor desempenho, enquanto a primeira, facilita a instalacao de novas versoes."
+			read TEMPVAR
+			
+			if test $TEMPVAR = m || test $TEMPVAR = M
+			then
+				TeInstallPHPAsModule
+				
+				if cd ext/terraweb
+				then
+					echo "Entrando no diretorio da extensao TerraPHP ($PWD)."
+				else
+					echo "Nao foi possivel entrar no diretorio da extensao TerraPHP."
+					TerraPHPInstallFail
+				fi
+				
+				TeInstallTerraPHPAsModule
+			else
+				TeInstallTerraPHPAsBuilIn
+			fi
+		else
+			echo
+			echo
+			echo "O TerraPHP sera instalado como um modulo. Por isso, voce devera ter em seu sistema o phpize."
+			echo "Sera criado uma pasta terraweb no diretorio corrente ($PWD) onde sera construida a extensao terrweb.so."
+			echo -n "Pressione ENTER para continuar."
+			read TEMPVAR
+			
+			if mkdir terraweb
+			then
+				echo "Criamos o diretorio da extensao TerraPHP ($PWD/terraweb)."
+			else
+				echo "Nao foi possivel criar o diretorio da extensao TerraPHP ($PWD/terraweb)."
+				TerraPHPInstallFail
+			fi
+			
+			if cd terraweb
+			then
+				echo "Entrando no diretorio da extensao TerraPHP ($PWD)."
+			else
+				echo "Nao foi possivel entrar no diretorio da extensao TerraPHP."
+				TerraPHPInstallFail
+			fi
+			
+			for TE_TERRAPHP2LINK in $TE_MAIN_TERRAPHP2LINK_FILES
+			do
+				if ln -s $TE_MAIN_DIR/$TE_TERRAPHP2LINK "."
+				then
+					echo "Criado link: $TE_MAIN_DIR/$TE_TERRAPHP2LINK"
+				else
+					echo "Nao foi possivel criar o link: $TE_MAIN_DIR/$TE_TERRAPHP2LINK"
+					TerraPHPInstallFail
+				fi
+			done
+			
+			TeInstallTerraPHPAsModule
+		fi
+	else
+		echo
+		echo "A extensao TerraPHP nao sera instalado."
+	fi
+}
+
+
+# realiza a instalacao da TerraView
+TerraPHPInstallHeader
+
+if TeFindTerraPHPSrcInstalled
+then
+	echo
+	echo "O diretorio: $TE_MAIN_DIR contem os modulos do TerraPHP."
+	echo -n "Deseja instalar a versao indicada? (s/n)"
+	read TEMPVAR
+		
+	if test $TEMPVAR = s || test $TEMPVAR = S
+	then
+		TE_NEED_GET_TERRAPHP=FALSE
+	else
+		TE_NEED_GET_TERRAPHP=TRUE
+	fi
+else
+	echo "Nao foi possivel determinar automaticamente a localizacao dos modulos do TerraPHP."
+	TE_NEED_GET_TERRAPHP=TRUE
+fi
+
+if test $TE_NEED_GET_TERRAPHP = TRUE
+then
+	echo -n "Voce deseja informar o local onde encontram-se os modulos do TerraPHP? (s/n)"
+	read TEMPVAR
+	
+	while (test $TEMPVAR = s || test $TEMPVAR = S)
+	do
+		if TeSetTerraPHPInstalledDir
+		then
+			if TeVerifyTerraPHPFilesInCurDir
+			then
+				echo "Os modulos do TerraPHP foram encontrados no diretorio: $PWD."
+				TEMPVAR=N
+				TE_NEED_GET_TERRAPHP=FALSE
+			else
+				echo "Nao foi possivel encontrar os modulos do TerraPHP no diretorio: $PWD."
+				echo -n "Voce deseja informar outro local onde possam ser encontrados os modulos do TerraPHP? (s/n)"
+				read TEMPVAR
+			fi
+			
+		else
+			TEMPVAR=N
+		fi
+	done
+fi
+
+if test $TE_NEED_GET_TERRAPHP = TRUE
+then
+	TeGetTerraPHPFromCVS
+else
+	echo "Nao sera necessario baixar os fontes do TerraPHP"
+fi
+
+TeBuildTerraPHP
+
+
+echo
+echo "O TerraPHP foi instalado com sucesso!"
+echo
+echo "Nao se esqueca de:"
+echo "1. alterar o seu arquivo httpd.conf para o Apache interpretar a extensƒo php, coloque em httpd.conf, logo apos a linha AddType application/x-tar   .tgz, a linha AddType application/x-httpd-php  .php"
+echo
+echo "2. alterar o seu arquivo httpd.conf para o apache interpretar index.php, coloque em httpd.conf na linha DirectoryIndex index.html a seguinte linha: DirectoryIndex index.html index.php"
+echo
+echo "3. reiniciar o Apache!"
+echo
+echo -n "Pressione ENTER para continuar."
+read TEMPVAR 
+exit $EXIT_SUCCESS

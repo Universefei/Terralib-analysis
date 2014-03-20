@@ -1,0 +1,84 @@
+#!/bin/sh
+
+# /************************************************************************************
+# TerraLib - a library for developing GIS applications.
+# Copyright ¨ 2001-2006 INPE and Tecgraf/PUC-Rio.
+#
+# This code is part of the TerraLib library.
+# This library is free software; you can redistribute it and/or
+# modify it under the terms of the GNU Lesser General Public
+# License as published by the Free Software Foundation; either
+# version 2.1 of the License, or (at your option) any later version.
+#
+# You should have received a copy of the GNU Lesser General Public
+# License along with this library.
+#
+# The authors reassure the license terms regarding the warranties.
+# They specifically disclaim any warranties, including, but not limited to,
+# the implied warranties of merchantability and fitness for a particular purpose.
+# The library provided hereunder is on an "as is" basis, and the authors have no
+# obligation to provide maintenance, support, updates, enhancements, or modifications.
+# In no event shall INPE and Tecgraf / PUC-Rio be held liable to any party for direct,
+# indirect, special, incidental, or consequential damages arising out of the use
+# of this library and its documentation.
+# *************************************************************************************/
+
+
+#
+# Script de instalacao da extensao TerraPHP
+# Duvidas e sugestoes, entre em contato com: Gilberto Ribeiro de Queiroz - gribeiro(at)dpi.inpe.br
+#
+
+#
+# Informacoes Basicas:
+# 1. O caracter '#' indica comentarios.
+# 2. Siga as instrucoes ate a linha marcada 'Instalacao Automatica'
+#
+
+# Abaixo encontram-se os caminhos de destino dos arquivos da TerraLib
+# Se voce desejar alterar o caminho, faca a substituicao pelo
+# caminho desejado.
+if getopts "h:" terralibDirFlag
+then
+	TE_MAIN_DIR=$OPTARG
+else
+	TE_MAIN_DIR=/usr/local/terralib
+fi
+
+TE_MAIN_LOOP=100
+
+while test $TE_MAIN_LOOP != 0
+do
+	clear
+	echo
+	echo "=================================================="
+	echo "== Bem vindo ao instalador da extensƒo TerraPHP =="
+	echo "=================================================="
+	echo
+	
+	echo "Selecione uma das opcoes de instalacao abaixo (ou digite 0 para sair):"
+	echo
+	echo "1 => Instalar TerraLib"
+	echo "2 => Instalar TerraManager"
+	echo "3 => Instalar TerraPHP"
+	echo "0 => Sair"
+	echo
+	echo -n "Opcao deseja: "
+	read TE_MAIN_LOOP
+	
+	case $TE_MAIN_LOOP in
+		1)	./te_install_terralib -h $TE_MAIN_DIR
+			;;
+			
+		2)	./te_install_terramanager -h $TE_MAIN_DIR
+			;;
+			
+		3)	./te_install_terraphp -h $TE_MAIN_DIR
+			;;
+	esac
+		
+done
+
+echo "=========================="
+echo "== Instalacao terminada =="
+echo "=========================="

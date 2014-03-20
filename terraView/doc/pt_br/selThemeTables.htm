@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>Selecionar Tabelas do Tema</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<font face="Arial, Helvetica, sans-serif" size="4">
+<table width="100%">
+  <tr> 
+    <td><b>Selecionar Tabelas do Tema</b><br>
+      <hr>
+      <p>Por exemplo, suponha que existem atributos sócio-econômicos dos distritos de São Paulo. Eles estão no arquivo SOC_ECONOMY.dbf. Nós sabemos a ligação entre cada distrito e sua geometria foi dada pelo campo ID e a tabela SOC_ ECONOMY.dbf possui um campo chamado DIST que possui valores iguais aos do campo ID. Como cada registro da tabela SOC_ECONOMY.dbf refere-se a um único distrito e essa informação não varia no tempo, essa tabela é chamada de estática. O Plano de Informação pode ter mais de uma tabela de atributos estática. Vamos, portanto, importar a tabela de dados sócio-econômicos como mais uma tabela de atributos do plano de informação dos distritos. Acesse a opção <strong>Arquivo <font size="4" face="Arial, Helvetica, sans-serif">-</font> Importar Tabela...</strong> para obter a tela como a mostrada a Figura abaixo.</p>
+     <center> <img src="terraViewBase_arquivos/selec_tabela.png"></center>
+      <p>Siga os seguintes passos:</p>
+      <ol start="1" type="1">
+        <li>Clique       no bot&atilde;o <strong>Arquivo...</strong> e selecione       a tabela <u>SOC_ECONOMY.dbf</u>. Observe uma amostra da tabela na &aacute;rea       apropriada. Observe que o TerraView reconhece no arquivo DBF o nome e o       tipo de cada coluna. Clicando em cada coluna a interface mostra suas       informa&ccedil;&otilde;es no campo <strong>Defini&ccedil;&otilde;es das       Colunas</strong>. Essas defini&ccedil;&otilde;es n&atilde;o       podem ser alteradas uma vez que fazem parte do DBF. <strong></strong></li>
+        <li>Selecione       o <strong>Tipo</strong> de tabela <strong>Est&aacute;tico</strong>.</li>
+        <li>Selecione       a qual <strong>Plano </strong>de informa&ccedil;&atilde;o a       tabela de atributos est&aacute;tica est&aacute; associada. Nesse caso ao plano de       distritos.</li>
+        <li>Selecione       qual coluna/atributo deve ser usado para fazer a liga&ccedil;&atilde;o com as geometrias       dos distritos. Nesse caso o campo <u>DIST</u>.</li>
+        <li>Selecione       o nome para essa nova tabela. Observe que o TerraView lhe oferece uma       op&ccedil;&atilde;o <em>default</em>.</li>
+        <li>Clique       em <strong>Executar.</strong></li>
+      </ol>
+      <p>Agora o plano de distritos possui duas tabelas de atributos  alfanum&eacute;ricos ou descritivos: uma &eacute; parte do arquivo original Shapefile e a  segunda importada do arquivo DBF. Portanto os Temas gerados para este Plano de  Informa&ccedil;&atilde;o podem definir qual tabela est&aacute;tica ficar&aacute; vis&iacute;vel. Clique com o  bot&atilde;o direito do mouse sobre o Tema de distritos e escolha a op&ccedil;&atilde;o <strong>Selecionar Tabelas do Tema...</strong> para  obter a interface mostrada na Figura abaixo.</p>
+      <center> <img src="terraViewBase_arquivos/selec_tabela1.png"></center>      <p>&nbsp;</p>
+      <p>Observe na interface:</p>
+      <ol start="1" type="1">
+        <li>O       lado esquerdo da tela mostra a lista das tabelas que pertencem ao Plano de       Informa&ccedil;&atilde;o que deu origem ao Tema;</li>
+        <li>O       lado direito mostra quais as tabelas que o Tema est&aacute; correntemente usando;</li>
+        <li>As       setas permitem que voc&ecirc; transfira a tabela de um lado para o outro;</li>
+        <li>Transfira       a tabela <u>SOC_ECONOMY</u> para o campo Tabelas do Tema e clique em <strong>Executar.</strong></li>
+    </ol></td>
+  </tr>
+  <tr>
+  </tr>
+</table>
+</font> 
+</body>
+</html>

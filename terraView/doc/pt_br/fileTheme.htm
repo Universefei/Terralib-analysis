@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+<title>Plugin Tema de Arquivo Shapefile</title>
+</head>
+<body>
+<h2>Plugin Tema de Arquivo Shapefile</h2>
+<p>O objetivo desse plugin é permitir que o usuário do TerraView crie um tema a 
+partir de um arquivo de dados vetorias em formato Shapefile, sem que se faça a 
+importação para o banco de dados. Esse tema terá funcionalidades limitadas.</p>
+<p>Para criar um tema Shapefile acesse a interface principal do Plugin através
+do menu <b>Plugins</b>, e selecione a opção <b>File Themes</b>, destacada pelo círculo em 
+vermelho na Figura 1 abaixo. Outras formas de
+fazer isso são usar o botão <img src="fileTheme_arquivos/iconeTF.png"> na barra de ferramentas,
+também destacado em vermelho, ou selecionar a opção <b>Adicionar Tema de Arquivo...</b> no
+menu <b>Tema</b>.</p>
+<center><img src="fileTheme_arquivos/ft_fig1.png"/></center>
+
+<center><p><small><b>Figura 1</b> - Acesso ao Plugin Tema Shapefile.</small></p></center>
+<p>A interface principal do Plugin Tema Shapefile é mostrada na Figura 2.</p>
+
+  <center><img src="fileTheme_arquivos/ft_fig2.png"/></center>
+<center><small><b>Figura 2</b> - Interface principal do Plugin Tema Shapefile.</small></center>
+ </center>
+<p>Nessa interface faça:</p>
+<ol>
+<li>Clique no botão <b>Arquivo</b> e escolha um shapefile em seu sistema de arquivos;</li>
+<li>Caso exista a informação de projeção ela será descrita no campo. Caso não exista, 
+você deve clicar no botão <b>Projeção</b> e informá-la manualmente. Caso não o faça,
+o Tema estará associado com uma projeção não geográfica ("NoProjection");</li>
+<li>Escolha a <b>Vista</b> na qual o Tema será inserido;</li>
+<li>Escolha um <b>nome</b> para o novo Tema;</li>
+<li>Clique no botão <b>Ok</b> para finalizar a criação do Tema, ou</li>
+<li>Clique no botão <b>Visualizar</b> para obter na interface do Plugin alguns metadados
+e o desenho da componente geográfica antes de criar o Tema</li>
+</ol>
+<p>Caso você clique no botão Visualizar, você vai obter a interface mostrada na Figura 3.</p>
+<center><img src="fileTheme_arquivos/ft_fig3.png"/></center>
+<center><small><b>Figura 3</b> - Verificação do conteúdo de um shapefile antes da criação do tema.</small></center>
+<p>Para efetivar a criação do Tema clique no botão <b>Ok</b>. Observe que o Tema 
+  de shapefile aparece na árvore de Temas do TerraView (Figura 4), e suas geometrias 
+  são mostradas na área de desenho.</p>
+
+<center><img src="fileTheme_arquivos/ft_fig4.png"/></center>
+<center><small><b>Figura 4</b> - TerraView com um Tema shapefile.</small></center>
+<p>Para visualizar os atributos dos objetos contidos no shapefile selecione o cursor de
+informação (<img src="fileTheme_arquivos/ft_fig5.png" height="17" width="20" />)e clique sobre
+o objeto. Uma tabela com seus atributos será mostrada (ver Figura 5).</p>
+<center><img src="fileTheme_arquivos/ft_fig6.png"/></center>
+<center><small><b>Figura 5</b> - Atributos dos objetos do Tema shapefile.</small></center>
+<p>Um tema de arquivo shapefile tem funcionalidades limitadas, que são mostradas no menu 
+  obtido clicando-se com o botão direito sobre o Tema (Figura 6). Você pode alterar 
+  o visual de apresentação default ou de apontamento, renomear ou remover o tema, 
+  definir quais as representações estão visíveis, ou ainda verificar suas propriedades 
+  (Figura 7). </p>
+
+		
+<div align="center"><img src="fileTheme_arquivos/ft_fig7.png"> </div>
+<center><small><b>Figura 6</b> - Opções do Tema shapefile.</small></center><br />
+<br />
+
+<center><img src="fileTheme_arquivos/ft_fig8.png"/></center>
+<center>
+  <small><b>Figura 7</b> - Propriedades do Tema shapefile.</small>
+</center>
+<p>Se um Tema faz referência a um arquivo e esse é removido, o Tema ficará inválido, 
+  não podendo ser visualizado e o menu obtido com o botão direito mostrará apenas 
+  as opções de remover o Tema ou ver suas propriedades.</p>
+</body>
+</html>

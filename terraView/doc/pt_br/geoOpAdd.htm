@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+
+	<meta content="text/html; charset=ISO-8859-1"             http-equiv="content-type"/>
+	<meta content="TerraView - documentacion help"            name="Description"/>
+	<meta content="geoprocessing,terraview,terralib,dpi,inpe" name="KeyWords"/>
+		
+	<title>Opera&ccedil;&atilde;o de Adi&ccedil;&atilde;o de Temas</title>
+	
+	<style>
+	</style>
+
+</head>
+
+<body>
+<center>
+  <H2><font face="Arial, Helvetica, sans-serif"><u>Opera&ccedil;&atilde;o 
+    de Adi&ccedil;&atilde;o de Temas</u></font></H2>
+</center>
+<div align="justify">
+<p  > <font face="Arial, Helvetica, sans-serif">Esta opera&ccedil;&atilde;o 
+  adiciona v&aacute;rios temas para criar um novo plano de informa&ccedil;&atilde;o. 
+  Os temas devem ter o mesmo tipo de representa&ccedil;&atilde;o vetorial e devem 
+  ter apenas um tipo de geometria: somente pol&iacute;gonos, ou somente linhas, 
+  ou somente pontos ou somente c&eacute;lulas.</font></p>
+<p  > <font face="Arial, Helvetica, sans-serif">Nesta opera&ccedil;&atilde;o 
+  um tema &eacute; selecionado para servir de guia. O tema guia &eacute; usado 
+  como base. &Eacute; a partir dele que se define o nome e o tipo dos atributos 
+  da nova tabela. Tamb&eacute;m &eacute; a partir dele que &eacute; definida a 
+  proje&ccedil;&atilde;o das geometrias do novo plano de informa&ccedil;&atilde;o. 
+  A Figura 1 mostra tr&#234;s temas a serem adicionados:</font></p>
+<center>
+  <font face="Arial, Helvetica, sans-serif"><img src="geoOpAdd_arquivos/image001.png"> 
+  <br />
+  Figura 1 - Temas a serem utilizados na opera&ccedil;&atilde;o de Adi&ccedil;&atilde;o. 
+  </font> 
+</center>
+<font face="Arial, Helvetica, sans-serif"><br />
+</font>
+<p  > <font face="Arial, Helvetica, sans-serif">O resultado da adi&ccedil;&atilde;o 
+  destes tr&#234;s temas &eacute; mostrado na Figura 2:</font></p>
+<center>
+  <font face="Arial, Helvetica, sans-serif"><img src="geoOpAdd_arquivos/image003.png" width="580" height="614"> 
+  <br />
+  Figura 2 - Resultado da aplica&ccedil;&atilde;o da opera&ccedil;&atilde;o 
+  de Adi&ccedil;&atilde;o. </font> 
+</center>
+<font face="Arial, Helvetica, sans-serif"><br />
+</font>
+<p  > <font face="Arial, Helvetica, sans-serif">O plano de informa&ccedil;&atilde;o 
+  criado possui uma c&oacute;pia das geometrias de todos os temas de entrada. 
+  Geometrias que est&atilde;o em diferentes proje&ccedil;&otilde;es s&atilde;o 
+  re-projetadas para a proje&ccedil;&atilde;o do tema guia.</font></p>
+<p  > <font face="Arial, Helvetica, sans-serif">O primeiro campo 
+  da nova tabela de atributos &eacute; a chave prim&aacute;ria e serve de <i>link</i> 
+  para as geometrias. Os atributos restantes s&atilde;o c&oacute;pias dos atributos 
+  do tema guia. Os atributos de outros temas, usados na opera&ccedil;&atilde;o, 
+  s&atilde;o adicionados &#224; tabela desde que o nome e o tipo coincidam com 
+  um dos campos existentes no tema guia.</font></p>
+<p  > <font face="Arial, Helvetica, sans-serif">Tamb&eacute;m &eacute; 
+  poss&iacute;vel efetuar a adi&ccedil;&atilde;o somente sobre os objetos apontados 
+  ou consultados, de forma a ter um mapa somente com as geometrias e atributos 
+  dos objetos desejados.</font></p>
+<font face="Arial, Helvetica, sans-serif"><br />
+</font>
+<H3><font face="Arial, Helvetica, sans-serif">Interface de Adi&ccedil;&atilde;o 
+  de Temas</font></H3>
+  <p  > <font face="Arial, Helvetica, sans-serif">A interface de opera&ccedil;&atilde;o 
+    de adi&ccedil;&atilde;o de temas &eacute; mostrada na Figura 3, para acess&aacute;-la 
+    utilize o menu de contexto sobre a Vista, na op&ccedil;&atilde;o <strong>Opera&ccedil;&otilde;es 
+    Geogr&aacute;ficas - Soma.</strong> Na caixa <i>Tipo de Representa&ccedil;&atilde;o</i>, 
+    seleciona-se o tipo de geometria que ser&aacute; usado durante a opera&ccedil;&atilde;o 
+    de adi&ccedil;&atilde;o. Deve-se escolher ou pol&iacute;gonos, ou linhas, 
+    ou pontos ou c&eacute;lulas. Feito a escolha, a interface preenche a caixa 
+    <i>Temas de Entrada</i> com os temas que possuem a representa&ccedil;&atilde;o 
+    geométrica selecionada.</font></p>
+<center>
+  <p><font face="Arial, Helvetica, sans-serif"><IMG src="geoOpAdd_arquivos/image005.png" width="304" height="477" border="0"> 
+    </font></p>
+  <p><font face="Arial, Helvetica, sans-serif">Figura 3 - Interface de 
+    adi&ccedil;&atilde;o de temas.</font> </p>
+</center>
+<p  ><font face="Arial, Helvetica, sans-serif">Sobre a caixa <i>Temas 
+  de Entrada</i> deve-se marcar todos os temas que ser&atilde;o adicionados. Os 
+  objetos que ser&atilde;o adicionados podem ser todos ou somente apontados ou 
+  somente selecionados pela consulta.</font></p>
+<p  > <font face="Arial, Helvetica, sans-serif">Na caixa <i>Campos</i> 
+  deve-se escolher o tema que servir&aacute; de refer&#234;ncia. A tabela do layer 
+  de sa&iacute;da conter&aacute; todos os atributos desse tema. Os atributos de 
+  outros temas que possuem nome e tipo igual a um dos atributos do tema de refer&#234;ncia 
+  ser&atilde;o adicionados na tabela do layer de sa&iacute;da.</font></p>
+<p  > <font face="Arial, Helvetica, sans-serif">A caixa <i>Nome 
+  do Plano de Sa&iacute;da</i> &eacute; automaticamente preenchida pela interface, 
+  entretanto, pode-se edit&aacute;-la a fim de criar o plano com o nome desejado.</font></p>
+  <p  > <font face="Arial, Helvetica, sans-serif">O bot&atilde;o <em>Executar</em> 
+    efetua a opera&ccedil;&atilde;o de adi&ccedil;&atilde;o.</font></p>
+  <p  > <font face="Arial, Helvetica, sans-serif">O bot&atilde;o <em>Cancelar</em> 
+    inibe a interface.</font></p>
+  <p  > <font face="Arial, Helvetica, sans-serif">O bot&atilde;o <em>Ajuda</em> 
+    ativa a interface de ajuda.</font></p>
+
+</div>
+</body>
+
+</html>

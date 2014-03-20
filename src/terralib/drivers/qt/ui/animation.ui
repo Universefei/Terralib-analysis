@@ -1,0 +1,366 @@
+<!DOCTYPE UI><UI version="3.2" stdsetdef="1">
+<class>Animation</class>
+<widget class="QDialog">
+    <property name="name">
+        <cstring>Animation</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>468</width>
+            <height>89</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Animation</string>
+    </property>
+    <property name="icon">
+        <pixmap>terralib.bmp</pixmap>
+    </property>
+    <grid>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QLayoutWidget" row="0" column="0">
+            <property name="name">
+                <cstring>layout3</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout2</cstring>
+                    </property>
+                    <hbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QLabel">
+                            <property name="name">
+                                <cstring>velocityTextLabel</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Velocity:</string>
+                            </property>
+                            <property name="alignment">
+                                <set>AlignVCenter|AlignRight</set>
+                            </property>
+                        </widget>
+                        <widget class="QLineEdit">
+                            <property name="name">
+                                <cstring>velocitylineEdit</cstring>
+                            </property>
+                            <property name="minimumSize">
+                                <size>
+                                    <width>30</width>
+                                    <height>20</height>
+                                </size>
+                            </property>
+                            <property name="frameShape">
+                                <enum>LineEditPanel</enum>
+                            </property>
+                            <property name="frameShadow">
+                                <enum>Sunken</enum>
+                            </property>
+                        </widget>
+                    </hbox>
+                </widget>
+                <spacer>
+                    <property name="name">
+                        <cstring>spacer1</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>16</width>
+                            <height>20</height>
+                        </size>
+                    </property>
+                </spacer>
+                <widget class="QSlider">
+                    <property name="name">
+                        <cstring>velocitySlider</cstring>
+                    </property>
+                    <property name="minimumSize">
+                        <size>
+                            <width>80</width>
+                            <height>20</height>
+                        </size>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                </widget>
+                <spacer>
+                    <property name="name">
+                        <cstring>spacer2</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>16</width>
+                            <height>20</height>
+                        </size>
+                    </property>
+                </spacer>
+                <widget class="QScrollBar">
+                    <property name="name">
+                        <cstring>playingScrollBar</cstring>
+                    </property>
+                    <property name="minimumSize">
+                        <size>
+                            <width>260</width>
+                            <height>20</height>
+                        </size>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
+        <widget class="QLayoutWidget" row="1" column="0">
+            <property name="name">
+                <cstring>layout47</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>directoryPushButton</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Directory...</string>
+                    </property>
+                    <property name="accel">
+                        <string></string>
+                    </property>
+                </widget>
+                <widget class="QCheckBox">
+                    <property name="name">
+                        <cstring>loopCheckBox</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Loop</string>
+                    </property>
+                    <property name="accel">
+                        <string></string>
+                    </property>
+                </widget>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>playButton</cstring>
+                    </property>
+                    <property name="maximumSize">
+                        <size>
+                            <width>50</width>
+                            <height>32767</height>
+                        </size>
+                    </property>
+                    <property name="text">
+                        <string>PLAY</string>
+                    </property>
+                    <property name="accel">
+                        <string></string>
+                    </property>
+                </widget>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>pauseButton</cstring>
+                    </property>
+                    <property name="maximumSize">
+                        <size>
+                            <width>50</width>
+                            <height>32767</height>
+                        </size>
+                    </property>
+                    <property name="text">
+                        <string>PAUSE</string>
+                    </property>
+                    <property name="accel">
+                        <string></string>
+                    </property>
+                </widget>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>stopButton</cstring>
+                    </property>
+                    <property name="maximumSize">
+                        <size>
+                            <width>50</width>
+                            <height>32767</height>
+                        </size>
+                    </property>
+                    <property name="text">
+                        <string>STOP</string>
+                    </property>
+                    <property name="accel">
+                        <string></string>
+                    </property>
+                </widget>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout5</cstring>
+                    </property>
+                    <hbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QLabel">
+                            <property name="name">
+                                <cstring>frameNumbertextLabel</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Frame:</string>
+                            </property>
+                            <property name="alignment">
+                                <set>AlignVCenter|AlignRight</set>
+                            </property>
+                        </widget>
+                        <widget class="QLineEdit">
+                            <property name="name">
+                                <cstring>frameNumberLineEdit</cstring>
+                            </property>
+                            <property name="minimumSize">
+                                <size>
+                                    <width>30</width>
+                                    <height>20</height>
+                                </size>
+                            </property>
+                            <property name="maximumSize">
+                                <size>
+                                    <width>40</width>
+                                    <height>32767</height>
+                                </size>
+                            </property>
+                            <property name="frameShape">
+                                <enum>LineEditPanel</enum>
+                            </property>
+                            <property name="frameShadow">
+                                <enum>Sunken</enum>
+                            </property>
+                        </widget>
+                    </hbox>
+                </widget>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>helpPushButton</cstring>
+                    </property>
+                    <property name="maximumSize">
+                        <size>
+                            <width>50</width>
+                            <height>32767</height>
+                        </size>
+                    </property>
+                    <property name="text">
+                        <string>&amp;Help</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+H</string>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
+    </grid>
+</widget>
+<connections>
+    <connection>
+        <sender>playButton</sender>
+        <signal>clicked()</signal>
+        <receiver>Animation</receiver>
+        <slot>playButton_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>pauseButton</sender>
+        <signal>clicked()</signal>
+        <receiver>Animation</receiver>
+        <slot>pauseButton_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>stopButton</sender>
+        <signal>clicked()</signal>
+        <receiver>Animation</receiver>
+        <slot>stopButton_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>velocitySlider</sender>
+        <signal>valueChanged(int)</signal>
+        <receiver>Animation</receiver>
+        <slot>velocitySlider_valueChanged(int)</slot>
+    </connection>
+    <connection>
+        <sender>playingScrollBar</sender>
+        <signal>valueChanged(int)</signal>
+        <receiver>Animation</receiver>
+        <slot>playingScrollBar_valueChanged(int)</slot>
+    </connection>
+    <connection>
+        <sender>directoryPushButton</sender>
+        <signal>clicked()</signal>
+        <receiver>Animation</receiver>
+        <slot>directoryPushButton_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>velocitylineEdit</sender>
+        <signal>returnPressed()</signal>
+        <receiver>Animation</receiver>
+        <slot>velocitylineEdit_returnPressed()</slot>
+    </connection>
+    <connection>
+        <sender>helpPushButton</sender>
+        <signal>clicked()</signal>
+        <receiver>Animation</receiver>
+        <slot>helpPushButton_clicked()</slot>
+    </connection>
+</connections>
+<includes>
+    <include location="global" impldecl="in declaration">TeQtAnimaThread.h</include>
+    <include location="global" impldecl="in implementation">help.h</include>
+    <include location="local" impldecl="in implementation">animation.ui.h</include>
+    <include location="global" impldecl="in declaration">terralib/kernel/TeDefines.h</include>
+</includes>
+<forwards>
+    <forward>class Help;</forward>
+    <forward>class TeQtCanvas;</forward>
+</forwards>
+<variables>
+    <variable>Help* help_;</variable>
+    <variable>TeQtAnimaThread animaThread_;</variable>
+    <variable>TeQtCanvas* canvas_;</variable>
+</variables>
+<slots>
+    <slot>init()</slot>
+    <slot>playButton_clicked()</slot>
+    <slot>pauseButton_clicked()</slot>
+    <slot>stopButton_clicked()</slot>
+    <slot>velocitySlider_valueChanged( int v )</slot>
+    <slot>playingScrollBar_valueChanged( int f )</slot>
+    <slot>closeEvent( QCloseEvent * )</slot>
+    <slot>directoryPushButton_clicked()</slot>
+    <slot>velocitylineEdit_returnPressed()</slot>
+    <slot>helpPushButton_clicked()</slot>
+</slots>
+<functions>
+    <function>setAnimaParams( QString &amp; animaDir, TeQtCanvas* canvas )</function>
+    <function>playDir( QString dir )</function>
+    <function>setCanvas( TeQtCanvas* canvas )</function>
+</functions>
+<pixmapinproject/>
+<exportmacro>TL_DLL</exportmacro>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

@@ -1,0 +1,220 @@
+<html>
+
+<head>
+<title>Plotagem de gr&aacute;fico de dispers&atilde;o 3D</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+</head>
+
+<body>
+<div align="justify">
+<p align=center>
+	<strong><u>
+		<span style='font-size: 13.5pt;font-family:Arial'>Plotagem de gr&aacute;fico de dispers&atilde;o<o:p> 
+  3D</span></u></strong>
+</p>
+  <p class="MsoNormal"><span style="font-family:Tahoma">A ativa&ccedil;&atilde;o 
+    da interface &eacute; feita a partir do grid. &Eacute; necess&aacute;rio selecionar 
+    ou marcar tr&ecirc;s vari&aacute;veis no grid para a op&ccedil;&atilde;o <strong>Dispers&atilde;o 
+    3D</strong> ficar dispon&iacute;vel no menu de contexto do viewport do grid. 
+    O menu de contexto &eacute; ilustrado na Figura 1.</span></p>
+<p class="MsoNormal" align="center"><img src="graphic3DWindow_arquivos/Figura1.png" width="580" height="410"></p>
+<p class="MsoNormal" align="center"><span
+style="font-family:Tahoma">&nbsp;<o:p></o:p>Fig. 1 - Menu de contexto para ativa&ccedil;&atilde;o 
+  de gr&aacute;fico de dispers&atilde;o 3D.<o:p></o:p></span></p>
+<p class="MsoNormal"><span style="font-family:Tahoma">As colunas 
+  selecionadas s&atilde;o atribu&iacute;das respectivamente aos eixos x, y e z. 
+  Para alterar, as atribui&ccedil;&otilde;es, &eacute; necess&aacute;rio antes 
+  executar um swap nas colunas do grid e depois acionar a interface de plotagem 
+  de gr&aacute;ficos 3D.</span></p>
+<p class="MsoNormal"><span style="font-family:Tahoma">&nbsp;A interface de plotagem 
+  de gr&aacute;fico de dispers&atilde;o 3D &eacute; mostrada na Figura 2. O TerraView 
+  utiliza as bibliotecas QT e opengl para a plotagem do gr&aacute;fico.</span></p>
+<p class="MsoNormal" align="center"><span style="font-family:Tahoma"><img src="graphic3DWindow_arquivos/Figura2.png">&nbsp;<o:p></o:p></span></p>
+<p class="MsoNormal" align="center"><span
+style="font-family:Tahoma">&nbsp;<o:p></o:p>Fig. 2 - interface de plotagem de 
+  gr&aacute;fico de dispers&atilde;o 3D.<o:p></o:p></span></p>
+<p class="MsoNormal"  ><span style="font-family:Tahoma">A interface 
+  possui quatro telas de visualiza&ccedil;&atilde;o. A tela central mostra o dado 
+  plotado em tr&ecirc;s dimens&otilde;es. As telas restantes mostram o mesmo dado 
+  plotado em plano bidimensional.</span></p>
+<p><span style="font-family:Tahoma">O funcionamento &eacute; semelhante ao m&oacute;dulo 
+  do gr&aacute;fico de dispers&atilde;o 2D. Iniciamente os dados que representam 
+  os objetos <i>n&atilde;o apontados</i> s&atilde;o plotados com a cor default 
+  do tema. Os dados que representam os objetos <i>apontados</i> s&atilde;o plotados 
+  com a cor de apontamemnto do tema.</span></p>
+<p class="MsoNormal"  ><span style="font-family:Tahoma">A caixa &quot;Controle 
+  de Visualiza&ccedil;&atilde;o&quot; possui comandos para mudar a forma de visualiza&ccedil;&atilde;o 
+  do dado 3D. Mostrar dado tridimensional em uma tela bidimensional requer controles 
+  que permitem visualizar o dado em diferentes &acirc;ngulos e posi&ccedil;&otilde;es.</span></p>
+<p class="MsoNormal"  ><span style="font-family:Tahoma">O combo &quot;Mostrar 
+  Eixos&quot; controla a exibi&ccedil;&atilde;o dos eixos x, y e z. A Figura 3 
+  mostra a interface sem a exibi&ccedil;&atilde;o dos eixos.</span></p>
+<p class="MsoNormal" align="center"><img src="graphic3DWindow_arquivos/Figura3.png"></p>
+<p class="MsoNormal" align="center"><span
+style="font-family:Tahoma">&nbsp;<o:p></o:p>Fig. 3 - Eixos x, y e z suprimidos.<o:p></o:p></span><span
+style="font-family:Tahoma"><o:p></o:p></span></p>
+<p class="MsoNormal"  ><span style="font-family:Tahoma">O slider &quot;Qualidade&quot; 
+  serve para mudar a qualidade da plotagem dos pontos 3D. Cada ponto &eacute; 
+  representado por uma esfera e esse slider muda a qualidade de plotagem das esferas. 
+  Quanto menor a qualidade maior a rapidez da plotagem.</span></p>
+<p class="MsoNormal"  ><span style="font-family:Tahoma">O slider &quot;Zoom&quot; 
+  comanda o zoom. A Figura 4 mostra o dado com zoom.</span></p>
+<p class="MsoNormal" align="center"><img src="graphic3DWindow_arquivos/Figura4.png" width="574" height="578"></p>
+<p class="MsoNormal" align="center"><span
+style="font-family:Tahoma">&nbsp;<o:p></o:p>Fig. 4 - Zoom do dado 3D.<o:p></o:p></span><span
+style="font-family:Tahoma"><o:p></o:p></span><span
+style="font-family:Tahoma"><o:p></o:p></span></p>
+<p class="MsoNormal"  ><span style="font-family:Tahoma">O comando de 
+  zoom pode tamb&eacute;m ser feito pelo mouse atrav&eacute;s do bot&atilde;o 
+  do meio ou o bot&atilde;o de roller. Arrastar o mouse para cima diminue o zoom. 
+  Arrastar o mouse para baixo aumenta o zoom.</span></p>
+<p class="MsoNormal"  ><span style="font-family:Tahoma">A ilumina&ccedil;&atilde;o 
+  &eacute; feita a partir das fontes de luz: frente ou atr&aacute;s. A Figura 
+  5 &eacute; equivalente &agrave; Figura 4, por&eacute;m, com a ilumina&ccedil;&atilde;o 
+  feita por tr&aacute;s.</span></p>
+<p class="MsoNormal" align="center"><img src="graphic3DWindow_arquivos/Figura5.png" width="557" height="576"></p>
+<p class="MsoNormal" align="center"><span
+style="font-family:Tahoma">&nbsp;<o:p></o:p>Fig. 5 - Ilumina&ccedil;&atilde;o 
+  feita por tr&aacute;s.<o:p></o:p></span><span
+style="font-family:Tahoma"><o:p></o:p></span></p>
+<p class="MsoNormal"  ><span style="font-family:Tahoma">Na caixa &quot;Rota&ccedil;&atilde;o&quot;, 
+  os sliders X, Y e Z, controlam as respectivas rota&ccedil;&otilde;es em x, y 
+  e z. A Figura 6 mostra a plotagem do dado 3D com rota&ccedil;&atilde;o.</span></p>
+<p class="MsoNormal" align="center"><img src="graphic3DWindow_arquivos/Figura6.png" width="574" height="587"></p>
+<p class="MsoNormal" align="center"><span
+style="font-family:Tahoma">&nbsp;<o:p></o:p>Fig. 6 - Plotagem do dado 3D com rota&ccedil;&atilde;o.<o:p></o:p></span><span
+style="font-family:Tahoma"><o:p></o:p></span></p>
+<p class="MsoNormal"  ><span
+style="font-family:Tahoma"><o:p>Os comandos de rota&ccedil;&atilde;o tamb&eacute;m 
+  podem ser feitos pelo mouse. Pressionando-se a tecla alt + bot&atilde;o esquerdo 
+  controla-se as rota&ccedil;&otilde;es em x e y. </o:p>Pressionando-se a tecla 
+  control + bot&atilde;o esquerdo controla-se a rota&ccedil;&atilde;o em z. No 
+  caso de LINUX a tecla Alt deve ser acompamhada simultaneamente da tecla Control.</span></p>
+<p class="MsoNormal"  ><span style="font-family:Tahoma">A caixa &quot;Controle 
+  de Sele&ccedil;&atilde;o&quot; possui comandos para mudar o in&iacute;cio e 
+  o tamanho do hex&aacute;gono de sele&ccedil;&atilde;o. O hex&aacute;gono de 
+  sele&ccedil;&atilde;o &eacute; sempre mostrado na cor magenta.</span></p>
+<p class="MsoNormal"  ><span style="font-family:Tahoma">As caixas &quot;Offset&quot; 
+  e &quot;Tamanho&quot; possuem sliders que controlam o in&iacute;cio e o tamanho 
+  do hex&aacute;gono em x, y e z. A Figura 7 mostra o hex&aacute;gono com novo 
+  posicionamento.</span></p>
+<p class="MsoNormal" align="center"><img src="graphic3DWindow_arquivos/Figura7.png" width="570" height="586"></p>
+<p class="MsoNormal" align="center"><span
+style="font-family:Tahoma">&nbsp;<o:p></o:p>Fig. 7 - Hex&aacute;gono de sele&ccedil;&atilde;o 
+  com novo posicionamento.<o:p></o:p></span><span
+style="font-family:Tahoma"><o:p></o:p></span></p>
+<p class="MsoNormal"  ><span style="font-family:Tahoma">Todos os controles 
+  de sele&ccedil;&atilde;o podem tamb&eacute;m ser executados pelo mouse usando-se 
+  as tr&ecirc;s telas bidimensionais. Posicionando-se o mouse no centro do ret&acirc;gulo 
+  de uma das telas de plotagem bidimensional, pode-se arrastar o ret&acirc;ngulo 
+  para uma nova posi&ccedil;&atilde;o. Posicionando-se pr&oacute;ximo &agrave;s 
+  bordas pode-se controlar o tamanho do ret&acirc;ngulo (hex&aacute;gono). A Figura 
+  8 mostra o ret&acirc;ngulo sendo arrastado e a Figura 9 mostra o retangulo sendo 
+  redimensionado.</span></p>
+<p class="MsoNormal" align="center"><img src="graphic3DWindow_arquivos/Figura8.png" width="578" height="465"></p>
+<p class="MsoNormal" align="center"><span
+style="font-family:Tahoma">&nbsp;<o:p></o:p>Fig. 8 - Ret&acirc;ngulo de sele&ccedil;&atilde;o 
+  sendo arrastado (reposicionado).<o:p></o:p></span><span
+style="font-family:Tahoma"><o:p></o:p></span><span
+style="font-family:Tahoma">&nbsp;</span></p>
+<p class="MsoNormal" align="center"><img src="graphic3DWindow_arquivos/Figura9.png" width="584" height="439"></p>
+<p class="MsoNormal" align="center"><span
+style="font-family:Tahoma"><o:p></o:p>Fig. 9 - Ret&acirc;ngulo de sele&ccedil;&atilde;o 
+  sendo redimensionado.<o:p></o:p></span><span
+style="font-family:Tahoma"><o:p></o:p></span></p>
+<p class="MsoNormal"  ><span style="font-family:Tahoma">A sele&ccedil;&atilde;o 
+  ocorre toda vez que o hex&aacute;gono muda de tamanho ou posi&ccedil;&atilde;o. 
+  A Figura 10 mostra o hex&aacute;gono posicionado sobre uma nuvem de pontos 3D. 
+  A Figura 11 mostra o mesmo em zoom.</span></p>
+<p class="MsoNormal"  ><span style="font-family:Tahoma">Toda vez que 
+  termina de alterar o retangulo de sele&ccedil;&atilde;o &eacute; automaticamente 
+  executado um comando de busca para selecionar todos os objetos que est&atilde;o 
+  dentro do hex&aacute;gono. Entretanto, quando o hex&aacute;gono &eacute; alterado 
+  com o mouse, pode-se optar em somente reposionar sem fazer busca nenhuma. Para 
+  isto deve utilizar a tecla Control. Tamb&eacute;m pode-se adicionar nova sele&ccedil;&atilde;o 
+  &agrave; sele&ccedil;&atilde;o corrente por utilizar a tecla Shift.</span></p>
+<p class="MsoNormal" align="center"><span
+style="font-family:Tahoma"><o:p></o:p></span><img src="graphic3DWindow_arquivos/Figura10.png"></p>
+<p class="MsoNormal" align="center"><span
+style="font-family:Tahoma">&nbsp;<o:p></o:p>Fig. 10 - Hex&aacute;gono posicionado 
+  sobre uma nuvem de pontos 3D.<o:p></o:p></span><span
+style="font-family:Tahoma"><o:p></o:p></span></p>
+<p class="MsoNormal" align="center"><span
+style="font-family:Tahoma"><o:p><img src="graphic3DWindow_arquivos/Figura11.png"></o:p></span></p>
+<p class="MsoNormal" align="center"><span
+style="font-family:Tahoma"><o:p></o:p>&nbsp;<o:p></o:p>Fig. 11 - Hex&aacute;gono 
+  com zoom e posicionado sobre uma nuvem de pontos 3D.<o:p></o:p></span><span
+style="font-family:Tahoma"><o:p></o:p></span></p>
+<p class="MsoNormal"  ><span style="font-family:Tahoma">Todos os comandos 
+  executados pelo mouse s&atilde;o refletidos na interface.</span></p>
+<p class="MsoNormal"  ><span style="font-family:Tahoma">O &uacute;nico 
+  comando executado exclusivamente pelo mouse &eacute; o de transla&ccedil;&atilde;o 
+  do dado 3D. Esse comando &eacute; feito arrastando-se o mouse, sobre a tela 
+  de visualiza&ccedil;&atilde;o 3D, com o bot&atilde;o esquerdo pressionado.</span></p>
+<p class="MsoNormal"  ><span style="font-family:Tahoma">O m&oacute;dulo 
+  permite tamb&eacute;m analisar um subconjunto de dados. Pode-se trabalhar com:</span></p>
+<p class="MsoNormal"  ><span style="font-family:Tahoma">- todos os 
+  dados,</span></p>
+<p class="MsoNormal"  ><span style="font-family:Tahoma">- os consultados,</span></p>
+<p class="MsoNormal"  ><span style="font-family:Tahoma">- os n&atilde;o 
+  consultados,</span></p>
+<p class="MsoNormal"  ><span style="font-family:Tahoma">- os agrupados 
+  ou </span></p>
+<p class="MsoNormal"  ><span style="font-family:Tahoma">- os n&atilde;o 
+  agrupados.</span></p>
+<p class="MsoNormal"  ><span style="font-family:Tahoma">A Figura 12 
+  mostra o combo as op&ccedil;&otilde;es de entrada de dado.</span></p>
+<p class="MsoNormal" align="center"><img src="graphic3DWindow_arquivos/Figura12.png" width="535" height="380"></p>
+<p class="MsoNormal" align="center"><span
+style="font-family:Tahoma">&nbsp;<o:p></o:p>Fig. 12 - Combo mostrando as op&ccedil;&otilde;es 
+  de entrada de dado.<o:p></o:p></span><span
+style="font-family:Tahoma"><o:p></o:p></span></p>
+<p class="MsoNormal"  ><span style="font-family:Tahoma">O m&oacute;dulo 
+  permite tamb&eacute;m analisar dados com relacionamento 1 para n. Quando a agrega&ccedil;&atilde;o 
+  n&atilde;o &eacute; usada, todos os dados do grid s&atilde;o plotados na interface. 
+  Quando utiliza-se agrega&ccedil;&atilde;o os dados s&atilde;o sumarizados por:</span></p>
+<p class="MsoNormal"  ><span style="font-family:Tahoma">- MIN,</span></p>
+<p class="MsoNormal"  ><span style="font-family:Tahoma">- MAX,</span></p>
+<p class="MsoNormal"  ><span style="font-family:Tahoma">- AVG,</span></p>
+<p class="MsoNormal"  ><span style="font-family:Tahoma">- SUM ou </span></p>
+<p class="MsoNormal"  ><span style="font-family:Tahoma">- COUNT.</span></p>
+<p class="MsoNormal"  ><span
+style="font-family:Tahoma"><o:p></o:p>A Figura 13 mostra o combo as op&ccedil;&otilde;es 
+  de sumariza&ccedil;&atilde;o (fun&ccedil;&otilde;es de agrega&ccedil;&atilde;o).</span></p>
+<p class="MsoNormal" align="center"><img src="graphic3DWindow_arquivos/Figura13.png" width="500" height="370"></p>
+<p class="MsoNormal" align="center"><span
+style="font-family:Tahoma">&nbsp;<o:p></o:p>Fig. 13 - Combo mostrando as op&ccedil;&otilde;es 
+  para a fun&ccedil;&atilde;o de agrega&ccedil;&atilde;o.<o:p></o:p></span><span
+style="font-family:Tahoma"><o:p></o:p></span></p>
+<p class="MsoNormal" align="center"><span
+style="font-family:Tahoma"><o:p></o:p></span></p>
+<p class="MsoNormal"  ><span
+style="font-family:Tahoma"><b>Considera&ccedil;&otilde;es gerais sobre relacionamento 
+  1 para n.</b></span></p>
+<p class="MsoNormal"  ><span
+style="font-family:Tahoma">O m&oacute;dulo considera que um objeto est&aacute; 
+  apontado se pelo menos uma das linhas de seus atributos est&aacute; apontado. 
+  Portanto, quando isto ocorre, a sua representa&ccedil;&atilde;o gr&aacute;fica 
+  &eacute; pintada no mapa com a cor de apontamento do tema. Em outros m&oacute;dulos, 
+  tais como, histograma, dispers&atilde;o e dispers&atilde;o 3D ocorrem o seguinte:</span></p>
+<p class="MsoNormal"  ><span
+style="font-family:Tahoma">- Quando n&atilde;o h&aacute; nenhuma fun&ccedil;&atilde;o 
+  de agrega&ccedil;&atilde;o, todos os valores da tabela s&atilde;o considerados 
+  na plotagem dos gr&aacute;ficos. Neste caso, somente os pontos ou barras referentes 
+  aos atributos apontados no grid s&atilde;o pintados com a cor de apontamento 
+  do tema.</span></p>
+<p class="MsoNormal"  ><span
+style="font-family:Tahoma">- Quando usa uma fun&ccedil;&atilde;o de agrega&ccedil;&atilde;o, 
+  &eacute; considerado na plotagem dos gr&aacute;ficos o valor sumarizado de cada 
+  objeto. Desta forma, basta apontar para uma das linhas de seus atributos para 
+  que todo o objeto seja considerado como apontado. Da mesma maneira, basta uma 
+  das linhas de seus atributos satisfazer a uma consulta para que o objeto todo 
+  seja considerado como consultado.</span></p>
+<p class="MsoNormal"  ><span
+style="font-family:Tahoma">As considera&ccedil;&otilde;es acima s&atilde;o importantes 
+  quando a entrada de dados &eacute; filtrada pelas op&ccedil;&otilde;es consultados, 
+  n&atilde;o consultados, agrupados e n&atilde;o agrupados.</span></p>
+</div>
+</body>
+</html>

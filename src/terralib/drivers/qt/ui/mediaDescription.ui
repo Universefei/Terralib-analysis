@@ -1,0 +1,226 @@
+<!DOCTYPE UI><UI version="3.2" stdsetdef="1">
+<class>MediaDescription</class>
+<widget class="QDialog">
+    <property name="name">
+        <cstring>MediaDescription</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>394</width>
+            <height>347</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Media Description</string>
+    </property>
+    <property name="icon">
+        <pixmap>terralib.bmp</pixmap>
+    </property>
+    <grid>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <property name="margin">
+            <number>11</number>
+        </property>
+        <property name="spacing">
+            <number>6</number>
+        </property>
+        <widget class="QLayoutWidget" row="0" column="0">
+            <property name="name">
+                <cstring>layout7</cstring>
+            </property>
+            <grid>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QTextEdit" row="0" column="0">
+                    <property name="name">
+                        <cstring>descriptionTextEdit</cstring>
+                    </property>
+                    <property name="minimumSize">
+                        <size>
+                            <width>370</width>
+                            <height>270</height>
+                        </size>
+                    </property>
+                </widget>
+                <spacer row="1" column="0">
+                    <property name="name">
+                        <cstring>Spacer15</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Vertical</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>16</width>
+                            <height>16</height>
+                        </size>
+                    </property>
+                </spacer>
+                <widget class="QLayoutWidget" row="2" column="0">
+                    <property name="name">
+                        <cstring>layout6</cstring>
+                    </property>
+                    <hbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <spacer>
+                            <property name="name">
+                                <cstring>spacer8</cstring>
+                            </property>
+                            <property name="orientation">
+                                <enum>Horizontal</enum>
+                            </property>
+                            <property name="sizeType">
+                                <enum>Expanding</enum>
+                            </property>
+                            <property name="sizeHint">
+                                <size>
+                                    <width>30</width>
+                                    <height>20</height>
+                                </size>
+                            </property>
+                        </spacer>
+                        <widget class="QPushButton">
+                            <property name="name">
+                                <cstring>savePushButton</cstring>
+                            </property>
+                            <property name="text">
+                                <string>&amp;Save</string>
+                            </property>
+                            <property name="accel">
+                                <string>Alt+S</string>
+                            </property>
+                            <property name="default">
+                                <bool>true</bool>
+                            </property>
+                        </widget>
+                        <spacer>
+                            <property name="name">
+                                <cstring>Spacer13</cstring>
+                            </property>
+                            <property name="orientation">
+                                <enum>Horizontal</enum>
+                            </property>
+                            <property name="sizeType">
+                                <enum>Expanding</enum>
+                            </property>
+                            <property name="sizeHint">
+                                <size>
+                                    <width>30</width>
+                                    <height>16</height>
+                                </size>
+                            </property>
+                        </spacer>
+                        <widget class="QPushButton">
+                            <property name="name">
+                                <cstring>cancelPushButton</cstring>
+                            </property>
+                            <property name="text">
+                                <string>&amp;Cancel</string>
+                            </property>
+                            <property name="accel">
+                                <string>Alt+C</string>
+                            </property>
+                        </widget>
+                        <spacer>
+                            <property name="name">
+                                <cstring>Spacer14</cstring>
+                            </property>
+                            <property name="orientation">
+                                <enum>Horizontal</enum>
+                            </property>
+                            <property name="sizeType">
+                                <enum>Expanding</enum>
+                            </property>
+                            <property name="sizeHint">
+                                <size>
+                                    <width>20</width>
+                                    <height>16</height>
+                                </size>
+                            </property>
+                        </spacer>
+                        <widget class="QPushButton">
+                            <property name="name">
+                                <cstring>helpPushButton</cstring>
+                            </property>
+                            <property name="text">
+                                <string>&amp;Help</string>
+                            </property>
+                            <property name="accel">
+                                <string>Alt+H</string>
+                            </property>
+                        </widget>
+                        <spacer>
+                            <property name="name">
+                                <cstring>spacer7</cstring>
+                            </property>
+                            <property name="orientation">
+                                <enum>Horizontal</enum>
+                            </property>
+                            <property name="sizeType">
+                                <enum>Expanding</enum>
+                            </property>
+                            <property name="sizeHint">
+                                <size>
+                                    <width>20</width>
+                                    <height>20</height>
+                                </size>
+                            </property>
+                        </spacer>
+                    </hbox>
+                </widget>
+            </grid>
+        </widget>
+    </grid>
+</widget>
+<connections>
+    <connection>
+        <sender>savePushButton</sender>
+        <signal>clicked()</signal>
+        <receiver>MediaDescription</receiver>
+        <slot>savePushButton_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>cancelPushButton</sender>
+        <signal>clicked()</signal>
+        <receiver>MediaDescription</receiver>
+        <slot>reject()</slot>
+    </connection>
+    <connection>
+        <sender>helpPushButton</sender>
+        <signal>clicked()</signal>
+        <receiver>MediaDescription</receiver>
+        <slot>helpPushButton_clicked()</slot>
+    </connection>
+</connections>
+<includes>
+    <include location="global" impldecl="in implementation">help.h</include>
+    <include location="local" impldecl="in implementation">mediaDescription.ui.h</include>
+    <include location="global" impldecl="in declaration">terralib/kernel/TeDefines.h</include>
+</includes>
+<forwards>
+    <forward>class Help;</forward>
+</forwards>
+<variables>
+    <variable>Help* help_;</variable>
+</variables>
+<slots>
+    <slot>savePushButton_clicked()</slot>
+    <slot>helpPushButton_clicked()</slot>
+</slots>
+<functions>
+    <function>init()</function>
+</functions>
+<pixmapinproject/>
+<exportmacro>TL_DLL</exportmacro>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

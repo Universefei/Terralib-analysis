@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>TerraView</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+<p><font size="3" face="Arial"><strong>TerraView  </strong> </font></p>
+<p align="right"><font face="Arial"><a href="pesquisa_atributo.htm">&lt;&lt; Anterior</a>&nbsp;|&nbsp;<a href="terraViewBase.htm">In&iacute;cio</a> 
+  | <a href="consulta_compostas.htm">Próximo &gt;&gt;</a><font face="Arial"> </font></font></p>
+<hr>
+<p align="center"><font size="4" face="Arial"><strong><u><strong>Consulta Simples</strong></u></strong></font></p>
+<p align="center">&nbsp;</p>
+<p  ><font face="Arial">Abra o banco de dados BH.mdb. Voc&ecirc; 
+  ir&aacute; verificar que este banco cont&eacute;m as camadas de AreasVerdes, 
+  Bairros, Batalh&otilde;es, Col&eacute;gios, CompanhiasPM, Crimes2000, Crimes2001, 
+  Crimes2002, Crimes2003, Favelas, Lagoa, Limite, PostosCombustivel, Rios, RuasCentrais, 
+  SetoresCensitarios e UP. Ative o tema Bairros e verifique na janela de grade 
+  os atributos associados a este objeto geogr&aacute;fico. A coluna de nome &#8220;POP2000&#8221; 
+  representa a popula&ccedil;&atilde;o no ano de 2000, correspondente a cada bairro. 
+  Voc&ecirc; poder&aacute;, usando uma consulta por atributo, selecionar os bairros 
+  com popula&ccedil;&atilde;o maior que 6000 habitantes. <br>
+  </font></p>
+<p align="center"><font face="Arial"><img src="terraViewBase_arquivos/consulta.png" border="1"> 
+  </font></p>
+  
+  <p  ><font face="Arial">1. Ative o tema Bairros e deixe apenas 
+    ele vis&iacute;vel;</font></p>
+  <p  ><font face="Arial"> 2. Use o menu popup;</font></p>
+  
+<p  ><font face="Arial"> 3. Escolha a op&ccedil;&atilde;o <strong>Consulta por 
+  Atributos</strong>...</font></p>
+ 
+<p  ><font face="Arial">A janela Consulta por Atributos &eacute; 
+  aberta. </font></p>
+<p align="center"><font face="Arial"><img src="terraViewBase_arquivos/consulta_atributos.png" width="500" height="272" border="1"></font></p>
+  
+  <p  ><font face="Arial">1. Defina o atributo que ser&aacute; usado 
+    para a sele&ccedil;&atilde;o. Escolha POP2000.</font></p>
+  <p  ><font face="Arial"> 2. O campo Operador define qual tipo 
+    de opera&ccedil;&atilde;o voc&ecirc; deseja realizar sobre o atributo. Selecione 
+    &gt;. Os operadores dispon&iacute;veis no TerraView s&atilde;o:</font></p>
+  <p align="center"><font face="Arial"><br>
+    <img src="terraViewBase_arquivos/tabela_consulta_atributos.png"> </font></p>
+  <p  ><font face="Arial">3. No campo Valores do atributo voc&ecirc; 
+    define o valor a ser utilizado para compara&ccedil;&atilde;o. Se voc&ecirc; 
+    selecionar essa op&ccedil;&atilde;o, todos os valores encontrados para essa 
+    coluna ir&atilde;o aparecer para escolha no campo &agrave; direita. Voc&ecirc; 
+    tamb&eacute;m pode optar por entrar com o valor diretamente no campo de edi&ccedil;&atilde;o. 
+    Selecione o bot&atilde;o e escolha o valor 6000. </font></p>
+  
+<p  ><font face="Arial"> 4. Clique no bot&atilde;o <em>Nova Consulta.</em><br>
+    </font></p>
+ 
+<p  ><font face="Arial">Voc&ecirc; ir&aacute; perceber que algumas 
+  linhas foram destacadas na janela de grade. Essas linhas s&atilde;o aquelas 
+  correspondentes ao resultado da consulta: os bairros que tem popula&ccedil;&atilde;o 
+  maior que 6000 habitantes foram selecionados. Para visualizar no mapa, ative 
+  novamente o tema Bairros e utilize o bot&atilde;o Recompor <img src="terraViewBase_arquivos/botao_recompor.png" width="17" height="18">. 
+  Uma janela como abaixo ir&aacute; aparecer em sua tela. Note que os bairros 
+  tamb&eacute;m aparecem coloridos com a cor da consulta. </font></p>
+<p align="center"><font face="Arial"><img src="terraViewBase_arquivos/consulta_atributos2.png" border="1"></font></p>
+<ul>
+  <li><font size="4" face="Arial"  ><strong>Alguns operadores comparativos</strong></font> 
+    <p  ><font face="Arial">Al&eacute;m dos operadores comparativos 
+      usuais, como =, &gt;, &lt;, &lt;&gt;, &lt;=, &gt;=, o TerraView disponibiliza 
+      tr&ecirc;s outros operadores muito &uacute;teis: LIKE, IS NULL e IS NOT 
+      NULL.<br>
+      A seguir voc&ecirc; ver&aacute; a fun&ccedil;&atilde;o desses operadores 
+      e alguns exemplos de sua utiliza&ccedil;&atilde;o.</font></p>
+    <p  ><font face="Arial"><strong>LIKE</strong></font></p>
+    <p  ><font face="Arial">O operador comparativo LIKE pode ser 
+      utilizado quando se deseja consultar todos os valores de uma determinada 
+      coluna que possuam determinados caracteres em comum.<br>
+      </font></p>
+    <p  ><font face="Arial">Use o menu popup do tema Crimes2003 
+      e selecione a op&ccedil;&atilde;o Consulta por Atributos...<br>
+      Defina o atributo como NAT, o operador como LIKE e clique no campo de edi&ccedil;&atilde;o. 
+      Digite 'C%' na seq&uuml;&ecirc;ncia do operador. Clique no bot&atilde;o 
+      Nova Consulta.</font></p>
+  </li>
+</ul>
+<p align="center"><font face="Arial"><img src="terraViewBase_arquivos/consulta_atributos1.png" width="376" height="252"> 
+  </font></p>
+<p align="center"><font face="Arial"><img src="terraViewBase_arquivos/consulta4.png" border="1"> 
+  </font></p>
+  
+  <p  ><font face="Arial">A consulta mostrar&aacute; todos os valores 
+    da coluna NAT que se iniciam com C. No caso, a coluna NAT apresenta os c&oacute;digos 
+    dos crimes ocorridos em Belo Horizonte no ano de 2003 e aqueles que se iniciam 
+    com a letra C referem-se a um Roubo. Verifique na janela de grade que todos 
+    os tipos de roubos foram destacados. A entrada do operador (no caso 'C%') 
+    reflete como deve ser feita a consulta. Essa entrada deve estar entre ap&oacute;strofe 
+    (' ') ou aspas (&quot; &quot;); o sinal de porcentagem (%) indica que qualquer 
+    conjunto de caracteres (incluindo a aus&ecirc;ncia deles) pode estar ocupando 
+    aquela posi&ccedil;&atilde;o. Assim, no exemplo utilizado, consultam-se todos 
+    os valores que se iniciam com o caractere C. Caso fosse de interesse consultar 
+    os valores que terminam com o caractere 7, o comando seria NAT LIKE '%7'; 
+    se desejar consultar os valores que possuam o caractere 2 em qualquer posi&ccedil;&atilde;o, 
+    o comando seria NAT LIKE '%2%'; se, por fim, n&atilde;o quiser que constem 
+    nessa &uacute;ltima consulta aqueles valores que terminem em 2, digita-se 
+    o comando NAT NOT LIKE '%2' e clica-se no bot&atilde;o Filtra.</font></p>
+  <p  ><font face="Arial"><br>
+    <strong>IS NULL</strong></font></p>
+  <p  ><font face="Arial">O operador comparativo IS NULL pode ser 
+    utilizado para consultar os valores de uma determinada coluna que possuem 
+    valores ausentes. Use o menu popup do tema Colegios e selecione a op&ccedil;&atilde;o 
+    Consulta por Atributos... Defina o atributo como ENSINOMEDI e o operador como 
+    IS NULL. Esse operador n&atilde;o necessita de entrada, n&atilde;o necessitando 
+    adicionar mais nada ao comando. Clique no bot&atilde;o Nova Consulta.</font></p>
+  <p align="center"><font face="Arial"><img src="terraViewBase_arquivos/consulta5.png" border="1"></font></p>
+  <p  ><font face="Arial">Os col&eacute;gios que oferecem o Ensino 
+    M&eacute;dio est&atilde;o marcados com um 'X'e os demais n&atilde;o possuem 
+    valores na coluna ENSINOMEDI; a consulta destaca, portanto, aqueles col&eacute;gios 
+    que n&atilde;o oferecem Ensino M&eacute;dio.</font></p>
+  <p align="left"><font face="Arial"> <strong>IS NOT NULL</strong></font></p>
+  <p  ><font face="Arial">O operador comparativo IS NOT NULL desempenha 
+    a fun&ccedil;&atilde;o inversa do operador IS NULL: consulta as linhas para 
+    as quais existem valores naquela coluna. Use o menu popup do tema Favelas 
+    e selecione a op&ccedil;&atilde;o Consulta por Atributos... Defina o atributo 
+    como POPULA&Ccedil;AO e operador como IS NOT NULL. Tamb&eacute;m n&atilde;o 
+    ser&aacute; necess&aacute;rio digitar uma entrada. Clique no bot&atilde;o 
+    Nova Consulta.</font></p>
+ 
+<p align="center"><font face="Arial"><br>
+  <img src="terraViewBase_arquivos/consulta6.png" border="1"> </font></p>
+  
+  <p  ><font face="Arial"><br>
+    A consulta mostrar&aacute; aquelas Vilas/ Favelas, Conjuntos Habitacionais, 
+    Bairros e Aglomerados para os quais h&aacute; valor de popula&ccedil;&atilde;o. 
+    Essa mesma consulta pode ser feita como NOT POPULA&Ccedil;AO IS NULL. Acrescentando-se 
+    NOT no in&iacute;cio de um comando, faz-se a consulta inversa.</font></p>
+ 
+<hr>
+<p align="right"><font face="Arial"> <a href="pesquisa_atributo.htm">&lt;&lt; 
+  Anterior</a>&nbsp;|&nbsp;<a href="terraViewBase.htm">In&iacute;cio</a> | <a href="consulta_compostas.htm">Próximo 
+  &gt;&gt;</a><font face="Arial"> </font></font></p>
+<font face="Arial"><p align="right">&nbsp;</p>
+</font><font face="Arial"></font> 
+</body>
+</html>

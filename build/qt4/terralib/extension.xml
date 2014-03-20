@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension xmlns="urn:br:mil:eb:cortex"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="urn:br:mil:eb:cortex ../platform.xsd">
+
+	<info id="br.org.terralib" version="4.0.0">
+
+		<title>
+			TerraLib
+		</title>
+
+		<description>
+			TerraLib is a c++ software library for manage spatial data. It supports Firebird, MySQL, Oracle and PostgreSQL databases.
+		</description>
+
+	</info>
+
+	<fileName os="win32">libeay32</fileName>
+	<fileName os="win32">libiconv-2</fileName>
+	<fileName os="win32">libintl-2</fileName>
+	<fileName os="win32">ssleay32</fileName>
+	<fileName os="win32">zlib</fileName>
+	<fileName os="win32">zlib1</fileName>
+	<fileName os="win32">libmysql</fileName>
+	<fileName os="win32">libpq</fileName>
+	<fileName os="win32">oci</fileName>
+	<fileName os="win32">fbclient</fileName>
+	<fileName os="unix">icudata</fileName>
+	<fileName os="unix">icuuc</fileName>
+	<fileName os="unix">icui18n</fileName>
+	<fileName os="unix">fbembed</fileName>
+<!-- <fileName os="unix">clntsh</fileName>
+	<fileName os="unix">ociei</fileName> 
+	<fileName os="unix">nnz10</fileName> -->
+	<fileName>shapelib</fileName>
+	<fileName>jpeg</fileName>
+	<fileName>terralibtiff</fileName>
+	<fileName>terralib</fileName>
+	<fileName>te_firebird</fileName>
+	<fileName>te_mysql</fileName>
+<!-- oracle somente para windows momentaneamente -->
+	<fileName os="win32">te_oracle</fileName>
+	<fileName>te_postgresql</fileName>
+	<fileName>te_functions</fileName>
+	<fileName>te_utils</fileName>
+	<fileName>te_shapelib</fileName>
+</extension>

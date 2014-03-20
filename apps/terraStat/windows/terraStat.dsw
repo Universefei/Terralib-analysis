@@ -1,0 +1,113 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "freetype"="..\..\..\terralibw\freetype\freetype.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "shapelib"="..\..\..\terralibw\shapelib\shapelib.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "stat"="..\..\..\terralibw\stat\stat.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "terraStat"=".\terraStat.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name terralib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name freetype
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name shapelib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name stat
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name tiff
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "terralib"="..\..\..\terralibw\terralib\terralib.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name freetype
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name shapelib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name tiff
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "tiff"="..\..\..\terralibw\tiff\tiff.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

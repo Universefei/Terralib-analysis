@@ -1,0 +1,5 @@
+*.sln
+*.ncb
+*.suo 
+Debug
+Release

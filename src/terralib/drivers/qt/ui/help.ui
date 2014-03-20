@@ -1,0 +1,368 @@
+<!DOCTYPE UI><UI version="3.2" stdsetdef="1">
+<class>Help</class>
+<widget class="QDialog">
+    <property name="name">
+        <cstring>Help</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>589</width>
+            <height>463</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Help</string>
+    </property>
+    <grid>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QLayoutWidget" row="0" column="0">
+            <property name="name">
+                <cstring>layout4</cstring>
+            </property>
+            <grid>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QTextBrowser" row="1" column="0">
+                    <property name="name">
+                        <cstring>textBrowser</cstring>
+                    </property>
+                </widget>
+                <widget class="QLayoutWidget" row="0" column="0">
+                    <property name="name">
+                        <cstring>layout3</cstring>
+                    </property>
+                    <hbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <spacer>
+                            <property name="name">
+                                <cstring>spacer6</cstring>
+                            </property>
+                            <property name="orientation">
+                                <enum>Horizontal</enum>
+                            </property>
+                            <property name="sizeType">
+                                <enum>Expanding</enum>
+                            </property>
+                            <property name="sizeHint">
+                                <size>
+                                    <width>16</width>
+                                    <height>20</height>
+                                </size>
+                            </property>
+                        </spacer>
+                        <spacer>
+                            <property name="name">
+                                <cstring>spacer12</cstring>
+                            </property>
+                            <property name="orientation">
+                                <enum>Horizontal</enum>
+                            </property>
+                            <property name="sizeType">
+                                <enum>Expanding</enum>
+                            </property>
+                            <property name="sizeHint">
+                                <size>
+                                    <width>16</width>
+                                    <height>20</height>
+                                </size>
+                            </property>
+                        </spacer>
+                        <spacer>
+                            <property name="name">
+                                <cstring>spacer9_2</cstring>
+                            </property>
+                            <property name="orientation">
+                                <enum>Horizontal</enum>
+                            </property>
+                            <property name="sizeType">
+                                <enum>Expanding</enum>
+                            </property>
+                            <property name="sizeHint">
+                                <size>
+                                    <width>16</width>
+                                    <height>20</height>
+                                </size>
+                            </property>
+                        </spacer>
+                        <widget class="QPushButton">
+                            <property name="name">
+                                <cstring>homePushButton</cstring>
+                            </property>
+                            <property name="text">
+                                <string></string>
+                            </property>
+                            <property name="pixmap">
+                                <pixmap>reset.bmp</pixmap>
+                            </property>
+                            <property name="accel">
+                                <string></string>
+                            </property>
+                        </widget>
+                        <spacer>
+                            <property name="name">
+                                <cstring>spacer11_2</cstring>
+                            </property>
+                            <property name="orientation">
+                                <enum>Horizontal</enum>
+                            </property>
+                            <property name="sizeType">
+                                <enum>Expanding</enum>
+                            </property>
+                            <property name="sizeHint">
+                                <size>
+                                    <width>18</width>
+                                    <height>20</height>
+                                </size>
+                            </property>
+                        </spacer>
+                        <widget class="QPushButton">
+                            <property name="name">
+                                <cstring>backwardPushButton</cstring>
+                            </property>
+                            <property name="text">
+                                <string></string>
+                            </property>
+                            <property name="pixmap">
+                                <pixmap>previousDisplay.bmp</pixmap>
+                            </property>
+                            <property name="accel">
+                                <string></string>
+                            </property>
+                        </widget>
+                        <spacer>
+                            <property name="name">
+                                <cstring>spacer10</cstring>
+                            </property>
+                            <property name="orientation">
+                                <enum>Horizontal</enum>
+                            </property>
+                            <property name="sizeType">
+                                <enum>Expanding</enum>
+                            </property>
+                            <property name="sizeHint">
+                                <size>
+                                    <width>18</width>
+                                    <height>20</height>
+                                </size>
+                            </property>
+                        </spacer>
+                        <widget class="QPushButton">
+                            <property name="name">
+                                <cstring>forwardPushButton</cstring>
+                            </property>
+                            <property name="text">
+                                <string></string>
+                            </property>
+                            <property name="pixmap">
+                                <pixmap>nextDisplay.bmp</pixmap>
+                            </property>
+                            <property name="accel">
+                                <string></string>
+                            </property>
+                        </widget>
+                        <spacer>
+                            <property name="name">
+                                <cstring>spacer11_3</cstring>
+                            </property>
+                            <property name="orientation">
+                                <enum>Horizontal</enum>
+                            </property>
+                            <property name="sizeType">
+                                <enum>Expanding</enum>
+                            </property>
+                            <property name="sizeHint">
+                                <size>
+                                    <width>21</width>
+                                    <height>20</height>
+                                </size>
+                            </property>
+                        </spacer>
+                        <spacer>
+                            <property name="name">
+                                <cstring>spacer9</cstring>
+                            </property>
+                            <property name="orientation">
+                                <enum>Horizontal</enum>
+                            </property>
+                            <property name="sizeType">
+                                <enum>Expanding</enum>
+                            </property>
+                            <property name="sizeHint">
+                                <size>
+                                    <width>20</width>
+                                    <height>20</height>
+                                </size>
+                            </property>
+                        </spacer>
+                        <spacer>
+                            <property name="name">
+                                <cstring>spacer13</cstring>
+                            </property>
+                            <property name="orientation">
+                                <enum>Horizontal</enum>
+                            </property>
+                            <property name="sizeType">
+                                <enum>Expanding</enum>
+                            </property>
+                            <property name="sizeHint">
+                                <size>
+                                    <width>20</width>
+                                    <height>20</height>
+                                </size>
+                            </property>
+                        </spacer>
+                        <spacer>
+                            <property name="name">
+                                <cstring>spacer12_2</cstring>
+                            </property>
+                            <property name="orientation">
+                                <enum>Horizontal</enum>
+                            </property>
+                            <property name="sizeType">
+                                <enum>Expanding</enum>
+                            </property>
+                            <property name="sizeHint">
+                                <size>
+                                    <width>20</width>
+                                    <height>20</height>
+                                </size>
+                            </property>
+                        </spacer>
+                        <spacer>
+                            <property name="name">
+                                <cstring>spacer8</cstring>
+                            </property>
+                            <property name="orientation">
+                                <enum>Horizontal</enum>
+                            </property>
+                            <property name="sizeType">
+                                <enum>Expanding</enum>
+                            </property>
+                            <property name="sizeHint">
+                                <size>
+                                    <width>20</width>
+                                    <height>20</height>
+                                </size>
+                            </property>
+                        </spacer>
+                        <widget class="QPushButton">
+                            <property name="name">
+                                <cstring>printPushButton</cstring>
+                            </property>
+                            <property name="text">
+                                <string>&amp;Print</string>
+                            </property>
+                            <property name="accel">
+                                <string>Alt+P</string>
+                            </property>
+                        </widget>
+                        <spacer>
+                            <property name="name">
+                                <cstring>spacer10_2</cstring>
+                            </property>
+                            <property name="orientation">
+                                <enum>Horizontal</enum>
+                            </property>
+                            <property name="sizeType">
+                                <enum>Expanding</enum>
+                            </property>
+                            <property name="sizeHint">
+                                <size>
+                                    <width>22</width>
+                                    <height>20</height>
+                                </size>
+                            </property>
+                        </spacer>
+                        <spacer>
+                            <property name="name">
+                                <cstring>spacer11</cstring>
+                            </property>
+                            <property name="orientation">
+                                <enum>Horizontal</enum>
+                            </property>
+                            <property name="sizeType">
+                                <enum>Expanding</enum>
+                            </property>
+                            <property name="sizeHint">
+                                <size>
+                                    <width>23</width>
+                                    <height>20</height>
+                                </size>
+                            </property>
+                        </spacer>
+                        <spacer>
+                            <property name="name">
+                                <cstring>spacer7</cstring>
+                            </property>
+                            <property name="orientation">
+                                <enum>Horizontal</enum>
+                            </property>
+                            <property name="sizeType">
+                                <enum>Expanding</enum>
+                            </property>
+                            <property name="sizeHint">
+                                <size>
+                                    <width>22</width>
+                                    <height>20</height>
+                                </size>
+                            </property>
+                        </spacer>
+                    </hbox>
+                </widget>
+            </grid>
+        </widget>
+    </grid>
+</widget>
+<connections>
+    <connection>
+        <sender>printPushButton</sender>
+        <signal>clicked()</signal>
+        <receiver>Help</receiver>
+        <slot>printPushButton_clicked()</slot>
+    </connection>
+</connections>
+<tabstops>
+    <tabstop>homePushButton</tabstop>
+    <tabstop>backwardPushButton</tabstop>
+    <tabstop>forwardPushButton</tabstop>
+    <tabstop>printPushButton</tabstop>
+    <tabstop>textBrowser</tabstop>
+</tabstops>
+<includes>
+    <include location="global" impldecl="in declaration">vector</include>
+    <include location="local" impldecl="in implementation">help.ui.h</include>
+    <include location="global" impldecl="in declaration">terralib/kernel/TeDefines.h</include>
+</includes>
+<forwards>
+    <forward>using namespace std;</forward>
+</forwards>
+<variables>
+    <variable access="public">bool erro_;</variable>
+    <variable access="private">vector&lt;int&gt; paragVec_;</variable>
+    <variable access="private">vector&lt;int&gt; indexVec_;</variable>
+</variables>
+<slots>
+    <slot>init( QString helpFile )</slot>
+    <slot access="protected">reject()</slot>
+    <slot>printPushButton_clicked()</slot>
+    <slot>fontSizeComboBox_activated( const QString &amp; )</slot>
+    <slot>boldCheckBox_clicked()</slot>
+    <slot access="protected">backward()</slot>
+    <slot access="protected">forward()</slot>
+    <slot>linkClicked( const QString &amp; )</slot>
+    <slot>anchorClicked( const QString &amp;, const QString &amp; )</slot>
+</slots>
+<functions>
+    <function>scrollToAnchor( const QString &amp; )</function>
+</functions>
+<pixmapinproject/>
+<exportmacro>TL_DLL</exportmacro>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

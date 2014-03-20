@@ -1,0 +1,130 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+MAX	TeMySQL.cpp	60;"	d	file:
+MIN	TeMySQL.cpp	63;"	d	file:
+TLMYSQL_DLL	TeMySQLDefines.h	39;"	d
+TLMYSQL_DLL	TeMySQLDefines.h	41;"	d
+TLMYSQL_DLL	TeMySQLDefines.h	45;"	d
+TeMySQL	TeMySQL.cpp	/^TeMySQL::TeMySQL()$/;"	f	class:TeMySQL
+TeMySQL	TeMySQL.h	/^class TLMYSQL_DLL TeMySQL : public TeDatabase$/;"	c
+TeMySQLFactory	TeMySQL.h	/^    TeMySQLFactory() : TeDatabaseFactory( std::string( "MySQL" ) ) {};$/;"	f	class:TeMySQLFactory
+TeMySQLFactory	TeMySQL.h	/^class TLMYSQL_DLL TeMySQLFactory : public TeDatabaseFactory$/;"	c
+TeMySQLFactory_instance	TeMySQL.h	/^    static TeMySQLFactory TeMySQLFactory_instance;$/;"	m	namespace:__anon1
+TeMySQLPortal	TeMySQL.cpp	/^TeMySQLPortal::TeMySQLPortal ( TeMySQL  *m)$/;"	f	class:TeMySQLPortal
+TeMySQLPortal	TeMySQL.cpp	/^TeMySQLPortal::TeMySQLPortal ( const TeMySQLPortal& p) : TeDatabasePortal()$/;"	f	class:TeMySQLPortal
+TeMySQLPortal	TeMySQL.h	/^class TLMYSQL_DLL TeMySQLPortal  : public TeDatabasePortal$/;"	c
+__TERRALIB_INTERNAL_MYSQLDEFINES_H	TeMySQLDefines.h	27;"	d
+__TERRALIB_INTERNAL_MYSQL_H	TeMySQL.h	27;"	d
+addColumn	TeMySQL.cpp	/^bool TeMySQL::addColumn (const string& table, TeAttributeRep &rep)$/;"	f	class:TeMySQL
+alterTable	TeMySQL.cpp	/^        TeMySQL::alterTable(const string& tableName, TeAttributeRep& rep, const string& oldColName)$/;"	f	class:TeMySQL
+beginTransaction	TeMySQL.cpp	/^bool TeMySQL::beginTransaction()$/;"	f	class:TeMySQL
+bufferBlobSize_	TeMySQL.h	/^    long    	bufferBlobSize_; \/\/ size of the data already allocated$/;"	m	class:TeMySQL
+bufferBlob_	TeMySQL.h	/^    char*       bufferBlob_;	 \/\/ internal buffer used to write blob data$/;"	m	class:TeMySQL
+build	TeMySQL.h	/^  TeDatabase* build( const TeDatabaseFactoryParams& arg )$/;"	f	class:TeMySQLFactory
+close	TeMySQL.cpp	/^        TeMySQL::close()$/;"	f	class:TeMySQL
+columnExist	TeMySQL.cpp	/^        TeMySQL::columnExist(const string& table, const string&  column ,TeAttribute& attr)$/;"	f	class:TeMySQL
+commitTransaction	TeMySQL.cpp	/^bool TeMySQL::commitTransaction()$/;"	f	class:TeMySQL
+concatValues	TeMySQL.cpp	/^string TeMySQL::concatValues(vector<string>& values, const string& unionString)$/;"	f	class:TeMySQL
+connect	TeMySQL.cpp	/^bool TeMySQL::connect (const string& host, const string& user, const string& password, const string& database, int port)$/;"	f	class:TeMySQL
+createRelation	TeMySQL.h	/^	bool createRelation (const string& \/* relName *\/, const string& \/* table *\/, const string& \/* fieldName *\/,$/;"	f	class:TeMySQL
+createTable	TeMySQL.cpp	/^        TeMySQL::createTable(const string& table, TeAttributeList &attr)$/;"	f	class:TeMySQL
+defineIntegrity	TeMySQL.cpp	/^bool TeMySQL::defineIntegrity(void)$/;"	f	class:TeMySQL
+deleteIndex	TeMySQL.cpp	/^        TeMySQL::deleteIndex(const string& tableName, const string& indexName)$/;"	f	class:TeMySQL
+dropDatabase	TeMySQL.cpp	/^bool TeMySQL::dropDatabase(const std::string &databaseName) $/;"	f	class:TeMySQL
+errorMessage	TeMySQL.cpp	/^string TeMySQL::errorMessage ()$/;"	f	class:TeMySQL
+errorMessage	TeMySQL.cpp	/^string TeMySQLPortal::errorMessage()$/;"	f	class:TeMySQLPortal
+errorNum	TeMySQL.cpp	/^int	TeMySQL::errorNum ()$/;"	f	class:TeMySQL
+errorNum	TeMySQL.cpp	/^int	TeMySQLPortal::errorNum()$/;"	f	class:TeMySQLPortal
+escapeSequence	TeMySQL.cpp	/^        TeMySQL::escapeSequence(const string& from)$/;"	f	class:TeMySQL
+execute	TeMySQL.cpp	/^        TeMySQL::execute (const string &q)$/;"	f	class:TeMySQL
+existRelation	TeMySQL.h	/^	TeDBRelationType existRelation(const string& \/* tableName *\/, const string& \/* relName *\/)$/;"	f	class:TeMySQL
+fetchGeometry	TeMySQL.cpp	/^        TeMySQLPortal::fetchGeometry (TePolygon& poly)$/;"	f	class:TeMySQLPortal
+fetchGeometry	TeMySQL.cpp	/^        TeMySQLPortal::fetchGeometry (TePolygon& poly, const unsigned int& initIndex)$/;"	f	class:TeMySQLPortal
+fetchGeometry	TeMySQL.cpp	/^        TeMySQLPortal::fetchGeometry(TeLine2D& line)$/;"	f	class:TeMySQLPortal
+fetchGeometry	TeMySQL.cpp	/^        TeMySQLPortal::fetchGeometry(TeLine2D& line, const unsigned int& initIndex)$/;"	f	class:TeMySQLPortal
+fetchGeometry	TeMySQL.cpp	/^        TeMySQLPortal::fetchGeometry(TeNode& n)$/;"	f	class:TeMySQLPortal
+fetchGeometry	TeMySQL.cpp	/^        TeMySQLPortal::fetchGeometry(TeNode& n, const unsigned int& initIndex)$/;"	f	class:TeMySQLPortal
+fetchGeometry	TeMySQL.cpp	/^        TeMySQLPortal::fetchGeometry(TePoint& p)$/;"	f	class:TeMySQLPortal
+fetchGeometry	TeMySQL.cpp	/^        TeMySQLPortal::fetchGeometry(TePoint& p, const unsigned int& initIndex)$/;"	f	class:TeMySQLPortal
+fetchRow	TeMySQL.cpp	/^bool TeMySQLPortal::fetchRow ()$/;"	f	class:TeMySQLPortal
+fetchRow	TeMySQL.cpp	/^bool TeMySQLPortal::fetchRow (int i)$/;"	f	class:TeMySQLPortal
+freeResult	TeMySQL.cpp	/^void TeMySQLPortal::freeResult ()$/;"	f	class:TeMySQLPortal
+generateLabelPositions	TeMySQL.cpp	/^bool TeMySQL::generateLabelPositions (TeTheme *theme, const std::string& objectId)$/;"	f	class:TeMySQL
+getBlob	TeMySQL.cpp	/^        TeMySQLPortal::getBlob (const string& s, unsigned char* &data, long& size)$/;"	f	class:TeMySQLPortal
+getBool	TeMySQL.cpp	/^        TeMySQLPortal::getBool (const string& s)$/;"	f	class:TeMySQLPortal
+getBool	TeMySQL.cpp	/^        TeMySQLPortal::getBool (int i)$/;"	f	class:TeMySQLPortal
+getClientEncoding	TeMySQL.cpp	/^std::string TeMySQL::getClientEncoding()$/;"	f	class:TeMySQL
+getConcatFieldsExpression	TeMySQL.cpp	/^string TeMySQL::getConcatFieldsExpression(const vector<string>& fNamesVec)$/;"	f	class:TeMySQL
+getData	TeMySQL.cpp	/^        TeMySQLPortal::getData (const string& s)$/;"	f	class:TeMySQLPortal
+getData	TeMySQL.cpp	/^        TeMySQLPortal::getData (int i)$/;"	f	class:TeMySQLPortal
+getDate	TeMySQL.cpp	/^        TeMySQLPortal::getDate (const string& s)$/;"	f	class:TeMySQLPortal
+getDate	TeMySQL.cpp	/^        TeMySQLPortal::getDate (int i)$/;"	f	class:TeMySQLPortal
+getDateAsString	TeMySQL.cpp	/^        TeMySQLPortal::getDateAsString(const string& s)$/;"	f	class:TeMySQLPortal
+getDateAsString	TeMySQL.cpp	/^        TeMySQLPortal::getDateAsString(int i)$/;"	f	class:TeMySQLPortal
+getDouble	TeMySQL.cpp	/^double TeMySQLPortal::getDouble (const string& s)$/;"	f	class:TeMySQLPortal
+getDouble	TeMySQL.cpp	/^double TeMySQLPortal::getDouble (int i)$/;"	f	class:TeMySQLPortal
+getEncodingList	TeMySQL.cpp	/^bool TeMySQL::getEncodingList(const std::string& host, const std::string& user, const std::string& password, const int& port, std::vector<std::string>& vecEncodingList)$/;"	f	class:TeMySQL
+getEncodingList	TeMySQL.cpp	/^bool TeMySQL::getEncodingList(std::vector<std::string>& vecEncodingList)$/;"	f	class:TeMySQL
+getIndexesFromTable	TeMySQL.cpp	/^        TeMySQL::getIndexesFromTable(const string& tableName, std::vector<TeDatabaseIndex>& vecIndexes)$/;"	f	class:TeMySQL
+getInt	TeMySQL.cpp	/^int TeMySQLPortal::getInt (const string& s)$/;"	f	class:TeMySQLPortal
+getInt	TeMySQL.cpp	/^int TeMySQLPortal::getInt (int i)$/;"	f	class:TeMySQLPortal
+getLinearRing	TeMySQL.cpp	/^        TeMySQLPortal::getLinearRing (int &ni)$/;"	f	class:TeMySQLPortal
+getMySQL	TeMySQL.h	/^	st_mysql*	getMySQL () $/;"	f	class:TeMySQL
+getPortal	TeMySQL.cpp	/^TeDatabasePortal* TeMySQL::getPortal ()$/;"	f	class:TeMySQL
+getRasterBlock	TeMySQL.cpp	/^        TeMySQLPortal::getRasterBlock(unsigned long& size, unsigned char* ptData)$/;"	f	class:TeMySQLPortal
+getSQLTemporalWhere	TeMySQL.cpp	/^        TeMySQL::getSQLTemporalWhere(int time1, int time2, TeChronon chr, TeTemporalRelation rel,$/;"	f	class:TeMySQL
+getSQLTime	TeMySQL.cpp	/^        TeMySQL::getSQLTime(const TeTime& time) const$/;"	f	class:TeMySQL
+inClauseValues	TeMySQL.cpp	/^        TeMySQL::inClauseValues(const string& query, const string& attribute, vector<string>& inClauseVector)$/;"	f	class:TeMySQL
+insertArc	TeMySQL.cpp	/^        TeMySQL::insertArc(const string& table, TeArc &arc)$/;"	f	class:TeMySQL
+insertBlob	TeMySQL.cpp	/^        TeMySQL::insertBlob (const string& tableName, const string& columnBlob , const string& whereClause, unsigned char* data, int size)$/;"	f	class:TeMySQL
+insertCell	TeMySQL.cpp	/^        TeMySQL::insertCell(const string& table, TeCell &c)$/;"	f	class:TeMySQL
+insertId	TeMySQL.cpp	/^int TeMySQL::insertId ()$/;"	f	class:TeMySQL
+insertId	TeMySQL.cpp	/^int TeMySQLPortal::insertId ()$/;"	f	class:TeMySQLPortal
+insertLayer	TeMySQL.cpp	/^bool TeMySQL::insertLayer (TeLayer* layer)$/;"	f	class:TeMySQL
+insertLegend	TeMySQL.cpp	/^bool TeMySQL::insertLegend (TeLegendEntry *legend)$/;"	f	class:TeMySQL
+insertLine	TeMySQL.cpp	/^        TeMySQL::insertLine (const string& table, TeLine2D &l)$/;"	f	class:TeMySQL
+insertLineSet	TeMySQL.cpp	/^        TeMySQL::insertLineSet(const string& table, TeLineSet &ls)$/;"	f	class:TeMySQL
+insertNode	TeMySQL.cpp	/^        TeMySQL::insertNode(const string& table, TeNode &node)$/;"	f	class:TeMySQL
+insertPoint	TeMySQL.cpp	/^        TeMySQL::insertPoint(const string& table,TePoint &p)$/;"	f	class:TeMySQL
+insertPolygon	TeMySQL.cpp	/^        TeMySQL::insertPolygon (const string& table, TePolygon &poly )$/;"	f	class:TeMySQL
+insertPolygonSet	TeMySQL.cpp	/^        TeMySQL::insertPolygonSet(const string& table, TePolygonSet &ps)$/;"	f	class:TeMySQL
+insertProject	TeMySQL.cpp	/^bool TeMySQL::insertProject (TeProject* project)$/;"	f	class:TeMySQL
+insertProjection	TeMySQL.cpp	/^bool TeMySQL::insertProjection (TeProjection *proj)$/;"	f	class:TeMySQL
+insertRasterBlock	TeMySQL.cpp	/^        TeMySQL::insertRasterBlock(const string& table, const string& blockId, const TeCoord2D& ll, const TeCoord2D& ur,$/;"	f	class:TeMySQL
+insertRelationInfo	TeMySQL.cpp	/^bool TeMySQL::insertRelationInfo(const int tableId, const string& tField,$/;"	f	class:TeMySQL
+insertRepresentation	TeMySQL.cpp	/^bool TeMySQL::insertRepresentation (int layerId, TeRepresentation& rep)$/;"	f	class:TeMySQL
+insertTable	TeMySQL.cpp	/^bool TeMySQL::insertTable(TeTable &table)$/;"	f	class:TeMySQL
+insertTableInfo	TeMySQL.cpp	/^        TeMySQL::insertTableInfo (int layerId, TeTable &table, const string& user)$/;"	f	class:TeMySQL
+insertText	TeMySQL.cpp	/^        TeMySQL::insertText(const string& table, TeText &t)$/;"	f	class:TeMySQL
+insertTheme	TeMySQL.cpp	/^bool TeMySQL::insertTheme (TeAbstractTheme *tem)$/;"	f	class:TeMySQL
+insertThemeGroup	TeMySQL.cpp	/^bool TeMySQL::insertThemeGroup (TeViewTree* tree)$/;"	f	class:TeMySQL
+insertThemeTable	TeMySQL.cpp	/^        TeMySQL::insertThemeTable (int themeId, int tableId, int relationId, int tableOrder)$/;"	f	class:TeMySQL
+insertView	TeMySQL.cpp	/^bool TeMySQL::insertView (TeView *view)$/;"	f	class:TeMySQL
+insertViewTree	TeMySQL.cpp	/^bool TeMySQL::insertViewTree (TeViewTree *tree)$/;"	f	class:TeMySQL
+listDatabases	TeMySQL.cpp	/^bool TeMySQL::listDatabases(std::vector<std::string> &databaseList) $/;"	f	class:TeMySQL
+maxFieldsPerRelation	TeMySQL.h	/^  unsigned int maxFieldsPerRelation() { return 4096; }$/;"	f	class:TeMySQL
+mysql_	TeMySQL.h	/^	st_mysql			*mysql_;$/;"	m	class:TeMySQLPortal
+mysql_	TeMySQL.h	/^    st_mysql*	mysql_;$/;"	m	class:TeMySQL
+newDatabase	TeMySQL.cpp	/^bool TeMySQL::newDatabase(const string& database, const string& user, const string& password, const string& host, const int & port, bool terralibModel, const std::string& characterSet)$/;"	f	class:TeMySQL
+query	TeMySQL.cpp	/^bool TeMySQLPortal::query (const string &q, TeCursorLocation \/* l *\/, TeCursorType \/* t *\/, TeCursorEditType \/* e *\/, TeCursorDataType \/*dt*\/)$/;"	f	class:TeMySQLPortal
+result	TeMySQL.h	/^    st_mysql_res* result()$/;"	f	class:TeMySQLPortal
+result_	TeMySQL.h	/^	st_mysql_res*		result_;$/;"	m	class:TeMySQLPortal
+rollbackTransaction	TeMySQL.cpp	/^bool TeMySQL::rollbackTransaction()$/;"	f	class:TeMySQL
+row_	TeMySQL.h	/^  char**		row_;$/;"	m	class:TeMySQLPortal
+setClientEncoding	TeMySQL.cpp	/^bool TeMySQL::setClientEncoding(const std::string& characterSet)$/;"	f	class:TeMySQL
+setData	TeMySQL.h	/^    bool setData (int \/* field *\/, string \/* val *\/)$/;"	f	class:TeMySQLPortal
+showDatabases	TeMySQL.cpp	/^bool TeMySQL::showDatabases (const string& host, const string& user, const string& password, vector<string>& dbNames, int port)$/;"	f	class:TeMySQL
+strxmov	TeMySQL.cpp	/^char *strxmov(char *dst,const char *src, ...)$/;"	f
+swappd	TeMySQL.cpp	/^double swappd(double din)$/;"	f
+tableExist	TeMySQL.cpp	/^        TeMySQL::tableExist(const string& table)$/;"	f	class:TeMySQL
+toUpper	TeMySQL.cpp	/^string TeMySQL::toUpper(const string& value)$/;"	f	class:TeMySQL
+updateLine	TeMySQL.cpp	/^        TeMySQL::updateLine (const string& table, TeLine2D &l)$/;"	f	class:TeMySQL
+updatePolygon	TeMySQL.cpp	/^        TeMySQL::updatePolygon (const string& table, TePolygon &poly )$/;"	f	class:TeMySQL
+updateTable	TeMySQL.cpp	/^        TeMySQL::updateTable(TeTable &table)$/;"	f	class:TeMySQL
+~TeMySQL	TeMySQL.cpp	/^TeMySQL::~TeMySQL()$/;"	f	class:TeMySQL
+~TeMySQLFactory	TeMySQL.h	/^    ~TeMySQLFactory() {};$/;"	f	class:TeMySQLFactory
+~TeMySQLPortal	TeMySQL.cpp	/^TeMySQLPortal::~TeMySQLPortal ()$/;"	f	class:TeMySQLPortal

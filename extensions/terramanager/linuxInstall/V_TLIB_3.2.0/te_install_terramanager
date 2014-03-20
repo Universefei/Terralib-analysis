@@ -1,0 +1,451 @@
+#!/bin/sh
+
+# /************************************************************************************
+# TerraLib - a library for developing GIS applications.
+# Copyright ¨ 2001-2006 INPE and Tecgraf/PUC-Rio.
+#
+# This code is part of the TerraLib library.
+# This library is free software; you can redistribute it and/or
+# modify it under the terms of the GNU Lesser General Public
+# License as published by the Free Software Foundation; either
+# version 2.1 of the License, or (at your option) any later version.
+#
+# You should have received a copy of the GNU Lesser General Public
+# License along with this library.
+#
+# The authors reassure the license terms regarding the warranties.
+# They specifically disclaim any warranties, including, but not limited to,
+# the implied warranties of merchantability and fitness for a particular purpose.
+# The library provided hereunder is on an "as is" basis, and the authors have no
+# obligation to provide maintenance, support, updates, enhancements, or modifications.
+# In no event shall INPE and Tecgraf / PUC-Rio be held liable to any party for direct,
+# indirect, special, incidental, or consequential damages arising out of the use
+# of this library and its documentation.
+# *************************************************************************************/
+
+
+#
+# Script de instalacao da extensao TerraManager
+# Duvidas e sugestoes, entre em contato com: Gilberto Ribeiro de Queiroz - gribeiro(at)dpi.inpe.br
+#
+
+#
+# Informacoes Basicas:
+# 1. O caracter '#' indica comentarios.
+# 2. Siga as instrucoes ate a linha marcada 'Instalacao Automatica'
+#
+
+# Vamos logar no CVS como usuario anonimo.
+# se desejar, troque a string anonymous pelo nome
+# de usuario apropriado.
+CVSDIRPATH=":pserver:anonymous@cvs.dpi.inpe.br:/home/newterralib"
+
+# Indique os servidores de bancos de dados que devem ser
+# habilitados na extensao TerraPHP.
+# Voce pode optar por um ou mais dos seguintes:
+# 1. PostgreSQL e PostGIS => HAS_POSTGRESQL
+# 2. MySQL => HAS_MYSQL
+# 3. Oracle sem extensao espacial e Oracle Spatial via OCI => HAS_OCI
+# Para indicar mais de um servidor, use espacos para separar
+# as diversas opcoes. Ex: DATABASE_2_USE="HAS_MYSQL HAS_POSTGRESQL"
+DATABASE_2_USE="HAS_POSTGRESQL"
+PROJECT_TYPE="RELEASE"
+
+
+# Abaixo encontram-se os caminhos de destino dos arquivos do TerraView
+# Se voce desejar alterar o caminho, faca a substituicao pelo
+# caminho desejado.
+if getopts "h:" terralibDirFlag
+then
+	TE_MAIN_DIR=$OPTARG
+else
+	TE_MAIN_DIR=/usr/local/terralib
+fi
+
+
+
+#-----------------------------------------------------
+#----------Instalacao Automatica----------------------
+#-----------------------------------------------------
+# Deste ponto em diante voce nao ira necessitar ajustar 
+# nenhuma variavel.
+
+# Voce NAO deve alterar este caminho!
+TE_MAIN_LIBS_DEST_DIR=/usr/local/lib/terralib
+TE_MAIN_HEADERS_DEST_DIR=/usr/local/include/terralib
+TERRAMANAGER_MAIN_VERSION="-r v_0-1-3"
+
+# condicoes de saida do programa
+EXIT_ERROR=1
+EXIT_SUCCESS=0
+
+# Abaixo encontram-se os caminhos das principais pastas da TerraLib
+TE_NEED_GET_TERRAMANAGER=FALSE
+TE_MAIN_MODULES="extensions/terramanager"
+TE_MAIN_HEADERS2LINK_DIR="/extensions/terramanager/src"
+TE_MAIN_LIBS2LINK_DIR="/extensions/terramanager/lib"
+TE_HEADERS_2_REMOVE_LINKS="TeGDCanvas.h TeDecoderGDImage.h TerraManager.h"
+
+# esta rotina escreve um cabecalho padrao da instalacao da TerraLIb.
+TerraManagerInstallHeader()
+{
+	clear
+	echo
+	echo "============================================="
+	echo "== Bem vindo ao instalador do TerraManager =="
+	echo "============================================="
+	echo
+}
+
+# interrompe a instalacao do TerraManager.
+TeStopTerraManagerInstall()
+{
+	echo
+	echo "A instalacao do TerraManager sera abortada."
+	echo -n "Pressione ENTER para continuar."
+	read TEMPVAR 
+	exit $EXIT_SUCCESS
+}
+
+# interrompe a instalacao do TerraManager.
+TerraManagerInstallFail()
+{
+	echo
+	echo "Nao foi possivel instalar o Terramanager. Instalacao abortada."
+	echo -n "Pressione ENTER para continuar."
+	read TEMPVAR 
+	exit $EXIT_ERROR
+}
+
+# verifica se o diretorio corrente possui os arquivos do TerraView
+TeVerifyTerraManagerFilesInCurDir()
+{
+        echo
+	echo "Verificando se os modulos do TerraManager estao presentes no diretorio corrente ($PWD)..."
+
+	for TE_MODULE in $TE_MAIN_MODULES
+	do
+		if test -d $TE_MODULE
+		then
+			echo "O modulo: $TE_MODULE encontra-se no seu sistema."
+		else
+			echo "Nao foi possivel detectar o modulo $TE_MODULE."
+			return $EXIT_ERROR
+		fi
+	done
+	
+	TE_MAIN_DIR=$PWD
+	
+	return $EXIT_SUCCESS
+}
+
+# tenta encontrar os fontes do TerraManager
+TeFindTerraManagerSrcInstalled()
+{
+	echo
+	echo "Procurando arquivos do TerraManager...."
+	
+	if TeVerifyTerraManagerFilesInCurDir
+	then
+		echo "Encontrados os modulos do TerraManager no diretorio corrente ($PWD)."
+		return $EXIT_SUCCESS
+	else
+		echo "Nao foram encontrados os modulos do TerraManager no diretorio corrente ($PWD)."
+	fi
+	
+	if test -d $TE_MAIN_DIR
+	then	
+		if cd $TE_MAIN_DIR
+		then
+			echo "Entrando no diretorio: $PWD."
+		else
+			echo "Nao foi possivel entrar no diretorio: $PWD."
+			return $EXIT_ERROR
+		fi
+		
+		if TeVerifyTerraManagerFilesInCurDir
+		then
+			return $EXIT_SUCCESS
+		else
+			return $EXIT_ERROR
+		fi
+	else
+		return $EXIT_ERROR
+	fi	
+}
+
+# interage com o usuario para determinar onde os fontes do TerraManager se encontram
+TeSetTerraManagerInstalledDir()
+{
+	echo
+	echo "Entre com o nome da pasta ou "
+	echo "o caminho completo (diretorios + nome-pasta)"
+	echo "do local onde estao instalados os arquivos"
+	echo -n "fontes do TerraManager:"
+	read DESTFOLDERDIR
+	
+	while !(test -d $DESTFOLDERDIR)
+	do
+		echo "Nao foi possivel localizar o diretorio informado."
+		echo -n "Deseja tentar novamente? (s/n)"
+		read TEMPVAR
+		
+		if test $TEMPVAR = s || test $TEMPVAR = S
+		then
+			echo
+			echo "Entre com o nome da pasta ou "
+			echo "o caminho completo (diretorios + nome-pasta)"
+			echo "do local onde estao instalados os arquivos"
+			echo -n "fontes do TerraManager:"
+			read DESTFOLDERDIR
+		else
+			return $EXIT_ERROR
+		fi
+	done
+	
+	if cd $DESTFOLDERDIR
+	then
+		echo
+		echo "O diretorio atual eh: $PWD"			
+	else
+		echo "Nao foi possivel entrar no diretorio: $DESTFOLDERDIR."
+		TerraManagerInstallFail
+	fi
+}
+
+# esta rotina busca no CVS os arquivos fontes do TerraManager
+TeGetTerraManagerFromCVS()
+{
+	clear
+	TerraManagerInstallHeader
+	
+	echo
+	
+	if cd $TE_MAIN_DIR
+	then
+		echo "Entrando no diretorio: $PWD."
+	else
+		echo "Nao foi possivel entrar na pasta dos fontes do TerraLib."
+		TerraManagerInstallFail 
+	fi
+	echo
+	echo
+	echo "Obtendo versao corrente do TerraManager..."
+	echo 
+	echo "Os fontes serao obtidos como usuario anonimo,"
+	echo "por isso, quando o prompt parar, por favor,  "
+	echo "tecle apenas ENTER (a senha devera permanecer em branco)"
+	echo
+	
+# primeiro vamos logar no CVS da TerraLib
+	if cvs -d $CVSDIRPATH login
+	then
+		echo "Voce esta logado no CVS como usuario anonimo"
+	else
+		echo "Nao foi possivel logar no CVS"
+		exit $EXIT_ERROR
+	fi
+	
+# para cada modulo definido, vamos pega-lo atraves do CVS
+	for TE_MODULE in $TE_MAIN_MODULES
+	do
+		if cvs -d $CVSDIRPATH co $TERRAMANAGER_MAIN_VERSION $TE_MODULE
+		then
+			clear
+			echo "O modulo: $TE_MODULE foi obtido com sucesso."
+		else
+			clear
+			echo "Nao foi possivel obter o modulo $TE_MODULE."
+			exit $EXIT_ERROR
+		fi
+	done
+	
+	echo
+        echo "Os modulos do TerraManager foram obtidos com sucesso."
+	echo -n "Pressione Enter para continuar."
+	read TEMPVAR
+}
+
+# esta rotina compila o TerraManager
+TeBuildTerraManager()
+{
+	if cd $TE_MAIN_DIR/extensions/terramanager/build/linux
+	then
+		echo "Entrando no diretorio: $PWD"
+	else
+		echo "Nao foi possivel entrar no diretorio: $TE_MAIN_DIR/extensions/terramanager/terramanagerx/terramanager"
+   	        TerraManagerInstallFail	
+	fi
+	
+	if test -e Makefile
+	then
+		make clean
+	fi
+		
+	if qmake TE_DATABASE_OPTION="$DATABASE_2_USE" TE_PROJECT_TYPE="$PROJECT_TYPE"
+	then
+		echo "qmake do TerraManager executado com sucesso."
+	else
+		echo "qmake do TerraManager falhou."
+	         TerraManagerInstallFail
+	fi
+	
+	if make
+	then
+		echo "make do TerraManager executado com sucesso."
+	else
+		echo "make do TerraManager falhou."
+		exit  $EXIT_ERROR
+	fi
+	
+	
+	echo
+        echo "A extensao TerraManager foi construida com sucesso."
+	echo -n "Pressione Enter para continuar."
+	read TEMPVAR
+}
+
+# cria os links simbolicos necessarios a cada lib e jah registra o caminho delas com o ldconfig
+TeMakeSymLinks()
+{
+	clear
+	TerraManagerInstallHeader
+	
+	if test -d $TE_MAIN_LIBS_DEST_DIR
+	then
+		echo "O diretorio: $TE_MAIN_LIBS_DEST_DIR ja existe."
+	else
+		echo "O diretorio: $TE_MAIN_LIBS_DEST_DIR nao existe."
+		echo "Tente instalar a TerraLib primeiro."
+		TerraManagerInstallFail
+	fi
+	
+	if test -d $TE_MAIN_HEADERS_DEST_DIR
+	then
+		echo "O diretorio: $TE_MAIN_HEADERS_DEST_DIR ja existe"
+	else
+		echo "O diretorio: $TE_MAIN_HEADERS_DEST_DIR nao existe"
+		TerraManagerInstallFail
+	fi
+	
+	echo
+	echo
+	echo "Na proxima etapa serao criados links simbolicos"
+	echo "para as bibliotecas compartilhadas geradas no"
+	echo "processo de build e tambem para os arquivos"
+	echo "de cabecalho (.h)."
+	echo
+	echo "Esses links serao criados dentro das pastas:"
+	echo "    $TE_MAIN_LIBS_DEST_DIR"
+	echo "    $TE_MAIN_HEADERS_DEST_DIR"
+	echo
+	echo -n "Pressione ENTER para continuar."
+	read TEMPVAR
+	
+	
+	
+# cria os links simbolicos para as bibliotecas compartilhadas
+	cd $TE_MAIN_LIBS_DEST_DIR
+	
+# para cada biblioteca que deve ser compilada e ligada, vamos chamar o make
+	for TE_MODULE2LINK in $TE_MAIN_LIBS2LINK_DIR
+	do
+		if ln -sf $TE_MAIN_DIR$TE_MODULE2LINK/*.so* "."
+		then
+			echo "Criado link: $TE_MAIN_DIR$TE_MODULE2LINK"
+		else
+			echo "Nao foi possivel criar o link: $TE_MAIN_DIR$TE_MODULE2LINK"
+			TerraManagerInstallFail
+		fi
+	done
+	
+# cria os links simbolicos para os arquivos de cabecalho (.h)
+	cd $TE_MAIN_HEADERS_DEST_DIR
+	
+	echo "ESTAMOS EM: $PWD"
+	echo
+	
+# para cada biblioteca que deve ser compilada e ligada, vamos chamar o make
+	for TE_HEADER2LINK in $TE_MAIN_HEADERS2LINK_DIR
+	do
+		
+		if ln -sf $TE_MAIN_DIR$TE_HEADER2LINK/*.h "."
+		then
+			echo "Criado link: $TE_MAIN_DIR$TE_HEADER2LINK."
+		else
+			echo "Nao foi possivel criar o link: $TE_MAIN_DIR$TE_HEADER2LINK."
+			TerraManagerInstallFail
+		fi
+	done
+	
+	echo
+        echo "Os links simbolicos das bibliotecas compratilhadas,"
+	echo "bem como os links para os arquivos de cabecalho (.h)"
+	echo "foram criados com sucesso."
+	#echo -n "Pressione Enter para continuar."
+	#read TEMPVAR
+}
+
+
+# realiza a instalacao da TerraView
+TerraManagerInstallHeader
+
+if TeFindTerraManagerSrcInstalled
+then
+	echo
+	echo "O diretorio: $TE_MAIN_DIR contem os modulos do TerraManager."
+	echo -n "Deseja instalar a versao indicada? (s/n)"
+	read TEMPVAR
+		
+	if test $TEMPVAR = s || test $TEMPVAR = S
+	then
+		TE_NEED_GET_TERRAMANAGER=FALSE
+	else
+		TE_NEED_GET_TERRAMANAGER=TRUE
+	fi
+else
+	echo "Nao foi possivel determinar automaticamente a localizacao dos modulos do TerraManager."
+	TE_NEED_GET_TERRAMANAGER=TRUE
+fi
+
+if test $TE_NEED_GET_TERRAMANAGER = TRUE
+then
+	echo -n "Voce deseja informar o local onde encontram-se os modulos do TerraManager? (s/n)"
+	read TEMPVAR
+	
+	while (test $TEMPVAR = s || test $TEMPVAR = S)
+	do
+		if TeSetTerraManagerInstalledDir
+		then
+			if TeVerifyTerraManagerFilesInCurDir
+			then
+				echo "Os modulos do TerraManager foram encontrados no diretorio: $PWD."
+				TEMPVAR=N
+				TE_NEED_GET_TERRAMANAGER=FALSE
+			else
+				echo "Nao foi possivel encontrar os modulos do TerraManager no diretorio: $PWD."
+				echo -n "Voce deseja informar outro local onde possam ser encontrados os modulos do TerraManager? (s/n)"
+				read TEMPVAR
+			fi
+			
+		else
+			TEMPVAR=N
+		fi
+	done
+fi
+
+if test $TE_NEED_GET_TERRAMANAGER = TRUE
+then
+	TeGetTerraManagerFromCVS
+else
+	echo "Nao sera necessario baixar os fontes do TerraManager"
+fi
+
+TeBuildTerraManager
+TeMakeSymLinks
+
+echo
+echo "O TerraManager foi instalado com sucesso!"
+echo -n "Pressione ENTER para continuar."
+read TEMPVAR 
+exit $EXIT_SUCCESS

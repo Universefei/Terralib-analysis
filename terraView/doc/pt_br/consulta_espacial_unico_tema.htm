@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>TerraView</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+<p><font size="3" face="Arial"><strong>TerraView  </strong> </font></p>
+<p align="right"><font face="Arial"><a href="consulta_espacial.htm">&lt;&lt; Anterior</a>&nbsp;|&nbsp;<a href="terraViewBase.htm">In&iacute;cio</a> 
+  | <a href="consulta_espacial_dois_temas.htm">Próximo &gt;&gt;</a><font face="Arial"> 
+  </font> </font></p>
+<hr>
+<font face="Arial"> 
+<p align="center"><font size="4" face="Arial"><strong><u><strong>Consultas Espaciais 
+  com um &Uacute;nico Tema</strong></u></strong></font></p>
+</font><p>&nbsp;</p>
+ 
+  
+      
+      <p  ><font face="Arial">Uma opera&ccedil;&atilde;o interessante 
+        &eacute; relacionar os objetos de um tema segundo suas geometrias, como 
+        foi feito no apontamento espacial. Voc&ecirc; pode estabelecer rela&ccedil;&otilde;es 
+        de vizinhan&ccedil;a, de cruzamento, facilitando sua an&aacute;lise. E 
+        depois &eacute; poss&iacute;vel criar uma nova camada com os dados selecionados, 
+        se for de seu interesse.</font></p>
+      <p  ><font face="Arial"><br>
+        <strong>Pol&iacute;gonos</strong></font></p>
+      <p  ><font face="Arial">Suponha que voc&ecirc; deseja investigar 
+        a regi&atilde;o onde est&aacute; o bairro Bandeirantes e seus bairros 
+        vizinhos. Para isso, voc&ecirc; pode criar uma camada no TerraView que 
+        contenha somente essa regi&atilde;o. </font></p>
+        
+        <p  ><font face="Arial">1. Torne o tema Bairros ativo e 
+          aponte apenas o bairro Bandeirantes. (Use a ordena&ccedil;&atilde;o 
+          das colunas para facilitar sua tarefa e remova as cores de apontamento 
+          e consulta).</font></p>
+        
+<p  ><font face="Arial"> 2. Ative o menu pop-up do tema Bairros e selecione <strong>Consulta 
+  Espacial</strong>.</font></p>
+        <p  ><font face="Arial"> 3. Nas Rela&ccedil;&otilde;es Topol&oacute;gicas 
+          escolha Toca <img src="terraViewBase_arquivos/botao_toca.png" width="27" height="21"> 
+          para encontrar todos os bairros que fazem limite com o bairro Bandeirantes.</font></p>
+        
+<p  ><font face="Arial"> 4. <em>Execute</em> a opera&ccedil;&atilde;o e note que 
+  os bairros vizinhos aparecem agora com a cor de objetos consultados.</font></p>
+        
+<p  ><font face="Arial"> 5. Agora, crie uma nova camada chamada reg_bandeirantes 
+  a partir do tema, selecionando objetos apontados (Bandeiramtes) e consultados 
+  (seus vizinhos). Utilize a ferramenta <strong>Criar Plano a partir do Tema</strong> 
+  no menu popup do tema Bairros. Em Sele&ccedil;&atilde;o de Objetos marque <em>Consultados 
+  ou Apontados</em>.</font></p>
+        <p  ><font face="Arial"> 6. Crie um novo tema reg_bandeirantes 
+          a partir dessa camada na vista BH. Note que somente os bairros de seu 
+          interesse aparecer&atilde;o.</font></p>
+       
+      <p  ><font face="Arial">As outras op&ccedil;&otilde;es dispon&iacute;veis 
+        para relacionar pol&iacute;gonos s&atilde;o: <br>
+        </font></p>
+      <p align="center"><font face="Arial"><img src="terraViewBase_arquivos/tabela_consulta.png" width="405" height="216"> 
+        </font></p>
+      <p  ><font face="Arial"><strong>Linhas</strong></font></p>
+      <p  ><font face="Arial">Suponha agora que voc&ecirc; deseja 
+        definir todas as ruas ou avenidas que cruzam com a avenida Afonso Pena. 
+        Como os dados est&atilde;o armazenados por segmentos de vias, &eacute; 
+        necess&aacute;rio selecionar todos os trechos que comp&otilde;em essa 
+        avenida.</font></p>
+        
+        <p  ><font face="Arial">1. Torne o tema RuasCentrais ativo, 
+          remova os objetos apontados e consultados, e selecione todos os trechos 
+          que comp&otilde;em a avenida Afonso Pena (use a ordena&ccedil;&atilde;o 
+          de coluna, para facilitar sua tarefa). </font></p>
+        
+<p  ><font face="Arial"> 2. Ative o menu popup e selecione <strong>Consulta Espacial</strong>.</font></p>
+        
+<p  ><font face="Arial"> 3. No campo <em>Rela&ccedil;&otilde;es Topol&oacute;gicas</em> 
+  selecione <em>Toca</em>. Fa&ccedil;a uma <em>Nova Consulta</em>.</font></p>
+        
+<p  ><font face="Arial"> 4. Note que todas as linhas que tocam qualquer um dos 
+  trechos da avenida foram selecionadas. Realize uma nova consulta espacial selecionando 
+  Disjunto como rela&ccedil;&atilde;o topol&oacute;gica e escolhendo Adicionar. 
+  As op&ccedil;&otilde;es de consulta s&atilde;o semelhantes &agrave; consulta 
+  por atributos: <em>Nova Consulta, Adicionar e Filtrar</em>.</font></p>
+       
+      <p  ><font face="Arial">Agora todas as ruas centrais est&atilde;o 
+        selecionadas. As outras rela&ccedil;&otilde;es topol&oacute;gicas dispon&iacute;veis 
+        para linhas s&atilde;o:</font></p>
+      <p align="center"><font face="Arial"><img src="terraViewBase_arquivos/tabela_consulta_linha.png" width="432" height="193"></font></p>
+   
+    <p  >&nbsp;</p>
+   
+ 
+<hr>
+<p align="right"><font face="Arial"><a href="consulta_espacial.htm">&lt;&lt; Anterior</a>&nbsp;|&nbsp;<a href="terraViewBase.htm">In&iacute;cio</a> 
+  | <a href="consulta_espacial_dois_temas.htm">Próximo &gt;&gt;</a> </font></p>
+<font face="Arial"><p  ><font face="Arial"> </font></p>
+</font><font face="Arial"></font> 
+</body>
+</html>
