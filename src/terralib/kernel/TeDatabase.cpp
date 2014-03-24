@@ -62,6 +62,12 @@ static const int scales [] =
 	1
 };
 
+/******************************************************************************
+ *                                                                            *
+ *                                TeDatabase
+ *                                                                            *
+ *****************************************************************************/
+    
 //-*********************
 
 TeDatabase::TeDatabase() :
@@ -2777,6 +2783,7 @@ TeDatabase::loadTable(const string& tableName, TeTable &table)
 		isreg = true;
 
 	TeDatabasePortal* portal = this->getPortal();
+    // handling exception.
 	if (!portal)
 		return false;
 
@@ -9849,11 +9856,12 @@ bool TeDatabase::createLineGeometry(const string& tableName, const int& epsgCode
 	attSpatial.rep_.epsgCode_ = epsgCode;
 	attList.push_back(attSpatial);}
 
+    // Create table.
 	if(!createTable(tableName, attList))
 		return false;
 
+    // Create index for the table.
 	string idxName = "te_idx_"  + tableName + "_obj";
-
 	return createIndex(tableName, idxName, "object_id");
 }
 
@@ -10221,6 +10229,12 @@ TeDatabase::getThemeBox(TeTheme* theme)
 }
 
 // End TeDatabase Methods
+
+/******************************************************************************
+ *                                                                            *
+ *                         TeDatabasePortal
+ *                                                                            *
+ *****************************************************************************/
 
 // Begin TeDatabasePortal Methods
 

@@ -279,6 +279,7 @@ bool TeMySQL::connect (const string& host, const string& user, const string& pas
 		port = 0;
 
     ///F: real connect (this is a mysql api)
+    ///F: generated connection stores in mysql_, a MySQL API structure to store connection to mysql.
     if (mysql_real_connect(mysql_,host.c_str(),user.c_str(),password.c_str(),database.c_str(),port,NULL,0) == NULL)
 	{
 		isConnected_ = false;
@@ -2172,6 +2173,8 @@ bool
 bool 
         TeMySQLPortal::fetchGeometry (TePolygon& poly)
 {
+    // ni means the number of holes of a Polygon.
+    // getLinearRing() 's param was invoked via reference.
 	int ni,j;
 	TeLinearRing ring = this->getLinearRing(ni);
 	poly.objectId ( ring.objectId() );
@@ -2270,6 +2273,13 @@ TeLinearRing
 	return ring;
 }
 
+/**F
+ * insertLineSet
+ * =============
+ * 1] the first param table was created by user not conceptual model.
+ * 2] 
+ */
+
 bool 
         TeMySQL::insertLineSet(const string& table, TeLineSet &ls)
 {
@@ -2285,6 +2295,8 @@ bool
 	query = new char[querySize];
 
 	unsigned int nl, i;
+
+    /*---------------------------------------------------*/
 	this->beginTransaction();
 	for ( nl = 0; nl < ls.size(); ++nl)
 	{
@@ -2324,6 +2336,7 @@ bool
 		*end++ = '\'';
 		*end++ = ')';
 
+        // MySQL real query API.
         if (mysql_real_query(mysql_,query,(unsigned int) (end - query)) != 0)
 		{
             errorMessage_ = string(mysql_error(mysql_));
@@ -2333,6 +2346,8 @@ bool
 		l.geomId (insertId());
 	}
 	this->commitTransaction();
+    /*---------------------------------------------------*/
+
 	delete []points;
 	delete []query;
 	return true;
@@ -2576,6 +2591,7 @@ bool
 	}
 	delete portal;
 
+    /* generate query string */
 	char	message[256],
     *query,
     *end;
@@ -2591,12 +2607,14 @@ bool
 
 	end = strxmov(end,message,0);
 
+    /* real query using MySQL API */
     if (mysql_real_query(mysql_,query,(unsigned int) (end - query)))
 	{
         errorMessage_ = string(mysql_error(mysql_));
 		delete []query;
 		return false;
 	}
+
 	delete []query;	
 	return true;
 }

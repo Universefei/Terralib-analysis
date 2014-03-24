@@ -48,6 +48,14 @@ typedef vector<string> TeViewNameVector;
 //! A vector of the identifiers of the projects.
 typedef vector<int> TeProjectIdVector;
 
+/******************************************************************************
+ *                                                                            *
+ *                             Project
+ *                                                                            *
+ *****************************************************************************/
+
+/* distinguish Project and Projection */
+
 /*!
    This class represents a project concept.
    A project is a collection of views kept in a ordered list.
