@@ -7571,7 +7571,7 @@ TeDatabase::loadPointSet(const string& table, TeBox &box)
 }
 
 bool 
-TeDatabase::selectPointSet (const string& table, const string& criteria, TePointSet &ps)
+TeDatabase::selectPointSet (const string& table, const string& criteria /* whereClause/Restrict */, TePointSet &ps)
 {
 	TeDatabasePortal* portal = this->getPortal();
 	string q ="SELECT * FROM " + table;

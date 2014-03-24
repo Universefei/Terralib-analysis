@@ -45,6 +45,11 @@ struct st_mysql;
 struct st_mysql_res;
 //typedef char** MYSQL;
 
+/******************************************************************************
+ *                                                                            *
+ *                                 TeMySQL
+ *                                                                            *
+ *****************************************************************************/
 
 //! A concrete implementation of a driver to the MySQL SGDB
 class TLMYSQL_DLL TeMySQL : public TeDatabase
@@ -56,6 +61,9 @@ public:
 	TeMySQL();
 
 	~TeMySQL();
+
+/*---------------------------------------------------------------------------*/
+/// Database connection related.
 
 	st_mysql*	getMySQL () 
     {	return mysql_;	}
@@ -69,6 +77,9 @@ public:
 	bool showDatabases (const string& host, const string& user, const string& password, vector<string>& dbNames, int port=-1);
 
 	void close();
+
+/*---------------------------------------------------------------------------*/
+/// Table manipulation related.
 
     unsigned int maxFieldsPerRelation() { return 4096; }
 
@@ -115,7 +126,8 @@ public:
     int	errorNum ();
     //    {	return mysql_errno(mysql_);	}
 	
-    // specific TerraLib database access methods
+/*---------------------------------------------------------------------------*/
+/// specific TerraLib database access methods
 
 	bool insertProjection (TeProjection *proj);
 	bool insertLayer(TeLayer* layer);
@@ -133,6 +145,10 @@ public:
 	bool generateLabelPositions (TeTheme *theme, const std::string& objectId = "");
 	bool insertThemeTable (int themeId, int tableId, int relationId, int tableOrder);
 	bool insertLegend (TeLegendEntry *legend);
+
+/*---------------------------------------------------------------------------*/
+/// Geometry of features.
+
 	bool insertPolygon	(const string& table, TePolygon &p);
 	bool insertPolygonSet(const string& table, TePolygonSet &ps);
 	bool updatePolygon	(const string& table, TePolygon &p);
@@ -165,9 +181,15 @@ public:
 
 	string getConcatFieldsExpression(const vector<string>& fNamesVec);
 
+/*---------------------------------------------------------------------------*/
+/// transaction related.
+
 	bool beginTransaction();
     bool commitTransaction();
     bool rollbackTransaction();
+
+/*---------------------------------------------------------------------------*/
+/// encoding related.
 
 	//! Gets the client encoding
 	virtual std::string getClientEncoding();
@@ -188,6 +210,12 @@ private :
     long    	bufferBlobSize_; // size of the data already allocated
 
 };
+
+/******************************************************************************
+ *                                                                            *
+ *                           TeMySQLPortal
+ *                                                                            *
+ *****************************************************************************/
 
 //! A concrete implementation of a portal to a MySQL database
 class TLMYSQL_DLL TeMySQLPortal  : public TeDatabasePortal
@@ -266,6 +294,11 @@ protected:
     TeLinearRing getLinearRing (int &ni);
 };
 
+/******************************************************************************
+ *                                                                            *
+ *                              TeMySQLFactory
+ *                                                                            *
+ *****************************************************************************/
 
 /**
  * @brief This is the class for TeMySQL driver factory.
@@ -308,6 +341,8 @@ protected :
   }
 };
 
+/*---------------------------------------------------------------------------*/
+/*-----  --------------------------------------------------------------*/
 namespace {
     static TeMySQLFactory TeMySQLFactory_instance;
 }; 

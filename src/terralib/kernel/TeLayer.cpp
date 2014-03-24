@@ -574,6 +574,7 @@ bool TeLayer::addGeometry(TeGeomRep repType, const string& tName, const string& 
 	if (!desc.empty())
 		represe->description_ = desc;
 
+    // Polygons
 	if (repType == TePOLYGONS)
 	{
 		if (tName.empty())
@@ -581,6 +582,7 @@ bool TeLayer::addGeometry(TeGeomRep repType, const string& tName, const string& 
 		if (!db_->createPolygonGeometry (represe->tableName_, this->projection()->epsgCode()))
 			return false;
 	}
+    // lines
 	else if (repType == TeLINES)
 	{
 		if (tName.empty())
@@ -588,6 +590,7 @@ bool TeLayer::addGeometry(TeGeomRep repType, const string& tName, const string& 
 		if (!db_->createLineGeometry (represe->tableName_, this->projection()->epsgCode()))
 			return false;
 	}
+    // Points
 	else if (repType == TePOINTS)
 	{
 		if (tName.empty())
@@ -595,6 +598,7 @@ bool TeLayer::addGeometry(TeGeomRep repType, const string& tName, const string& 
 		if (!db_->createPointGeometry (represe->tableName_, this->projection()->epsgCode()))
 			return false;
 	}
+    // Text
 	else if (repType == TeTEXT)
 	{
 		if (tName.empty())
@@ -602,6 +606,7 @@ bool TeLayer::addGeometry(TeGeomRep repType, const string& tName, const string& 
 		if (!db_->createTextGeometry (represe->tableName_, this->projection()->epsgCode()))
 			return false;
 	}
+    // Arcs
 	else if (repType == TeARCS)
 	{
 		if (tName.empty())
@@ -609,6 +614,7 @@ bool TeLayer::addGeometry(TeGeomRep repType, const string& tName, const string& 
  		if (!db_->createArcGeometry (represe->tableName_, this->projection()->epsgCode()))
 			return false;
 	}
+    // Nodes
 	else if (repType == TeNODES)
 	{
 		if (tName.empty())
@@ -616,6 +622,7 @@ bool TeLayer::addGeometry(TeGeomRep repType, const string& tName, const string& 
  		if (!db_->createNodeGeometry (represe->tableName_, this->projection()->epsgCode()))
 			return false;
 	}
+    // Cells
 	else if (repType == TeCELLS)
 	{
 		if (tName.empty())
@@ -623,6 +630,7 @@ bool TeLayer::addGeometry(TeGeomRep repType, const string& tName, const string& 
  		if (!db_->createCellGeometry (represe->tableName_, this->projection()->epsgCode()))
 			return false;
 	}
+    // Others
 	else
 	{
 		return false;
@@ -897,7 +905,7 @@ TeLayer::getRasterGeometries(vector<string>& objectIds, unsigned int tilingType,
 
 
 int 
-TeLayer::nObjects(const string& tName)
+TeLayer::nObjects(const string& tName /* table name */)
 {
 	if (attTables_.empty())
 		return 0;
@@ -933,6 +941,7 @@ TeLayer::createAttributeTable(TeTable& table)
 	if (!db_->tableExist(table.name()))
 	{
 		db_->validTable(table);
+        // Invoke TeDatabase API to do real creation movement.
   		if (!db_->createTable(table.name(),table.attributeList())) 
 			return false;
 	}
@@ -940,6 +949,7 @@ TeLayer::createAttributeTable(TeTable& table)
 	vector<TeTable>::iterator it = attTables_.begin();
 	while (it != attTables_.end())
 	{
+        // check if attTables_ contain newly created attribute table.
 		if ((*it).name() == table.name())
 			return true;
 		++it;
@@ -948,6 +958,7 @@ TeLayer::createAttributeTable(TeTable& table)
 	if(!db_->insertTableInfo(id_, table))
 		return false;
 
+    // attach newly created attribute table into attTables_.
 	attTables_.push_back(table);
 	
 	return true;
@@ -1385,6 +1396,8 @@ TeLayer::updatePoints (TePointSet& pointSet)
 			return false;
 		string tblName = tableName(TePOINTS);
 
+        // get the TeRepresentation object so that can find cooresponding 
+        // \geometry table in database.
 		TeRepresentation* rep = getRepresentation(TePOINTS);
 		if (rep)
 		{

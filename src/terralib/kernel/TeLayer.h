@@ -56,6 +56,13 @@ class TeProjection;
 	\sa
      TeGeometry, TeProjection, TeBox, TeDatabase, TeTheme, TeTable
 */
+
+/**F
+ *  A layer have several kinds of geometries, each geometry type cooresponding
+ *  \to one TeRepresentation, which record the Geometry type and table name to 
+ *  \store geometry in database.
+ */
+
 class TL_DLL TeLayer {
 
 public:
@@ -248,6 +255,14 @@ public:
 
 /*---------------------------------------------------------------------------*/
 
+/**
+ * 3 steps to get specific geometry set
+ * ====================================
+ * 1] find out the geometry tablename associated to this kind of geometry (TeGeomRep).
+ * 2] perform where clause on found table. invoke TeDatabase::getXxx().
+ * 3] return result though reference parameter.
+ */
+
 	//! Retrieves a polygon set given a selection criteria, expressed as a where clause 
 	virtual bool getPolygons(TePolygonSet &ps, const string& whereClause = "");
 
@@ -265,6 +280,10 @@ public:
 
 /*---------------------------------------------------------------------------*/
 
+/**
+ * Invoked TeDatabase::locateXXX() underlying.
+ */
+
 	//! Locates a polygon that cointains a certain coordinate
 	virtual bool locatePolygon(TeCoord2D &pt, TePolygon &polygon, const double& tol = 0.0);
 	
@@ -281,6 +300,7 @@ public:
 	virtual bool locateCell(TeCoord2D &pt, TeCell &cell, const double& tol = 0.0);
 
 /*---------------------------------------------------------------------------*/
+/* Invoked TeDatabase::loadXXXSet() underlying. */
 
 	//! Retrieves the set of polygons with a certain geoid
 	virtual bool loadGeometrySet	(const string& geoid, TePolygonSet &ps);
@@ -298,6 +318,7 @@ public:
 	virtual bool loadGeometrySet (const string& geoid, TeTextSet &cs);
 	
 /*---------------------------------------------------------------------------*/
+/* Invoke the following section api declarations */
 
 	//! Adds a set of polygons to a layer
 	virtual bool addGeometrySet(TePolygonSet& polySet, const string& /* tName */ = "")
@@ -319,7 +340,8 @@ public:
 	virtual bool addGeometrySet(TeCellSet& cellSet, const string& /* tName */ = "")
 	{ return addCells(cellSet); }
 
-/*---------------------------------------------------------------------------*/
+/* Invoked by previous section interface imlementations */
+/* Invoke TeDatabase function underlying */
 
 	//! Adds a set of polygons to a layer
 	virtual bool addPolygons(TePolygonSet& polySet);
@@ -337,6 +359,7 @@ public:
 	virtual bool addCells(TeCellSet& cellSet);
 
 /*---------------------------------------------------------------------------*/
+/* Invoke TeDatabase::updateXXX() function underlying */
 
 	//! Updates a set of polygons to a layer
 	virtual bool updatePolygons(TePolygonSet& polySet);
@@ -354,6 +377,7 @@ public:
 	virtual bool updateCells(TeCellSet& cellSet);
 
 /*---------------------------------------------------------------------------*/
+/* db_->removeGeometry() & db_->updateLayer() */
 
 	//! Removes the geometries from the layer
 	virtual bool removeGeometries(const std::vector<int>& vecGeomIds, const TeGeomRep& rep);
@@ -363,6 +387,10 @@ public:
 /*===========================================================================*/
 /*=================== geometrical representations related ===================*/
 /*===========================================================================*/
+/**
+ *  In a Layer, It is legal to have multiple kinds of Geometries. every type of
+ *  \Geometry cooresponding to one instance of TeRepresentation.
+ */
 
 	/** @name Geometries
 	*  Methods to deal with geometrical representations of a layer
@@ -496,8 +524,11 @@ private:
 	TeBox		            box_;					//!< layer bounding box
 	TeRaster*	            raster_;				//!< layer raster representation
 
-	TeAttrTableVector	    attTables_; 	        //!< Attributes associated to a layer
-	TeRepresPointerVector   repVector_;	            //!< vector of representations associated to this layer
+    //!< Attributes associated to a layer
+	TeAttrTableVector	    /* attribute of feature */  attTables_; 	        
+    //!< vector of representations associated to this layer
+	TeRepresPointerVector   /* geometry of feature */   repVector_;	            
+
 	TeTime		            editionTime_;			//!< Stores the last time that the layer was edited. 
 };
 

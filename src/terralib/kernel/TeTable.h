@@ -47,6 +47,8 @@ typedef vector<string> TeTableRow;
 /*!
 	All members are private. This class is used only through the TeTable class
 */
+
+/* F: Composite pattern */
 class TL_DLL TeTableImpl: public TeComposite<TeTableRow>
 {
 
@@ -73,6 +75,12 @@ friend class TeTable;
 	}
 
 };
+
+/******************************************************************************
+ *                                                                            *
+ *                               TeTable
+ *                                                                            *
+ *****************************************************************************/
 
 //! An attribute table in memory
 /*!
@@ -365,13 +373,13 @@ private:
 	int					order_; // the table position relative to others in a join 
 
 	TeAttributeList		attList_;		// list of attributes
+
 	string				attLink_;		// attribute that links objects to their spatial representation
 										// in case of external table it is used to link to the related table
 	string				attUnique_;		// primary key 
 	char                separator_;		// in case of CSV table 
 
 // --- The following attributes are relative to tables with temporal information
- 
 	string		attInitialTime_;	// initial time attribute
 	string		attFinalTime_;		// final time attribute
 	TeChronon	attTimeUnit_;		// time granularity

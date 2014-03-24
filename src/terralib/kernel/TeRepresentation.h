@@ -37,11 +37,16 @@ struct TL_DLL TeRepresentation
 {
 	int id_;				//!< representation unique dabatase identifier
 	TeGeomRep geomRep_;		//!< representation type (
+
+    // the table name which store the geometries associated to this representation.
 	std::string	tableName_;		//!< name of the table that stores the geometries associated to this representation
+
 	TeBox	box_;			//!< representation bounding box
 	std::string	description_;	//!< representation description
+
 	double	resX_;			//!< the x resolution of the layer cell set geometry
 	double	resY_;			//!< the y resolution of the layer cell set geometry
+
 	int		nCols_;			//!< number of columns in raster geometry
 	int		nLins_;			//!< number of columns in raster geometry
 

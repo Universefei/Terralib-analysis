@@ -38,6 +38,12 @@ of this library and its documentation.
 enum TeMeasurementScale 
 { ORDINAL, NOMINAL, RATIO, INTERVAL, CYCLIC, PROBABILITY, FUZZY };
 
+/******************************************************************************
+ *                                                                            *
+ *                       struct TeAttributeRep
+ *                                                                            *
+ *****************************************************************************/
+
 /*! \struct TeAttributeRep
 	\brief Attribute physical representation
 */
@@ -112,9 +118,23 @@ struct TL_DLL TeAttributeRep
 	{return (name_ < at.name_);}	
 };
 
+/******************************************************************************
+ *                                                                            *
+ *                            struct TeAttribute
+ *                                                                            *
+ *****************************************************************************/
+
 /*! \struct TeAttribute
 	\brief Attribute description
 */
+
+/**F
+ *  This just descript a single attribute in a database table. (one column).
+ *
+ *  To discripte whole attributes in a attribute table, you should use
+ *  \TeAttributeList.
+ */
+
 struct TL_DLL TeAttribute
 {
 	TeAttributeRep	rep_;		//!< representation of attribute	
